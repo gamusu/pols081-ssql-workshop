@@ -2,6 +2,8 @@
 
 Materials for the Social Science Quantitative Lab (SSQL) session in POLS 081, *Global Environmental Governance* (Swarthmore College, Fall 2026), Class Meeting #11.
 
+**🌐 Workshop website: <https://gamusu.github.io/pols081-ssql-workshop/>**: setup guides, slides, lab files and data sources. Students: start there.
+
 ## Opening the project
 
 1. Download or clone this repository.
