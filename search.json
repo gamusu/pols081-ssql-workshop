@@ -81,7 +81,7 @@
     "href": "lab.html#get-the-lab-files",
     "title": "Part 2 Lab Materials",
     "section": "1. Get the lab files",
-    "text": "1. Get the lab files\nDownload pols081-lab.zip\n\nUnzip it. On Windows, right-click the file and choose Extract All…. Don’t work inside the zip.\nMove the pols081-lab folder somewhere easy to find, like Documents. Avoid OneDrive folders if you can.\nDouble-click pols081-lab.Rproj to open the folder in RStudio.\nIn the Files pane, open lab-handout.qmd.\n\nThe folder contains:\n\n\n\n\n\n\n\nFile\nWhat it is\n\n\n\n\nlab-handout.qmd\nThe lab handout: Example 1 (worked), Example 2 (you fill in the code), Workshop Questions\n\n\nmerging-data.qmd\nExtra practice: combining two datasets\n\n\ndata/\nThe four datasets used in the handouts\n\n\nbib/lab.bib\nReferences for the handouts"
+    "text": "1. Get the lab files\nDownload pols081-lab.zip\n\nUnzip it. On Windows, right-click the file and choose Extract All…. Don’t work inside the zip.\nMove the pols081-lab folder somewhere easy to find, like Documents. Avoid OneDrive folders if you can.\nDouble-click pols081-lab.Rproj to open the folder in RStudio.\nIn the Files pane, open lab-handout.qmd.\n\nThe folder contains:\n\n\n\n\n\n\n\nFile\nWhat it is\n\n\n\n\nlab-handout.qmd\nThe lab handout: Example 1 (worked), Example 2 (you fill in the code), Workshop Questions\n\n\nmerging-data.qmd\nExtra practice: combining two datasets\n\n\ndata/\nThe datasets used in the handouts and the visualization guide\n\n\nbib/lab.bib\nReferences for the handouts\n\n\n\n\n\n\n\n\n\nTipCan’t run R on your laptop? Use Posit Cloud\n\n\n\nThe lab handout is also in its own GitHub repository, https://github.com/gamusu/pols081-ssql-lab, which you can open in your browser with Posit Cloud:\n\nGo to https://posit.cloud and log in (a free account is fine).\nClick New Project → New Project from Git Repository, paste https://github.com/gamusu/pols081-ssql-lab, and click OK.\nIn the Files pane, open setup.R and click Source. Wait a few minutes for the packages to install.\nOpen lab-handout.qmd and click Render."
   },
   {
     "objectID": "lab.html#slides",
@@ -102,7 +102,7 @@
     "href": "lab.html#the-data",
     "title": "Part 2 Lab Materials",
     "section": "4. The data",
-    "text": "4. The data\nAll four datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script R/build_lab_data.R in the workshop project, which records every source and step.\n\n\n\n\n\n\n\n\nFile\nRows\nSource\n\n\n\n\nadaptation_aid.csv\nOne row per country receiving adaptation aid\nOECD Rio markers (DAC members, 2020–2024); ND-GAIN; World Bank; UN M49\n\n\nrenewables.csv\nOne row per country, 2021\nWorld Bank, World Development Indicators\n\n\nco2.csv\nOne row per country, 2023\nWorld Bank, World Development Indicators (emissions from EDGAR)\n\n\nsids_list.csv\nOne row per small island developing state\nUN Statistics Division, M49\n\n\n\nCodebooks for each file are in the handouts."
+    "text": "4. The data\nAll the datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script R/build_lab_data.R in the workshop project, which records every source and step.\n\n\n\nFile\nRows\nSource\n\n\n\n\nadaptation_aid.csv\nOne row per country receiving adaptation aid\nOECD Rio markers (DAC members, 2020–2024); ND-GAIN; World Bank; UN M49\n\n\nrenewables.csv\nOne row per country, 2021\nWorld Bank, World Development Indicators\n\n\nco2.csv\nOne row per country, 2023\nWorld Bank, World Development Indicators (emissions from EDGAR)\n\n\nco2_trend.csv\nOne row per country per year, 2018–2023\nSame as co2.csv; used in the visualization guide\n\n\nsids_list.csv\nOne row per small island developing state\nUN Statistics Division, M49\n\n\n\nCodebooks for each file are in the handouts."
   },
   {
     "objectID": "lab.html#next-steps-for-your-paper",
@@ -343,202 +343,6 @@
     "text": "After the break\nBring your question ladder. We’ll work with real data:\nsummary statistics → one good figure → one statistical test\nBreak 2:30–2:45 · Lab starts at 2:45. Open RStudio during the break and come find me if anything isn’t working."
   },
   {
-    "objectID": "guides/install-windows.html",
-    "href": "guides/install-windows.html",
-    "title": "Installing R and RStudio on Windows",
-    "section": "",
-    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install four things, in this order:\n\nR, the programming language\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
-  },
-  {
-    "objectID": "guides/install-windows.html#a-quick-tour",
-    "href": "guides/install-windows.html#a-quick-tour",
-    "title": "Installing R and RStudio on Windows",
-    "section": "3.1 A quick tour",
-    "text": "3.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Enter.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below.\n\n\n\n\n\n\nWarningDon’t “Run as administrator”\n\n\n\nOpen RStudio normally, not with right-click → Run as administrator. Running as administrator installs packages into a protected system folder, which causes confusing permission errors later."
-  },
-  {
-    "objectID": "guides/install-windows.html#no-admin",
-    "href": "guides/install-windows.html#no-admin",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.1 Installing without administrator rights",
-    "text": "7.1 Installing without administrator rights\nThis is the most common Windows problem. Here’s the full picture:\n\n\n\n\n\n\n\n\nStep\nWith admin rights\nWithout admin rights\n\n\n\n\nR\nInstalls to C:\\Program Files\\R\nClick No at the admin prompt. R installs to your own user area (e.g., C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R)\n\n\nRStudio\nNormal installer\nUse the zip version (see the box under Install RStudio)\n\n\nPackages\nAnswer Yes to “use a personal library”\nSame. Packages go into your personal library automatically\n\n\nTinyTeX\nInstalls to your user folder; no admin needed\nSame\n\n\n\nSymptoms that point to a permissions problem:\n\nWarning in install.packages: 'lib = \"C:/Program Files/R/R-4.x.x/library\"' is not writable\nError: cannot remove prior installation of package ... or Permission denied\nAn installer that closes immediately or says “Access is denied”\n\nFixes:\n\nRe-run install.packages(...) and answer Yes to both “personal library” questions.\nMake sure RStudio isn’t being run as administrator (see the warning above).\nIf a package is “in use” and can’t be updated: close RStudio, reopen it, and install before loading anything (don’t run library() first)."
-  },
-  {
-    "objectID": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
-    "href": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.2 RStudio says “R not found” or “R does not appear to be installed”",
-    "text": "7.2 RStudio says “R not found” or “R does not appear to be installed”\n\nMake sure you installed R first.\nClose RStudio and reopen it. If that doesn’t work, restart your computer so RStudio can find the new installation.\nIf R was installed somewhere unusual (for example, without admin rights), point RStudio to it: hold Ctrl while opening RStudio. A dialog appears letting you Choose a specific version of R. Select the R folder (look in C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R\\R-4.x.x) and click OK.\nOr, if RStudio opens: Tools → Global Options → General → R version → Change…"
-  },
-  {
-    "objectID": "guides/install-windows.html#win10",
-    "href": "guides/install-windows.html#win10",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.3 RStudio won’t install or open on Windows 10",
-    "text": "7.3 RStudio won’t install or open on Windows 10\nThe newest version of RStudio supports Windows 11. Microsoft ended regular support for Windows 10 in October 2025, so upgrading (Settings → Windows Update) is the best long-term fix if your computer is eligible.\nIf you can’t upgrade before class:\n\nInstall an earlier version of RStudio from Posit’s supported versions page. Pick the most recent release that installs and opens on your computer.\nOpen RStudio’s Terminal and run quarto check. The Quarto version must be 1.4 or higher for PDFs.\nIf it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio.\n\nThe current R installer still works on Windows 10, so you don’t need to change anything there."
-  },
-  {
-    "objectID": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
-    "href": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.4 Windows Defender / SmartScreen blocks the installer",
-    "text": "7.4 Windows Defender / SmartScreen blocks the installer\nClick More info → Run anyway. The R and RStudio installers from the official sites are safe. Some antivirus programs also quarantine rstudio.exe or Quarto’s tools. If RStudio flashes and closes immediately, check your antivirus’s quarantine list and allow RStudio."
-  },
-  {
-    "objectID": "guides/install-windows.html#tinytex-username",
-    "href": "guides/install-windows.html#tinytex-username",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.5 TinyTeX fails, or my username has spaces/accents",
-    "text": "7.5 TinyTeX fails, or my username has spaces/accents\nTinyTeX (like all LaTeX distributions on Windows) cannot be installed in a path containing non-English characters, and spaces can cause problems too. By default it installs under C:\\Users\\&lt;yourname&gt;\\AppData\\Roaming\\TinyTeX, so a username like María López breaks it.\nFix: install TinyTeX to a simple folder at the root of C:. In the Console:\ninstall.packages(\"tinytex\")   # make sure tinytex is up to date\ntinytex::install_tinytex(dir = \"C:/TinyTeX\")\nThen restart RStudio. You don’t need admin rights to create a folder at C:\\.\nOther TinyTeX errors such as “The system cannot find the path specified” or “tlmgr returned a non zero status code” usually have the same cause. Try the fix above.\n\n\n\n\n\n\nNote\n\n\n\nRemember: TinyTeX is only the backup. If it won’t install, you can still make PDFs with Typst. Don’t spend more than 15 minutes on TinyTeX."
-  },
-  {
-    "objectID": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
-    "href": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.6 Package installation fails with “cannot open URL” or “download failed”",
-    "text": "7.6 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again.\nA VPN or corporate proxy can also block downloads. Turn the VPN off temporarily."
-  },
-  {
-    "objectID": "guides/install-windows.html#old-quarto",
-    "href": "guides/install-windows.html#old-quarto",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.7 RStudio is using an old version of Quarto",
-    "text": "7.7 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto, or\nuninstall the old Quarto via Settings → Apps."
-  },
-  {
-    "objectID": "guides/install-windows.html#onedrive-problems",
-    "href": "guides/install-windows.html#onedrive-problems",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.8 OneDrive problems",
-    "text": "7.8 OneDrive problems\nIf your Documents or Desktop folder is synced to OneDrive, OneDrive can lock files while Quarto is writing them, which causes “access denied” or “file in use” errors when rendering. Keep your workshop folder outside OneDrive (for example C:\\Users\\&lt;you&gt;\\pols081), or pause OneDrive syncing while you work."
-  },
-  {
-    "objectID": "guides/install-windows.html#still-stuck",
-    "href": "guides/install-windows.html#still-stuck",
-    "title": "Installing R and RStudio on Windows",
-    "section": "7.9 Still stuck?",
-    "text": "7.9 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour Windows version (Settings → System → About), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Working with Data in Global Environmental Governance",
-    "section": "",
-    "text": "A two-part session led by Greg Amusu of the Social Science Quantitative Lab (SSQL), built to support your data paper."
-  },
-  {
-    "objectID": "index.html#schedule",
-    "href": "index.html#schedule",
-    "title": "Working with Data in Global Environmental Governance",
-    "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nTime\nPart\n\n\n\n\n1:15–2:30 pm\nPart 1. Lecture and discussion. Epistemology, quantitative social science, and approaches to the data paper. We’ll work through three course readings in groups.\n\n\n2:30–2:45 pm\nBreak\n\n\n2:45–4:00 pm\nPart 2. Lab. Hands-on data analysis in RStudio and Quarto: summary statistics, a figure, and a statistical test."
-  },
-  {
-    "objectID": "index.html#before-class-set-up-your-computer",
-    "href": "index.html#before-class-set-up-your-computer",
-    "title": "Working with Data in Global Environmental Governance",
-    "section": "Before class: set up your computer",
-    "text": "Before class: set up your computer\nEveryone will use R, RStudio and Quarto in the lab, whatever software you plan to use for your paper. Please install them before Wednesday:\n\nInstall R and RStudio: Mac guide · Windows guide\nMake your first Quarto document and render it to PDF: Quarto & PDF guide\n\nIf you get stuck, work through the troubleshooting section of each guide, then email Greg. Anything still unresolved, we’ll fix during the break."
-  },
-  {
-    "objectID": "index.html#before-class-the-readings",
-    "href": "index.html#before-class-the-readings",
-    "title": "Working with Data in Global Environmental Governance",
-    "section": "Before class: the readings",
-    "text": "Before class: the readings\nCome ready to discuss all three papers in small groups. Pay particular attention to their methods (how they turn a concept into something measurable) and their results (what they can and can’t conclude).\n\nFransen et al. (2023), Taking stock of the implementation gap in climate policy\nXie et al. (2025), Tracing inclusivity at UNFCCC conferences through side events and interest group dynamics\nTennant, Davies & Tennant (2024), Determinants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies"
-  },
-  {
-    "objectID": "index.html#materials",
-    "href": "index.html#materials",
-    "title": "Working with Data in Global Environmental Governance",
-    "section": "Materials",
-    "text": "Materials\nPart 1\n\nPart 1 slides\nPaper discussion prompts\nQuestion ladder worksheet\n\nPart 2\n\nLab materials: download the lab files, the guide to Example 2, and extra practice on merging datasets\nPart 2 slides\n\nFor your data paper\n\nData sources, organized by primary focus, plus the data behind the course readings\nWhere to get help, including SSQL office hours in Science Center 205"
-  },
-  {
-    "objectID": "guides/install-mac.html",
-    "href": "guides/install-mac.html",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "",
-    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install five things, in this order:\n\nR, the programming language\nXQuartz, which R needs to draw plots on a Mac\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
-  },
-  {
-    "objectID": "guides/install-mac.html#a-quick-tour",
-    "href": "guides/install-mac.html#a-quick-tour",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "4.1 A quick tour",
-    "text": "4.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Return.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below."
-  },
-  {
-    "objectID": "guides/install-mac.html#dev-control",
-    "href": "guides/install-mac.html#dev-control",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.1 “dev.control() called without an open graphics device”",
-    "text": "8.1 “dev.control() called without an open graphics device”\nYou’ll see this when you render a document that makes a plot. The full message looks something like this:\nError in dev.control(displaylist = if (record) \"enable\" else \"inhibit\") :\n  dev.control() called without an open graphics device\nWarning messages:\n1: In grSoftVersion() : unable to load shared object\n   '.../R.framework/Resources/modules//R_X11.so' ...\n   Reason: tried: '/opt/X11/lib/libSM.6.dylib' (no such file) ...\n2: In cairoVersion() : unable to load shared object ...\nThe telltale signs are warnings that mention X11, libSM.6.dylib or /opt/X11, and cairo. They mean XQuartz isn’t installed (or you haven’t logged out and back in since installing it), so R can’t open a graphics device to draw the plot.\nFix:\n\nInstall XQuartz (see Install XQuartz).\nLog out of your Mac and log back in (or restart).\nOpen RStudio and render again.\n\n\n\n\n\n\n\nTipFallback if XQuartz still doesn’t help\n\n\n\n\n\nYou can tell R to draw plots with the ragg package, which doesn’t need XQuartz. Run this once in the Console:\ninstall.packages(\"ragg\")\nThen add these lines to the YAML header of the document you’re rendering (between the --- lines, at the same level as format:):\nknitr:\n  opts_chunk:\n    dev: ragg_png\nRender again. If this works but XQuartz didn’t, email Greg so we can find out why."
-  },
-  {
-    "objectID": "guides/install-mac.html#gatekeeper",
-    "href": "guides/install-mac.html#gatekeeper",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”",
-    "text": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”\n\nOpen System Settings → Privacy & Security.\nScroll down to the Security section. You should see a message about RStudio being blocked.\nClick Open Anyway and enter your password.\n\nAlternatively, in Finder, right-click (or Control-click) RStudio in Applications and choose Open."
-  },
-  {
-    "objectID": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
-    "href": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.3 RStudio says “R not found” or asks you to choose an R installation",
-    "text": "8.3 RStudio says “R not found” or asks you to choose an R installation\n\nMake sure you installed R first, then quit RStudio completely (RStudio → Quit, or ⌘Q) and reopen it.\nCheck that you downloaded the R installer that matches your chip. An arm64 R won’t run on an Intel Mac.\nIf it still fails, reinstall R, then restart your Mac."
-  },
-  {
-    "objectID": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
-    "href": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.4 I installed the wrong R (Intel vs. Apple silicon)",
-    "text": "8.4 I installed the wrong R (Intel vs. Apple silicon)\nDownload and install the correct .pkg. It will replace the old version. Then reinstall the packages (see Install the workshop R packages)."
-  },
-  {
-    "objectID": "guides/install-mac.html#macos-too-old",
-    "href": "guides/install-mac.html#macos-too-old",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.5 My macOS is too old",
-    "text": "8.5 My macOS is too old\nThe simplest fix is to update macOS via System Settings → General → Software Update. Every Apple silicon Mac can run macOS 15 or newer. Updating takes a while, so start early.\nIf you can’t update before class:\n\nRStudio won’t install or open (macOS 14 or older): install an earlier version of RStudio instead. Posit’s supported versions page includes a table showing which RStudio release works with each version of macOS, and links to those releases. Then run quarto check in RStudio’s Terminal: the Quarto version must be 1.4 or higher for PDFs. If it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/.\nR won’t install (Apple silicon on macOS 11–13, or Intel older than macOS 11): older versions of R that support your macOS are available from CRAN. Email Greg and we’ll find the right one."
-  },
-  {
-    "objectID": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
-    "href": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools",
-    "text": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools\nThis means R tried to compile a package from source. Either:\n\nreinstall the package and answer no when asked about installing from source, or\ninstall Apple’s developer tools by running this in the Terminal and following the prompts (it takes a while):\n\nxcode-select --install"
-  },
-  {
-    "objectID": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
-    "href": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.7 Package installation fails with “cannot open URL” or “download failed”",
-    "text": "8.7 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again."
-  },
-  {
-    "objectID": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
-    "href": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.8 quarto install tinytex says “quarto: command not found”",
-    "text": "8.8 quarto install tinytex says “quarto: command not found”\nUse the R alternative instead: tinytex::install_tinytex() in the Console. Then restart RStudio."
-  },
-  {
-    "objectID": "guides/install-mac.html#old-quarto",
-    "href": "guides/install-mac.html#old-quarto",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.9 RStudio is using an old version of Quarto",
-    "text": "8.9 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto."
-  },
-  {
-    "objectID": "guides/install-mac.html#still-stuck",
-    "href": "guides/install-mac.html#still-stuck",
-    "title": "Installing R and RStudio on a Mac",
-    "section": "8.10 Still stuck?",
-    "text": "8.10 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour macOS version and chip (from About This Mac), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
-  },
-  {
     "objectID": "guides/quarto-pdf.html",
     "href": "guides/quarto-pdf.html",
     "title": "Your First Quarto Document, and Rendering It to PDF",
@@ -649,6 +453,307 @@
     "title": "Your First Quarto Document, and Rendering It to PDF",
     "section": "7.11 Still stuck?",
     "text": "7.11 Still stuck?\nEmail Greg with:\n\na screenshot of the error (the first ERROR line in Background Jobs),\nyour operating system (Mac or Windows, and version), and\nthe output of quarto check from the Terminal.\n\nIf we can’t fix it by email, we’ll work on it during the break on Wednesday."
+  },
+  {
+    "objectID": "guides/install-mac.html",
+    "href": "guides/install-mac.html",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "",
+    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install five things, in this order:\n\nR, the programming language\nXQuartz, which R needs to draw plots on a Mac\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
+  },
+  {
+    "objectID": "guides/install-mac.html#a-quick-tour",
+    "href": "guides/install-mac.html#a-quick-tour",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "4.1 A quick tour",
+    "text": "4.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Return.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below."
+  },
+  {
+    "objectID": "guides/install-mac.html#dev-control",
+    "href": "guides/install-mac.html#dev-control",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.1 “dev.control() called without an open graphics device”",
+    "text": "8.1 “dev.control() called without an open graphics device”\nYou’ll see this when you render a document that makes a plot. The full message looks something like this:\nError in dev.control(displaylist = if (record) \"enable\" else \"inhibit\") :\n  dev.control() called without an open graphics device\nWarning messages:\n1: In grSoftVersion() : unable to load shared object\n   '.../R.framework/Resources/modules//R_X11.so' ...\n   Reason: tried: '/opt/X11/lib/libSM.6.dylib' (no such file) ...\n2: In cairoVersion() : unable to load shared object ...\nThe telltale signs are warnings that mention X11, libSM.6.dylib or /opt/X11, and cairo. They mean XQuartz isn’t installed (or you haven’t logged out and back in since installing it), so R can’t open a graphics device to draw the plot.\nFix:\n\nInstall XQuartz (see Install XQuartz).\nLog out of your Mac and log back in (or restart).\nOpen RStudio and render again.\n\n\n\n\n\n\n\nTipFallback if XQuartz still doesn’t help\n\n\n\n\n\nYou can tell R to draw plots with the ragg package, which doesn’t need XQuartz. Run this once in the Console:\ninstall.packages(\"ragg\")\nThen add these lines to the YAML header of the document you’re rendering (between the --- lines, at the same level as format:):\nknitr:\n  opts_chunk:\n    dev: ragg_png\nRender again. If this works but XQuartz didn’t, email Greg so we can find out why."
+  },
+  {
+    "objectID": "guides/install-mac.html#gatekeeper",
+    "href": "guides/install-mac.html#gatekeeper",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”",
+    "text": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”\n\nOpen System Settings → Privacy & Security.\nScroll down to the Security section. You should see a message about RStudio being blocked.\nClick Open Anyway and enter your password.\n\nAlternatively, in Finder, right-click (or Control-click) RStudio in Applications and choose Open."
+  },
+  {
+    "objectID": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
+    "href": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.3 RStudio says “R not found” or asks you to choose an R installation",
+    "text": "8.3 RStudio says “R not found” or asks you to choose an R installation\n\nMake sure you installed R first, then quit RStudio completely (RStudio → Quit, or ⌘Q) and reopen it.\nCheck that you downloaded the R installer that matches your chip. An arm64 R won’t run on an Intel Mac.\nIf it still fails, reinstall R, then restart your Mac."
+  },
+  {
+    "objectID": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
+    "href": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.4 I installed the wrong R (Intel vs. Apple silicon)",
+    "text": "8.4 I installed the wrong R (Intel vs. Apple silicon)\nDownload and install the correct .pkg. It will replace the old version. Then reinstall the packages (see Install the workshop R packages)."
+  },
+  {
+    "objectID": "guides/install-mac.html#macos-too-old",
+    "href": "guides/install-mac.html#macos-too-old",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.5 My macOS is too old",
+    "text": "8.5 My macOS is too old\nThe simplest fix is to update macOS via System Settings → General → Software Update. Every Apple silicon Mac can run macOS 15 or newer. Updating takes a while, so start early.\nIf you can’t update before class:\n\nRStudio won’t install or open (macOS 14 or older): install an earlier version of RStudio instead. Posit’s supported versions page includes a table showing which RStudio release works with each version of macOS, and links to those releases. Then run quarto check in RStudio’s Terminal: the Quarto version must be 1.4 or higher for PDFs. If it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/.\nR won’t install (Apple silicon on macOS 11–13, or Intel older than macOS 11): older versions of R that support your macOS are available from CRAN. Email Greg and we’ll find the right one."
+  },
+  {
+    "objectID": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
+    "href": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools",
+    "text": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools\nThis means R tried to compile a package from source. Either:\n\nreinstall the package and answer no when asked about installing from source, or\ninstall Apple’s developer tools by running this in the Terminal and following the prompts (it takes a while):\n\nxcode-select --install"
+  },
+  {
+    "objectID": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "href": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.7 Package installation fails with “cannot open URL” or “download failed”",
+    "text": "8.7 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again."
+  },
+  {
+    "objectID": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
+    "href": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.8 quarto install tinytex says “quarto: command not found”",
+    "text": "8.8 quarto install tinytex says “quarto: command not found”\nUse the R alternative instead: tinytex::install_tinytex() in the Console. Then restart RStudio."
+  },
+  {
+    "objectID": "guides/install-mac.html#old-quarto",
+    "href": "guides/install-mac.html#old-quarto",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.9 RStudio is using an old version of Quarto",
+    "text": "8.9 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto."
+  },
+  {
+    "objectID": "guides/install-mac.html#still-stuck",
+    "href": "guides/install-mac.html#still-stuck",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.10 Still stuck?",
+    "text": "8.10 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour macOS version and chip (from About This Mac), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "",
+    "text": "A two-part session led by Greg Amusu of the Social Science Quantitative Lab (SSQL), built to support your data paper."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nPart\n\n\n\n\n1:15–2:30 pm\nPart 1. Lecture and discussion. Epistemology, quantitative social science, and approaches to the data paper. We’ll work through three course readings in groups.\n\n\n2:30–2:45 pm\nBreak\n\n\n2:45–4:00 pm\nPart 2. Lab. Hands-on data analysis in RStudio and Quarto: summary statistics, a figure, and a statistical test."
+  },
+  {
+    "objectID": "index.html#before-class-set-up-your-computer",
+    "href": "index.html#before-class-set-up-your-computer",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Before class: set up your computer",
+    "text": "Before class: set up your computer\nEveryone will use R, RStudio and Quarto in the lab, whatever software you plan to use for your paper. Please install them before Wednesday:\n\nInstall R and RStudio: Mac guide · Windows guide\nMake your first Quarto document and render it to PDF: Quarto & PDF guide\n\nIf you get stuck, work through the troubleshooting section of each guide, then email Greg. Anything still unresolved, we’ll fix during the break."
+  },
+  {
+    "objectID": "index.html#before-class-the-readings",
+    "href": "index.html#before-class-the-readings",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Before class: the readings",
+    "text": "Before class: the readings\nCome ready to discuss all three papers in small groups. Pay particular attention to their methods (how they turn a concept into something measurable) and their results (what they can and can’t conclude).\n\nFransen et al. (2023), Taking stock of the implementation gap in climate policy\nXie et al. (2025), Tracing inclusivity at UNFCCC conferences through side events and interest group dynamics\nTennant, Davies & Tennant (2024), Determinants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies"
+  },
+  {
+    "objectID": "index.html#materials",
+    "href": "index.html#materials",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Materials",
+    "text": "Materials\nPart 1\n\nPart 1 slides\nPaper discussion prompts\nQuestion ladder worksheet\n\nPart 2\n\nLab materials: download the lab files, the guide to Example 2, and extra practice on merging datasets\nPart 2 slides\n\nFor your data paper\n\nData sources, organized by primary focus, plus the data behind the course readings\nWhere to get help, including SSQL office hours in Science Center 205"
+  },
+  {
+    "objectID": "guides/install-windows.html",
+    "href": "guides/install-windows.html",
+    "title": "Installing R and RStudio on Windows",
+    "section": "",
+    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install four things, in this order:\n\nR, the programming language\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
+  },
+  {
+    "objectID": "guides/install-windows.html#a-quick-tour",
+    "href": "guides/install-windows.html#a-quick-tour",
+    "title": "Installing R and RStudio on Windows",
+    "section": "3.1 A quick tour",
+    "text": "3.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Enter.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below.\n\n\n\n\n\n\nWarningDon’t “Run as administrator”\n\n\n\nOpen RStudio normally, not with right-click → Run as administrator. Running as administrator installs packages into a protected system folder, which causes confusing permission errors later."
+  },
+  {
+    "objectID": "guides/install-windows.html#no-admin",
+    "href": "guides/install-windows.html#no-admin",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.1 Installing without administrator rights",
+    "text": "7.1 Installing without administrator rights\nThis is the most common Windows problem. Here’s the full picture:\n\n\n\n\n\n\n\n\nStep\nWith admin rights\nWithout admin rights\n\n\n\n\nR\nInstalls to C:\\Program Files\\R\nClick No at the admin prompt. R installs to your own user area (e.g., C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R)\n\n\nRStudio\nNormal installer\nUse the zip version (see the box under Install RStudio)\n\n\nPackages\nAnswer Yes to “use a personal library”\nSame. Packages go into your personal library automatically\n\n\nTinyTeX\nInstalls to your user folder; no admin needed\nSame\n\n\n\nSymptoms that point to a permissions problem:\n\nWarning in install.packages: 'lib = \"C:/Program Files/R/R-4.x.x/library\"' is not writable\nError: cannot remove prior installation of package ... or Permission denied\nAn installer that closes immediately or says “Access is denied”\n\nFixes:\n\nRe-run install.packages(...) and answer Yes to both “personal library” questions.\nMake sure RStudio isn’t being run as administrator (see the warning above).\nIf a package is “in use” and can’t be updated: close RStudio, reopen it, and install before loading anything (don’t run library() first)."
+  },
+  {
+    "objectID": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
+    "href": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.2 RStudio says “R not found” or “R does not appear to be installed”",
+    "text": "7.2 RStudio says “R not found” or “R does not appear to be installed”\n\nMake sure you installed R first.\nClose RStudio and reopen it. If that doesn’t work, restart your computer so RStudio can find the new installation.\nIf R was installed somewhere unusual (for example, without admin rights), point RStudio to it: hold Ctrl while opening RStudio. A dialog appears letting you Choose a specific version of R. Select the R folder (look in C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R\\R-4.x.x) and click OK.\nOr, if RStudio opens: Tools → Global Options → General → R version → Change…"
+  },
+  {
+    "objectID": "guides/install-windows.html#win10",
+    "href": "guides/install-windows.html#win10",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.3 RStudio won’t install or open on Windows 10",
+    "text": "7.3 RStudio won’t install or open on Windows 10\nThe newest version of RStudio supports Windows 11. Microsoft ended regular support for Windows 10 in October 2025, so upgrading (Settings → Windows Update) is the best long-term fix if your computer is eligible.\nIf you can’t upgrade before class:\n\nInstall an earlier version of RStudio from Posit’s supported versions page. Pick the most recent release that installs and opens on your computer.\nOpen RStudio’s Terminal and run quarto check. The Quarto version must be 1.4 or higher for PDFs.\nIf it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio.\n\nThe current R installer still works on Windows 10, so you don’t need to change anything there."
+  },
+  {
+    "objectID": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
+    "href": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.4 Windows Defender / SmartScreen blocks the installer",
+    "text": "7.4 Windows Defender / SmartScreen blocks the installer\nClick More info → Run anyway. The R and RStudio installers from the official sites are safe. Some antivirus programs also quarantine rstudio.exe or Quarto’s tools. If RStudio flashes and closes immediately, check your antivirus’s quarantine list and allow RStudio."
+  },
+  {
+    "objectID": "guides/install-windows.html#tinytex-username",
+    "href": "guides/install-windows.html#tinytex-username",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.5 TinyTeX fails, or my username has spaces/accents",
+    "text": "7.5 TinyTeX fails, or my username has spaces/accents\nTinyTeX (like all LaTeX distributions on Windows) cannot be installed in a path containing non-English characters, and spaces can cause problems too. By default it installs under C:\\Users\\&lt;yourname&gt;\\AppData\\Roaming\\TinyTeX, so a username like María López breaks it.\nFix: install TinyTeX to a simple folder at the root of C:. In the Console:\ninstall.packages(\"tinytex\")   # make sure tinytex is up to date\ntinytex::install_tinytex(dir = \"C:/TinyTeX\")\nThen restart RStudio. You don’t need admin rights to create a folder at C:\\.\nOther TinyTeX errors such as “The system cannot find the path specified” or “tlmgr returned a non zero status code” usually have the same cause. Try the fix above.\n\n\n\n\n\n\nNote\n\n\n\nRemember: TinyTeX is only the backup. If it won’t install, you can still make PDFs with Typst. Don’t spend more than 15 minutes on TinyTeX."
+  },
+  {
+    "objectID": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "href": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.6 Package installation fails with “cannot open URL” or “download failed”",
+    "text": "7.6 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again.\nA VPN or corporate proxy can also block downloads. Turn the VPN off temporarily."
+  },
+  {
+    "objectID": "guides/install-windows.html#old-quarto",
+    "href": "guides/install-windows.html#old-quarto",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.7 RStudio is using an old version of Quarto",
+    "text": "7.7 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto, or\nuninstall the old Quarto via Settings → Apps."
+  },
+  {
+    "objectID": "guides/install-windows.html#onedrive-problems",
+    "href": "guides/install-windows.html#onedrive-problems",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.8 OneDrive problems",
+    "text": "7.8 OneDrive problems\nIf your Documents or Desktop folder is synced to OneDrive, OneDrive can lock files while Quarto is writing them, which causes “access denied” or “file in use” errors when rendering. Keep your workshop folder outside OneDrive (for example C:\\Users\\&lt;you&gt;\\pols081), or pause OneDrive syncing while you work."
+  },
+  {
+    "objectID": "guides/install-windows.html#still-stuck",
+    "href": "guides/install-windows.html#still-stuck",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.9 Still stuck?",
+    "text": "7.9 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour Windows version (Settings → System → About), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
+  },
+  {
+    "objectID": "guides/data-visualization.html",
+    "href": "guides/data-visualization.html",
+    "title": "Choosing and Building a Visualization",
+    "section": "",
+    "text": "NoteWhat you need\n\n\n\nThis guide uses only the tidyverse (which includes ggplot2) and the data in the data/ folder of the lab files (Part 2 lab materials). Copy any chunk into a .qmd file in your pols081-lab folder and run it.\nLoad the tidyverse and the data used on this page:\nlibrary(tidyverse)\n\nco2       &lt;- read_csv(\"data/co2.csv\")        # one row per country, 2023\nco2_trend &lt;- read_csv(\"data/co2_trend.csv\")  # one row per country per year, 2018-2023\naid       &lt;- read_csv(\"data/adaptation_aid.csv\") %&gt;%\n  mutate(aid_pc = adapt_aid_musd * 1000000 / population)\nAbout colors. We use R’s color names, such as \"steelblue\", \"darkorange\" and \"seagreen\". R knows hundreds of them (full list of R color names), and you can use any of them directly in ggplot()."
+  },
+  {
+    "objectID": "guides/data-visualization.html#change-a-line-chart",
+    "href": "guides/data-visualization.html#change-a-line-chart",
+    "title": "Choosing and Building a Visualization",
+    "section": "1.1 Change: a line chart",
+    "text": "1.1 Change: a line chart\nA line connects the years in order, so the eye follows the trend. Use it when the x-axis is time.\n\nco2_trend %&gt;%\n  filter(country %in% c(\"China\", \"Germany\", \"United States\")) %&gt;%\n  ggplot(aes(x = year, y = co2_pc, color = country)) +\n  geom_line(linewidth = 1) +\n  geom_point() +\n  scale_color_manual(values = c(\"China\" = \"darkorange\", \"Germany\" = \"seagreen\",\n                                \"United States\" = \"steelblue\")) +\n  labs(title = \"CO2 emissions per person\",\n       x = NULL, y = \"Tonnes of CO2 per person\", color = NULL,\n       caption = \"Source: World Bank WDI (EDGAR).\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 1: CO2 per person in three large emitters, 2018–2023.\n\n\n\n\n\nfilter(country %in% c(...)) keeps just the countries we want. With more than four or five lines, a chart gets hard to read: pick the cases your question is about."
+  },
+  {
+    "objectID": "guides/data-visualization.html#distribution-a-histogram-or-boxplot",
+    "href": "guides/data-visualization.html#distribution-a-histogram-or-boxplot",
+    "title": "Choosing and Building a Visualization",
+    "section": "1.2 Distribution: a histogram (or boxplot)",
+    "text": "1.2 Distribution: a histogram (or boxplot)\nA histogram sorts countries into bins and counts them, so you can see where most cases sit and how far the tail stretches.\n\nggplot(co2, aes(x = co2_pc)) +\n  geom_histogram(binwidth = 2, fill = \"steelblue\", color = \"white\") +\n  labs(title = \"CO2 emissions per person, 2023\",\n       x = \"Tonnes of CO2 per person\", y = \"Number of countries\",\n       caption = \"Source: World Bank WDI (EDGAR).\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 2: Most countries emit a few tonnes of CO2 per person; a few emit far more.\n\n\n\n\n\nTry a few values of binwidth: too wide hides the shape, too narrow makes it noisy. A boxplot (next section) shows the same spread more compactly."
+  },
+  {
+    "objectID": "guides/data-visualization.html#comparison-bars-of-group-summaries-or-boxplots",
+    "href": "guides/data-visualization.html#comparison-bars-of-group-summaries-or-boxplots",
+    "title": "Choosing and Building a Visualization",
+    "section": "1.3 Comparison: bars of group summaries, or boxplots",
+    "text": "1.3 Comparison: bars of group summaries, or boxplots\nTo compare groups, first summarize each group (here, the median), then draw one bar per group. Bar length is easy to compare, so bars must start at zero.\n\nco2 %&gt;%\n  group_by(income_group) %&gt;%\n  summarize(median_co2_pc = median(co2_pc)) %&gt;%\n  ggplot(aes(x = reorder(income_group, median_co2_pc), y = median_co2_pc)) +\n  geom_col(fill = \"steelblue\") +\n  labs(title = \"The typical country's CO2 per person, by income group\",\n       x = NULL, y = \"Median tonnes of CO2 per person\",\n       caption = \"Source: World Bank WDI (EDGAR), 2023.\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 3: Median CO2 per person by World Bank income group.\n\n\n\n\n\nA bar shows only one number per group. A boxplot shows the whole spread in each group: the thick line is the median and the box holds the middle half of the countries.\n\nggplot(co2, aes(x = reorder(income_group, co2_pc), y = co2_pc)) +\n  geom_boxplot(fill = \"steelblue\", alpha = 0.3) +\n  labs(title = \"CO2 per person, by income group\",\n       x = NULL, y = \"Tonnes of CO2 per person\",\n       caption = \"Source: World Bank WDI (EDGAR), 2023.\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 4: The same comparison as a boxplot, showing the spread within each group."
+  },
+  {
+    "objectID": "guides/data-visualization.html#composition-a-proportional-bar",
+    "href": "guides/data-visualization.html#composition-a-proportional-bar",
+    "title": "Choosing and Building a Visualization",
+    "section": "1.4 Composition: a proportional bar",
+    "text": "1.4 Composition: a proportional bar\nA composition question asks what share of a total each part makes up. Here we compare two totals, the world’s population and its CO2 emissions, split by income group. position = \"fill\" stretches each bar to 100%, so the segments are shares.\n\nco2 %&gt;%\n  group_by(income_group) %&gt;%\n  summarize(Population = sum(population),\n            `CO2 emissions` = sum(co2_mt)) %&gt;%\n  pivot_longer(c(Population, `CO2 emissions`),\n               names_to = \"total\", values_to = \"amount\") %&gt;%\n  mutate(income_group = factor(income_group,\n                               levels = c(\"High income\", \"Upper middle income\",\n                                          \"Lower middle income\", \"Low income\"))) %&gt;%\n  ggplot(aes(x = total, y = amount, fill = income_group)) +\n  geom_col(position = \"fill\") +\n  scale_fill_manual(values = c(\"Low income\" = \"seagreen\",\n                               \"Lower middle income\" = \"steelblue\",\n                               \"Upper middle income\" = \"darkorange\",\n                               \"High income\" = \"grey30\")) +\n  labs(title = \"Shares of world population and CO2 emissions, 2023\",\n       x = NULL, y = \"Share of the total\", fill = NULL,\n       caption = \"Source: World Bank WDI (EDGAR).\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 5: High-income countries hold a small share of the world’s people but a large share of its emissions.\n\n\n\n\n\npivot_longer() turns the two total columns into rows, one per income group and total, which is the shape ggplot() needs to stack them. factor() with levels puts the income groups in a meaningful order; otherwise R sorts them alphabetically.\n\n\n\n\n\n\nTipWhy not a pie chart?\n\n\n\nPeople judge lengths along a common scale much more accurately than angles or areas. In a pie, slices of similar size are hard to tell apart, and comparing two pies side by side is harder still. A stacked or proportional bar shows the same shares and makes comparisons easy."
+  },
+  {
+    "objectID": "guides/data-visualization.html#relationship-a-scatterplot",
+    "href": "guides/data-visualization.html#relationship-a-scatterplot",
+    "title": "Choosing and Building a Visualization",
+    "section": "1.5 Relationship: a scatterplot",
+    "text": "1.5 Relationship: a scatterplot\nA scatterplot puts one dot per case, with one variable on each axis. It shows whether the two variables move together, and how tightly.\n\nggplot(aid, aes(x = vulnerability, y = aid_pc)) +\n  geom_point(color = \"steelblue\", alpha = 0.7) +\n  geom_smooth(method = \"lm\", color = \"darkorange\") +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\",\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank.\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 6: More vulnerable countries receive somewhat more adaptation aid per person.\n\n\n\n\n\ngeom_smooth(method = \"lm\") adds a straight trend line. Remember from Part 1: a relationship is not causation. Confounding, reverse causality and selection can all produce a pattern like this (Part 1 slides: correlation is not causation)."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-1-an-empty-canvas",
+    "href": "guides/data-visualization.html#step-1-an-empty-canvas",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.1 Step 1: an empty canvas",
+    "text": "2.1 Step 1: an empty canvas\n\nggplot(aid)\n\n\n\n\n\n\n\nFigure 7: Step 1: ggplot(aid) sets up an empty canvas.\n\n\n\n\n\nggplot() says which data to use, but nothing more, so R draws a blank panel. Every plot starts here."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-2-map-variables-to-the-axes",
+    "href": "guides/data-visualization.html#step-2-map-variables-to-the-axes",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.2 Step 2: map variables to the axes",
+    "text": "2.2 Step 2: map variables to the axes\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc)\n\n\n\n\n\n\n\nFigure 8: Step 2: aes() maps variables to the x and y axes.\n\n\n\n\n\naes() (short for aesthetics) maps columns to parts of the plot. Now R knows the axes and their ranges, but there are still no marks."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-3-add-marks",
+    "href": "guides/data-visualization.html#step-3-add-marks",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.3 Step 3: add marks",
+    "text": "2.3 Step 3: add marks\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc) +\n  geom_point()\n\n\n\n\n\n\n\nFigure 9: Step 3: geom_point() draws one dot per country.\n\n\n\n\n\nA geom_ (geometric object) draws the data. Most dots are squashed at the bottom because a few countries get far more aid per person than the rest. A log scale spreads them out; each gridline is ten times the one below:\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc) +\n  geom_point() +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\"))\n\n\n\n\n\n\n\nFigure 10: Step 3b: scale_y_log10() spreads out the skewed values."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-4-labels-and-a-source-line",
+    "href": "guides/data-visualization.html#step-4-labels-and-a-source-line",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.4 Step 4: labels and a source line",
+    "text": "2.4 Step 4: labels and a source line\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc) +\n  geom_point() +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\",\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.\")\n\n\n\n\n\n\n\nFigure 11: Step 4: labs() adds a title, plain-language axis labels and a source.\n\n\n\n\n\nReplace column names like aid_pc with words a reader understands, include units, and say when an axis is logged. The caption is your source line."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-5-color-by-group",
+    "href": "guides/data-visualization.html#step-5-color-by-group",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.5 Step 5: color by group",
+    "text": "2.5 Step 5: color by group\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc, color = sids) +\n  geom_point() +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  scale_color_manual(values = c(Other = \"steelblue\", SIDS = \"darkorange\")) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\", color = NULL,\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.\")\n\n\n\n\n\n\n\nFigure 12: Step 5: aes(color = sids) colors the dots by group; scale_color_manual() picks the colors.\n\n\n\n\n\nPutting color = sids inside aes() maps a column to color, so R adds a legend. scale_color_manual() sets which color goes with which group. (To make every dot the same color instead, put color = \"steelblue\" inside geom_point(), outside aes().)"
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-6-a-trend-line",
+    "href": "guides/data-visualization.html#step-6-a-trend-line",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.6 Step 6: a trend line",
+    "text": "2.6 Step 6: a trend line\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc, color = sids) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = TRUE) +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  scale_color_manual(values = c(Other = \"steelblue\", SIDS = \"darkorange\")) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\", color = NULL,\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.\")\n\n\n\n\n\n\n\nFigure 13: Step 6: geom_smooth(method = \"lm\") adds a straight trend line for each group, with a shaded band.\n\n\n\n\n\nmethod = \"lm\" fits a straight line. Because color is mapped to sids, we get one line per group. The shaded band (se = TRUE) is a 95% confidence interval for the line: the range of lines that fit the data about as well. A wide band, like the one for SIDS, means we’re unsure where the line really is, here because there are few SIDS and they are spread out."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-7-a-theme",
+    "href": "guides/data-visualization.html#step-7-a-theme",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.7 Step 7: a theme",
+    "text": "2.7 Step 7: a theme\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc, color = sids) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = TRUE) +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  scale_color_manual(values = c(Other = \"steelblue\", SIDS = \"darkorange\")) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\", color = NULL,\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.\") +\n  theme_minimal()\n\n\n\n\n\n\n\nFigure 14: Step 7: theme_minimal() removes the grey background.\n\n\n\n\n\nA theme controls the look: background, gridlines, fonts. theme_minimal() is clean and works well in a paper. Others to try: theme_bw(), theme_classic()."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-8-optional-small-multiples",
+    "href": "guides/data-visualization.html#step-8-optional-small-multiples",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.8 Step 8 (optional): small multiples",
+    "text": "2.8 Step 8 (optional): small multiples\n\nggplot(aid) +\n  aes(x = vulnerability, y = aid_pc, color = sids) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = TRUE) +\n  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),\n                labels = c(\"0.1\", \"1\", \"10\", \"100\", \"1,000\")) +\n  scale_color_manual(values = c(Other = \"steelblue\", SIDS = \"darkorange\")) +\n  facet_wrap(~ sids) +\n  labs(title = \"Vulnerability and adaptation aid per person\",\n       x = \"ND-GAIN vulnerability (higher = more vulnerable)\",\n       y = \"Aid per person, US$ (log scale)\",\n       caption = \"Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\nFigure 15: Step 8: facet_wrap(~ sids) draws one panel per group.\n\n\n\n\n\nfacet_wrap(~ sids) splits the plot into small multiples, one panel per group, with the same axes. That makes each group easier to see when dots overlap. Since the panel titles now name the groups, we hide the legend with theme(legend.position = \"none\")."
+  },
+  {
+    "objectID": "guides/data-visualization.html#step-9-save-the-figure",
+    "href": "guides/data-visualization.html#step-9-save-the-figure",
+    "title": "Choosing and Building a Visualization",
+    "section": "2.9 Step 9: save the figure",
+    "text": "2.9 Step 9: save the figure\nInside a Quarto document you don’t need to save anything: the figure appears in your PDF when you render. To use a figure somewhere else (a Word or Google Doc, or slides), store the plot in an object and save it with ggsave():\n\nmy_plot &lt;- ggplot(aid) +\n  aes(x = vulnerability, y = aid_pc, color = sids) +\n  geom_point() +\n  scale_y_log10() +\n  labs(title = \"Vulnerability and adaptation aid per person\") +\n  theme_minimal()\n\nggsave(\"aid-vulnerability.png\", plot = my_plot,\n       width = 6.5, height = 4, dpi = 300)\n\nThis writes aid-vulnerability.png into your project folder. width and height are in inches; dpi = 300 makes it sharp enough to print.\n\n\n\n\n\n\nTipCross-references\n\n\n\nEach figure on this page has a label starting with fig- and a caption, set in the first lines of the chunk:\n```{r}\n#| label: fig-aid\n#| fig-cap: \"Vulnerability and adaptation aid per person.\"\nggplot(...)\n```\nThen write @fig-aid in your text, and Quarto turns it into a numbered link, like this one to Figure 13. Numbers update automatically if you add or move figures."
   },
   {
     "objectID": "slides/part2-lab.html#the-lab-245400",
