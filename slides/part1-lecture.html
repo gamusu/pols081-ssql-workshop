@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.9">
+
+  <meta name="author" content="Greg Amusu · Social Science Quantitative Lab (SSQL)">
+  <meta name="dcterms.date" content="2026-11-18">
+  <title>POLS 081 · SSQL Data Workshop – How Numbers Become Evidence</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4deb69a15b6bd7e908aa28ded3394e2e.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">How Numbers Become Evidence</h1>
+  <p class="subtitle">Quantitative thinking for global environmental governance</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Greg Amusu · Social Science Quantitative Lab (SSQL)
+</div>
+        <p class="quarto-title-affiliation">
+            POLS 081 · Global Environmental Governance
+          </p>
+    </div>
+</div>
+
+  <p class="date">November 18, 2026</p>
+</section>
+<section id="today" class="slide level2 smaller">
+<h2>Today</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>1:15–2:30 · Part 1: How numbers become evidence</strong></p>
+<ol type="1">
+<li>A short lecture on thinking quantitatively <em>(~22 min)</em>
+<ul>
+<li>Evidence, measurement, good questions</li>
+<li>Correlation and variation</li>
+<li>Correlation vs.&nbsp;causation</li>
+<li>Where credible causal claims come from</li>
+<li>Samples, uncertainty, inference</li>
+</ul></li>
+<li><strong>Measure → Map → Model</strong>: the three readings, discussed in small groups <em>(~40 min)</em></li>
+<li>Your question ladder <em>(~12 min)</em></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><strong>2:30–2:45 · Break</strong></p>
+<p><strong>2:45–4:00 · Part 2: Hands-on lab</strong></p>
+<ul>
+<li>Summary statistics</li>
+<li>One good figure</li>
+<li>One statistical test</li>
+</ul>
+<p><br></p>
+<div class="keyidea">
+<p><strong>The goal:</strong> leave with a question your data paper can actually answer, and the tools to answer it.</p>
+</div>
+</div></div>
+<aside class="notes">
+<p>~1 min. Frame the day. Emphasize that the lecture is short and the rest is them talking. The break doubles as install troubleshooting time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="where-you-are-right-now" class="slide level2 smaller">
+<h2>Where you are right now</h2>
+<p>From the pre-workshop survey (9 responses):</p>
+<ul>
+<li><strong>7 of 9</strong> are still choosing a topic or have a focus but <strong>no question yet</strong>, and <strong>6 of 9</strong> haven’t found a dataset. That is normal at this stage.</li>
+<li>Biggest obstacles: <strong>narrowing the topic</strong> and <strong>turning a topic into a question data can answer</strong> (5 of 9 each).</li>
+<li>Most comfortable <em>finding</em> data; least comfortable with <strong>correlation and regression</strong> (5 of 9: “not at all”).</li>
+<li>Top interests: <strong>major powers and small states (AOSIS)</strong>, <strong>environmental conflict</strong>, <strong>NDCs</strong>; then climate finance, aid, IOs and North–South divides.</li>
+<li><strong>6 of 9</strong> have used R before. Most plan to use Excel, Stata or haven’t decided: today’s ideas carry over to any tool.</li>
+</ul>
+<div class="activity">
+<p><strong>Today is built around those obstacles.</strong> By the break you should have a draft question. By the end, a first look at data.</p>
+</div>
+<aside class="notes">
+<p>~1 min. Survey as of Nov 17 (n = 9). Keep it aggregate; never single out individual responses. Also useful: 3 of 9 lean toward a relationship question and 3 aren’t sure yet; 3 plan to focus on a governance instrument or policy and 4 are undecided on focus. Both come back in the variation slides.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="part-1a-thinking-quantitatively" class="title-slide slide level1 divider center">
+<h1>Part 1A · Thinking quantitatively</h1>
+<p>Evidence · Questions · Correlation · Causation · Uncertainty</p>
+</section>
+<section id="how-do-we-know-what-we-know" class="slide level2">
+<h2>How do we know what we know?</h2>
+<p>The course readings use very different kinds of evidence:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Example from the course</th>
+<th>Learns from…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interviews and observation</td>
+<td>Rietig (2014); Ciplet (2019)</td>
+<td>How participants experience and explain a process</td>
+</tr>
+<tr class="even">
+<td>Process tracing / history</td>
+<td>Haas (1992); Benedick (1998)</td>
+<td>The sequence of events in one or a few cases</td>
+</tr>
+<tr class="odd">
+<td>Discourse and document analysis</td>
+<td>Lefstad &amp; Paavola (2024)</td>
+<td>How actors frame problems</td>
+</tr>
+<tr class="even">
+<td><strong>Counting and measuring</strong></td>
+<td>Kaya &amp; Schofield (2020); Tennant et al.&nbsp;(2024)</td>
+<td><strong>Patterns across many cases</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="keyidea">
+<p>Quantitative work is <strong>one way of knowing</strong>, not the only one. It is strongest at describing <strong>how much, how often, and how things vary across many cases</strong>. It is weakest at explaining the mechanisms <em>inside</em> any one case.</p>
+</div>
+<aside class="notes">
+<p>~1.5 min. The point: quant and qual are complements. Your 5-page paper is descriptive/correlational quant, and that is a legitimate contribution.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="numbers-are-measurements-not-the-things-themselves" class="slide level2">
+<h2>Numbers are measurements, not the things themselves</h2>
+<div class="chain">
+<div>
+<p><strong>Concept</strong><br>“participation in climate negotiations”</p>
+</div>
+<div class="arrow">
+<p>→</p>
+</div>
+<div>
+<p><strong>Indicator</strong><br>national delegation size</p>
+</div>
+<div class="arrow">
+<p>→</p>
+</div>
+<div>
+<p><strong>Data</strong><br>UNFCCC lists of participants, COP1–21</p>
+</div>
+<div class="arrow">
+<p>→</p>
+</div>
+<div>
+<p><strong>Number</strong><br>“Country X sent 212 delegates”</p>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Every arrow is a choice</strong> someone made, and each choice can be questioned.</li>
+<li>Somebody <strong>produced</strong> the data: a secretariat, a donor, an NGO, a researcher. Why, and with what incentives?</li>
+<li>A quantitative claim is an <strong>argument</strong>: <em>data + assumptions → conclusion</em>. Your job is to make the assumptions visible.</li>
+</ul>
+<aside class="notes">
+<p>~1.5 min. Example from Kaya &amp; Schofield (Class 2). Ask aloud: does a bigger delegation mean more participation? More influence? Nothing yet about influence.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="what-makes-a-good-social-scientific-question" class="slide level2 smaller">
+<h2>What makes a good social-scientific question?</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>A good question is…</p>
+<ul>
+<li><strong>Answerable</strong> with evidence you can actually get</li>
+<li><strong>Specific</strong>: who, what, where, when</li>
+<li>About <strong>variation</strong>: something differs across cases or over time</li>
+<li><strong>Connected to a debate</strong> from the course</li>
+</ul>
+<p>Descriptive and explanatory questions are both legitimate:</p>
+<ul>
+<li><em>Descriptive:</em> How has X changed? How is X distributed?</li>
+<li><em>Explanatory:</em> Why does X vary? Does Y affect X?</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><strong>The five question types in your data-paper prompt</strong></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Asks…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Change</td>
+<td>How has X changed over time?</td>
+</tr>
+<tr class="even">
+<td>Distribution</td>
+<td>Who gets/has X?</td>
+</tr>
+<tr class="odd">
+<td>Comparison</td>
+<td>How do groups differ?</td>
+</tr>
+<tr class="even">
+<td>Composition</td>
+<td>What is X made of?</td>
+</tr>
+<tr class="odd">
+<td>Relationship</td>
+<td>Do X and Y move together?</td>
+</tr>
+</tbody>
+</table>
+<p><span class="tiny">The first four are descriptive. The fifth is about association, which is not yet causation.</span></p>
+</div></div>
+<aside class="notes">
+<p>~1.5 min. Flag that “relationship” questions are where people slip into causal language. We return to that in a few minutes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="checkpoint-which-question-is-better" class="slide level2 smaller">
+<h2>Checkpoint: which question is better?</h2>
+<p>Raise <strong>one hand for A, two hands for B</strong>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="qcard">
+<p><strong>1A.</strong> Is climate finance fair?</p>
+</div>
+<div class="qcard">
+<p><strong>2A.</strong> Why do countries pollute?</p>
+</div>
+<div class="qcard">
+<p><strong>3A.</strong> How did the number of non-state organizations hosting COP side events change after the Paris Agreement?</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="qcard">
+<p><strong>1B.</strong> Did adaptation finance per capita to small island states grow faster than to other developing countries, 2015–2022?</p>
+</div>
+<div class="qcard">
+<p><strong>2B.</strong> Do countries more dependent on fossil-fuel exports submit less ambitious NDCs?</p>
+</div>
+<div class="qcard">
+<p><strong>3B.</strong> Are NGOs important in climate governance?</p>
+</div>
+</div></div>
+<div class="fragment">
+<div class="keyidea">
+<p>The better question in each pair (<strong>1B, 2B, 3A</strong>) names a <strong>measurable quantity</strong>, a <strong>set of cases</strong>, and a <strong>comparison or time frame</strong>.</p>
+</div>
+<aside class="notes">
+<p>~2 min. Note that 3 flips the order on purpose. For 1A: “fair” is a normative concept. Ask how you’d measure it. That’s the bridge to Measure later.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="correlation-do-two-things-move-together" class="slide level2">
+<h2>Correlation: do two things move together?</h2>
+<p>A <strong>correlation</strong> (<em>r</em>) summarizes how closely two variables move together across cases: from <strong>−1</strong> (perfectly opposite) through <strong>0</strong> (no straight-line relationship) to <strong>+1</strong> (perfectly together). It says nothing about <strong>why</strong>.</p>
+<div class="activity">
+<p><strong>Guess the correlation.</strong> Call out your guess for each panel.</p>
+</div>
+
+<img data-src="figs/guess_corr.png" style="width:100.0%" class="r-stretch"></section>
+<section id="correlation-the-answers" class="slide level2 smaller">
+<h2>Correlation: the answers</h2>
+
+<img data-src="figs/guess_corr_reveal.png" style="width:100.0%" class="r-stretch"><aside class="notes">
+<p>~2 min across these two slides. Most people underestimate moderate correlations like B. r = 0.35 is a real but noisy relationship, and many social-science relationships look like B.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="correlation-requires-variation" class="slide level2">
+<h2>Correlation requires variation</h2>
+
+<img data-src="figs/no_variation.png" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"><div class="keyidea">
+<p><strong>To explain a difference, you need a difference.</strong> If every country in your data is an AOSIS member, your data cannot tell you what AOSIS membership does.</p>
+</div>
+<aside class="notes">
+<p>~1 min. Practical implication for paper design: choose cases that vary on the thing you care about.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="too-little-variation-hides-relationships" class="slide level2">
+<h2>Too little variation hides relationships</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<div class="r-stack">
+<p><img data-src="figs/restricted_full.png" style="width:100.0%"></p>
+<p><img data-src="figs/restricted_range.png" class="fragment" style="width:100.0%"></p>
+</div>
+</div><div class="column" style="width:38%;">
+<div class="fragment">
+<p>Cutting the range of <em>X</em> weakens the visible relationship, even though the underlying pattern is the same.</p>
+<p><br></p>
+<p><strong>Ask of any dataset:</strong> who got left out?</p>
+<ul>
+<li>Only countries that <em>received</em> finance?</li>
+<li>Only initiatives that <em>survived</em>?</li>
+<li>Only events that were <em>registered</em>?</li>
+</ul>
+</div>
+</div></div>
+<aside class="notes">
+<p>~1.5 min. This sets up Tennant later: eligibility (who gets any finance) vs amount. If you only look at recipients you can miss the selection stage.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="correlation-is-not-causation-three-reasons" class="slide level2 smaller">
+<h2>Correlation is not causation: three reasons</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>1. Confounding</strong></p>
+<p><img data-src="figs/dag_confounding.png" style="width:100.0%"></p>
+<p>A third factor drives both.</p>
+</div><div class="column" style="width:33%;">
+<p><strong>2. Reverse causality</strong></p>
+<p><img data-src="figs/dag_reverse.png" style="width:100.0%"></p>
+<p>The outcome may cause the “cause.”</p>
+</div><div class="column" style="width:33%;">
+<p><strong>3. Selection</strong></p>
+<p><img data-src="figs/dag_selection.png" style="width:100.0%"></p>
+<p>Cases in the data are not a fair picture of all cases (e.g., only firms that <em>choose</em> to disclose emissions).</p>
+</div></div>
+</section>
+<section id="confounding-in-pictures" class="slide level2">
+<h2>Confounding, in pictures</h2>
+<div class="r-stack">
+<p><img data-src="figs/confound_pooled.png" style="width:72.0%"></p>
+<p><img data-src="figs/confound_split.png" class="fragment" style="width:72.0%"></p>
+</div>
+<div class="fragment">
+<p>“<strong>Controlling for</strong>” state capacity means <strong>comparing like with like</strong>. It only works for confounders you <em>thought of</em> and <em>measured</em>, and it cannot fix reverse causality.</p>
+</div>
+<aside class="notes">
+<p>~1.5 min. Pooled: strong positive. Split by capacity: relationship mostly disappears. This is what regression “controls” do, conceptually.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="where-do-credible-causal-claims-come-from" class="slide level2 smaller">
+<h2>Where do credible causal claims come from?</h2>
+<p>The core problem: we never see the <strong>same country</strong> both with and without the “treatment.”</p>
+<p>Credible designs find a <strong>fair comparison</strong> instead:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Design</th>
+<th>The idea</th>
+<th>Environmental-politics example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Randomized experiment</strong></td>
+<td>Chance decides who is treated</td>
+<td>Payments to forest owners, randomized across Ugandan villages, reduced deforestation (Jayachandran et al.&nbsp;2017)</td>
+</tr>
+<tr class="even">
+<td><strong>Natural experiment</strong></td>
+<td>Nature or history assigns “treatment” as if by chance</td>
+<td>Rainfall shocks used to study economic growth and civil conflict (Miguel, Satyanath &amp; Sergenti 2004)</td>
+</tr>
+<tr class="odd">
+<td><strong>Difference-in-differences</strong></td>
+<td>Compare the <em>change</em> in treated vs.&nbsp;untreated units</td>
+<td>French manufacturing firms covered by the EU ETS vs.&nbsp;similar uncovered firms, before and after carbon pricing: regulated firms cut CO<sub>2</sub> by 14–16% (Colmer et al.&nbsp;2025)</td>
+</tr>
+<tr class="even">
+<td><strong>Regression discontinuity</strong></td>
+<td>Compare cases just above vs.&nbsp;just below a cutoff</td>
+<td><em>Design idea:</em> countries just above vs.&nbsp;just below an income threshold for concessional finance</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="keyidea">
+<p><strong>Credibility comes from the design</strong>, meaning how the comparison was set up, more than from adding control variables.</p>
+</div>
+<aside class="notes">
+<p>~4 min. Don’t teach the methods; teach that they exist and what they buy you. Vanden Eynde &amp; Vargas (Class 12) review this kind of evidence on climate and conflict. Colmer, Martin, Muûls &amp; Wagner (2025), “Does Pricing Carbon Mitigate Climate Change? Firm-Level Evidence from the European Union Emissions Trading System,” Review of Economic Studies 92(3): 1625–1660 (advance access May 2024). Matched difference-in-differences on French administrative data; 14% (phase I) and 16% (phase II) reductions, no detectable drop in output or employment. Verified against the open-access PDF.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="what-this-means-for-your-data-paper" class="slide level2">
+<h2>What this means for your data paper</h2>
+<div class="keyidea">
+<p>A careful <strong>description</strong> or <strong>correlation</strong> is a full, legitimate contribution. Just <strong>say what you found, not more</strong>.</p>
+</div>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Instead of…</th>
+<th>Write…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Vulnerability <strong>causes</strong> countries to receive more finance.”</td>
+<td>“More vulnerable countries <strong>received more</strong> finance on average.”</td>
+</tr>
+<tr class="even">
+<td>“Delegation size <strong>drives</strong> influence.”</td>
+<td>“Larger delegations <strong>are associated with</strong>…”</td>
+</tr>
+<tr class="odd">
+<td>“This <strong>proves</strong>…”</td>
+<td>“This <strong>is consistent with</strong>… but could also reflect…”</td>
+</tr>
+</tbody>
+</table>
+<p>Name <strong>one alternative explanation</strong> you can’t rule out. That is what your prompt means by <em>“what you can and cannot conclude.”</em></p>
+</section>
+<section id="samples-and-populations" class="slide level2 smaller">
+<h2>Samples and populations</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<ul>
+<li><strong>Population:</strong> every case you want to learn about</li>
+<li><strong>Sample:</strong> the cases you actually observe</li>
+<li>Any statistic from a sample (a mean, a correlation) would come out <strong>a bit different</strong> with a different sample</li>
+</ul>
+<p><br></p>
+<p>Let’s watch that happen with a simulated “world” of 150 countries →</p>
+</div><div class="column" style="width:55%;">
+<p><img data-src="figs/sampling_1_population.png" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="different-samples-different-answers" class="slide level2">
+<h2>Different samples, different answers</h2>
+
+<img data-src="figs/sampling_2_three_samples.png" class="quarto-figure quarto-figure-center r-stretch" style="width:76.0%"><div class="fragment">
+<p>Three random samples of 30 countries give <strong>three different means</strong>. None of them is “wrong.”</p>
+</div>
+</section>
+<section id="the-spread-of-possible-answers-is-the-uncertainty" class="slide level2">
+<h2>The spread of possible answers is the uncertainty</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/sampling_3_distribution.png" class="quarto-figure quarto-figure-center" height="420"></p>
+</figure>
+</div>
+<p>The <strong>standard error</strong> measures how much an estimate would bounce around from sample to sample. Bigger samples → smaller standard errors.</p>
+</section>
+<section id="confidence-intervals-and-p-values" class="slide level2 smaller">
+<h2>Confidence intervals and p-values</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="figs/confidence_intervals.png" style="width:100.0%"></p>
+</div><div class="column" style="width:42%;">
+<p><strong>95% confidence interval:</strong> a procedure that captures the true value in about 95% of samples. <em>(Here, 18 of 20 do.)</em></p>
+<p><strong>p-value:</strong> if there were really <strong>no</strong> relationship, how often would chance alone produce one at least this strong?</p>
+<p><span class="accent">A p-value is <strong>not</strong>…</span></p>
+<ul>
+<li>the probability your hypothesis is true</li>
+<li>a measure of how big or important the effect is</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>~3 min for the whole samples sequence. Statistical significance ≠ substantive significance.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-puzzle-what-if-you-already-have-every-country" class="slide level2">
+<h2>A puzzle: what if you already have every country?</h2>
+<p>Many datasets in this course cover <strong>(almost) every country</strong>: OECD climate finance, UNFCCC participant lists, every COP side event.</p>
+<div class="fragment">
+<p>Then what does a p-value mean?</p>
+<ul>
+<li>Treat the data as <strong>one realization</strong> of an ongoing process (this year’s allocations could have come out differently)</li>
+<li>Or treat the analysis as <strong>descriptive</strong>: you are reporting what happened, not estimating a hidden truth</li>
+<li>Either way, <strong>measurement error</strong> and <strong>who is missing</strong> still matter</li>
+</ul>
+<aside class="notes">
+<p>~1 min. No single right answer. Plant the seed; it comes back with Tennant.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="recap-six-ideas-to-carry-into-the-papers" class="slide level2">
+<h2>Recap: six ideas to carry into the papers</h2>
+<ol type="1">
+<li>Numbers are <strong>measurements of concepts</strong>. Every step from concept to number is a choice.</li>
+<li>Good questions are <strong>specific, answerable, and about variation</strong>.</li>
+<li>Correlation <strong>needs variation</strong>, and who is <strong>left out</strong> of the data shapes what you see.</li>
+<li>Correlation ≠ causation: <strong>confounding, reverse causality, selection</strong>.</li>
+<li>Credible causal claims come from <strong>design</strong>, not from adding controls.</li>
+<li>Every estimate comes with <strong>uncertainty</strong>. Report it honestly and keep statistical and substantive significance apart.</li>
+</ol>
+</section></section>
+<section>
+<section id="part-1b-measure-map-model" class="title-slide slide level1 divider center">
+<h1>Part 1B · Measure → Map → Model</h1>
+<p>Three readings, three steps in quantitative work</p>
+</section>
+<section id="three-steps-three-papers" class="slide level2">
+<h2>Three steps, three papers</h2>
+<div class="mmm big">
+<div>
+<p><span class="mmm-h">Measure</span></p>
+<p><em>What is it, and how do we count it?</em></p>
+<p><strong>Fransen et al.&nbsp;(2023)</strong><br>The implementation gap in climate policy</p>
+</div>
+<div>
+<p><span class="mmm-h">Map</span></p>
+<p><em>How is it distributed? What patterns appear?</em></p>
+<p><strong>Xie et al.&nbsp;(2025)</strong><br>Inclusivity at COP side events</p>
+</div>
+<div>
+<p><span class="mmm-h">Model</span></p>
+<p><em>What explains it, and how sure are we?</em></p>
+<p><strong>Tennant et al.&nbsp;(2024)</strong><br>Access to climate finance for SIDS</p>
+</div>
+</div>
+<p><br></p>
+<div class="activity">
+<p><strong>Small groups of 3–4.</strong> Everyone has read all three papers. For each paper, every group discusses the <strong>same prompts</strong> for about 4 minutes, then we hear from a few groups (2–3 minutes).</p>
+</div>
+<aside class="notes">
+<p>~1 min. Form groups of 3–4 now and keep them for all three papers. Each part builds on the one before: you can’t map what you haven’t measured, or model what you haven’t mapped. Report-outs: call on a different group each time; ask the others to add only what’s new.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="measure-fransen-et-al.-2023" class="slide level2 smaller">
+<h2>Measure · Fransen et al.&nbsp;(2023)</h2>
+<div class="mmm">
+<div class="on">
+<span class="mmm-h">Measure</span>
+</div>
+<div>
+<span class="mmm-h">Map</span>
+</div>
+<div>
+<span class="mmm-h">Model</span>
+</div>
+</div>
+<p><strong>The concept:</strong> the climate policy <strong>implementation gap</strong>. The authors split it into two parts:</p>
+<ul>
+<li><strong>Policy adoption gap:</strong> pledges vs.&nbsp;projected emissions under <em>adopted</em> policies (Climate Action Tracker estimates)</li>
+<li><strong>Policy outcome gap:</strong> what adopted policies <em>should</em> achieve vs.&nbsp;what they actually achieve. <strong>It cannot be measured directly</strong>, so they compare policy-strength scores with later outcomes (CCPI)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Who makes these numbers?</strong></p>
+<ul>
+<li><em>Climate Action Tracker:</em> Climate Analytics &amp; NewClimate Institute</li>
+<li><em>CCPI:</em> Germanwatch, NewClimate Institute &amp; CAN, partly from <strong>expert assessments</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Why it’s a model paper for you</strong></p>
+<ul>
+<li>A careful <strong>descriptive</strong> paper</li>
+<li>Openly says the outcome gap is a <strong>proxy</strong></li>
+<li>Time windows differ across its figures (2014–19, 2018–22, 2023)</li>
+</ul>
+</div></div>
+</section>
+<section id="measure-discuss-in-your-group" class="slide level2 smaller">
+<h2>Measure · Discuss in your group</h2>
+<div class="activity">
+<p><strong>Warm-up, 3 minutes.</strong> As a group, pick one concept. Write down: <strong>(1) an indicator, (2) a data source, (3) one thing your indicator misses.</strong></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Climate ambition</strong> of a country</li>
+<li><strong>State capacity</strong> to implement climate policy</li>
+<li><strong>Inclusivity</strong> of a COP</li>
+<li><strong>Vulnerability</strong> to climate change</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Then discuss Fransen et al.&nbsp;(4 min), and we’ll hear from a few groups:</strong></p>
+<ol type="1">
+<li>How did Fransen et al.&nbsp;get a number for something that “can only be measured after the fact”?</li>
+<li><strong>Validity:</strong> does a CCPI policy score capture <em>implementation</em>?</li>
+<li><strong>Reliability:</strong> would different experts score the same country the same way?</li>
+<li>Where does the outcome gap show up in the data? <em>(Hint: in the variation around the expected diagonal.)</em></li>
+</ol>
+</div>
+</div></div>
+<aside class="notes">
+<p>~12 min total for Measure: ~3 min paper intro, 3 min warm-up, 4 min group discussion, 2–3 min report-out. Collect 2–3 indicators per concept on the board. Then compare: Xie measures inclusivity; Tennant uses vulnerability indices. Key teaching points: validity vs reliability; comparability across countries; numbers made by NGOs/think tanks have their own choices built in.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="map-xie-et-al.-2025" class="slide level2 smaller">
+<h2>Map · Xie et al.&nbsp;(2025)</h2>
+<div class="mmm">
+<div>
+<span class="mmm-h">Measure</span>
+</div>
+<div class="on">
+<span class="mmm-h">Map</span>
+</div>
+<div>
+<span class="mmm-h">Model</span>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>The data:</strong> UNFCCC records of every COP side event, <strong>COP9–COP28 (2003–2023)</strong>: titles, descriptions, host organizations, and who nominated participants</p>
+<p><strong>The methods:</strong></p>
+<ul>
+<li><strong>Topic modelling</strong> (machine learning on event text) to trace themes such as energy, food and forests</li>
+<li><strong>Network analysis</strong> of who co-hosts energy events with whom (COP17–28)</li>
+</ul>
+<p><strong>The pattern:</strong> fossil-fuel lobbyists gain access through business NGOs and some governments, and sit at the <strong>edge</strong> of the anti-fossil-fuel discussion, which grew from a tight network of environmental NGOs.</p>
+</div><div class="column" style="width:45%;">
+<div class="keyidea">
+<p>This is <strong>“found data”</strong>: administrative records kept for running a conference, repurposed to measure <strong>inclusivity</strong>.</p>
+<p>Mapping is a <strong>contribution in itself</strong>. No causal claim is needed to make an important point.</p>
+</div>
+</div></div>
+</section>
+<section id="map-discuss-in-your-group" class="slide level2">
+<h2>Map · Discuss in your group</h2>
+<div class="activity">
+<p><strong>In your group, 4 minutes.</strong> Then a few groups report back (2–3 minutes).</p>
+</div>
+<ol type="1">
+<li><strong>What is one observation?</strong> An event? An organization? A link between organizations?</li>
+<li><strong>Population or sample?</strong> Every <em>registered</em> side event is included. What isn’t?
+<ul>
+<li>Unregistered events, country pavilions, the negotiating rooms themselves…</li>
+</ul></li>
+<li><strong>How does “inclusivity” become a number?</strong> Topic shares? Network position? What would <em>you</em> use?</li>
+<li><strong>Variation:</strong> what differs across COPs and across actor groups? Is that enough to compare them fairly?</li>
+<li><strong>What can’t this paper conclude?</strong> Does a central network position mean <strong>influence</strong> over outcomes?</li>
+</ol>
+<aside class="notes">
+<p>~12 min total for Map: ~4 min paper intro, 4 min groups, 2–3 min report-out. Tie back to the lecture: selection (registered events only), measurement (inclusivity), description as a legitimate end goal. Link to students interested in non-state actors, AOSIS, major powers.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="model-tennant-davies-tennant-2024" class="slide level2 smaller">
+<h2>Model · Tennant, Davies &amp; Tennant (2024)</h2>
+<div class="mmm">
+<div>
+<span class="mmm-h">Measure</span>
+</div>
+<div>
+<span class="mmm-h">Map</span>
+</div>
+<div class="on">
+<span class="mmm-h">Model</span>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Two questions:</strong></p>
+<ol type="1">
+<li>Do donors use <strong>different criteria</strong> to decide <em>who is eligible</em> for climate finance than to decide <em>how much</em> they get?</li>
+<li>Do SIDS get more or less finance than <strong>their vulnerability and adaptive capacity justify</strong>?</li>
+</ol>
+<p><strong>Two stages:</strong></p>
+<p><img data-src="figs/tennant_stages.png" style="width:100.0%"></p>
+</div><div class="column" style="width:45%;">
+<p><strong>Findings (from the abstract):</strong></p>
+<ul>
+<li>DAC donors use <strong>significantly different criteria</strong> at the two stages</li>
+<li>Low-income SIDS with weak capacities are often <strong>ineligible</strong>, excluded by complex processes, or get <strong>meagre</strong> allocations</li>
+<li>SIDS are <strong>not one group</strong>: the average hides a split</li>
+</ul>
+<div class="keyidea">
+<p>Remember <strong>restricted range</strong>: study only recipients and you miss stage 1.</p>
+</div>
+</div></div>
+</section>
+<section id="model-activity-build-the-causal-diagram" class="slide level2">
+<h2>Model · Activity: build the causal diagram</h2>
+<div class="activity">
+<p><strong>Whole class, 5 minutes.</strong> What else affects how much climate finance a country receives? I’ll draw it as you call it out.</p>
+</div>
+
+<img data-src="figs/tennant_dag.png" class="quarto-figure quarto-figure-center r-stretch" style="width:72.0%"><p><span class="tiny"><em>Starting point. We add arrows together.</em></span></p>
+<aside class="notes">
+<p>Reveal the diagram after students have offered several factors, or draw on the board first and show this as a comparison. Push on: which of these does Tennant control for? Which could still be lurking? Is anything a consequence of finance rather than a cause (reverse causality: does finance build capacity)?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="model-discuss-in-your-group" class="slide level2">
+<h2>Model · Discuss in your group</h2>
+<div class="activity">
+<p><strong>In your group, 4 minutes.</strong> Then a few groups report back (2–3 minutes).</p>
+</div>
+<ol type="1">
+<li><strong>Measure:</strong> where do the finance numbers come from, and who reports them? <em>(Donors report to the OECD and tag projects themselves.)</em></li>
+<li>Is “<strong>more than justified by vulnerability</strong>” a causal claim or a comparison? What does “justified” assume?</li>
+<li><strong>Confounders:</strong> which factors does the model hold constant? What could still be missing?</li>
+<li><strong>Inference:</strong> the data cover nearly every recipient. What do the p-values mean here?</li>
+<li><strong>Design:</strong> if you wanted a <em>causal</em> answer, what comparison would you look for? <em>(A sudden disaster? An eligibility cutoff?)</em></li>
+</ol>
+<aside class="notes">
+<p>~16 min total for Model: ~4 min paper intro, 5 min diagram, 4 min groups, 2–3 min report-out. This is the most advanced paper; aim for intuition, not estimation details. Connect explicitly to Part 2: students will run a simplified version (vulnerability vs adaptation finance, SIDS vs non-SIDS).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-papers-three-kinds-of-claim" class="slide level2">
+<h2>Three papers, three kinds of claim</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Measure</th>
+<th>Map</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Paper</strong></td>
+<td>Fransen et al.</td>
+<td>Xie et al.</td>
+<td>Tennant et al.</td>
+</tr>
+<tr class="even">
+<td><strong>Kind of claim</strong></td>
+<td><em>There is a gap, and here is its size</em></td>
+<td><em>Here is who is where</em></td>
+<td><em>These factors predict who gets what</em></td>
+</tr>
+<tr class="odd">
+<td><strong>Main risk</strong></td>
+<td>Validity of proxies</td>
+<td>Who is missing</td>
+<td>Confounding; meaning of inference</td>
+</tr>
+<tr class="even">
+<td><strong>Lecture idea</strong></td>
+<td>Concept → number</td>
+<td>Variation and selection</td>
+<td>Correlation ≠ causation; uncertainty</td>
+</tr>
+</tbody>
+</table>
+<div class="keyidea">
+<p>Your data paper will probably sit in <strong>Measure</strong> and <strong>Map</strong>, perhaps with a careful step toward <strong>Model</strong>. That is exactly the right scope.</p>
+</div>
+</section></section>
+<section>
+<section id="part-1c-your-question-ladder" class="title-slide slide level1 divider center">
+<h1>Part 1C · Your question ladder</h1>
+<p>From topic to a question your data can answer</p>
+</section>
+<section id="before-you-climb-where-is-your-variation" class="slide level2">
+<h2>Before you climb: where is your variation?</h2>
+<p>Every question type needs something that <strong>differs</strong>. Find yours before you pick a question.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question type</th>
+<th>The variation you need</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Change</strong></td>
+<td>The same measure in several years</td>
+</tr>
+<tr class="even">
+<td><strong>Distribution</strong></td>
+<td>Many units that receive or have different amounts</td>
+</tr>
+<tr class="odd">
+<td><strong>Comparison</strong></td>
+<td>At least two groups (or periods), with several cases in each</td>
+</tr>
+<tr class="even">
+<td><strong>Composition</strong></td>
+<td>A total that splits into parts, and parts that differ in size</td>
+</tr>
+<tr class="odd">
+<td><strong>Relationship</strong></td>
+<td>Variation in <strong>both</strong> the outcome (<em>Y</em>) <strong>and</strong> the predictor (<em>X</em>)</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>~1 min. A relationship question needs both X and Y to vary across the same cases. If your outcome barely varies (every country signed the treaty), there is nothing to explain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="where-variation-comes-from-by-primary-focus" class="slide level2">
+<h2>Where variation comes from, by primary focus</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Your primary focus</th>
+<th>Typical unit (one row)</th>
+<th>Variation often comes from…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actor</strong> (China, AOSIS, a firm)</td>
+<td>Actor-year, or the actor vs.&nbsp;peers</td>
+<td>Over time; comparison with similar actors</td>
+</tr>
+<tr class="even">
+<td><strong>IO / institution</strong> (GCF, World Bank)</td>
+<td>Project or recipient</td>
+<td>Across projects, recipients, sectors, years</td>
+</tr>
+<tr class="odd">
+<td><strong>Issue</strong> (adaptation, deforestation)</td>
+<td>Country or country-year</td>
+<td>Across countries and over time</td>
+</tr>
+<tr class="even">
+<td><strong>Instrument / policy</strong> (NDCs, carbon pricing)</td>
+<td>Country or country-year</td>
+<td>Adopters vs.&nbsp;non-adopters; before vs.&nbsp;after</td>
+</tr>
+</tbody>
+</table>
+<div class="keyidea">
+<p><strong>One actor = no variation across cases.</strong> Get it from time, a comparison group, or the parts of a total.</p>
+</div>
+<aside class="notes">
+<p>~1.5 min. The trap: one actor (say, China) gives no cross-sectional variation, so you need time, a comparison group, or a breakdown into parts. Both tables are on the question-ladder worksheet.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="climb-the-ladder" class="slide level2">
+<h2>Climb the ladder</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Rung</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Topic</strong></td>
+<td>Climate finance for small islands</td>
+</tr>
+<tr class="even">
+<td><strong>Concept</strong></td>
+<td>Access to adaptation finance</td>
+</tr>
+<tr class="odd">
+<td><strong>Measure</strong></td>
+<td>Adaptation-related development finance per capita (OECD), 2015–2022</td>
+</tr>
+<tr class="even">
+<td><strong>Pattern</strong></td>
+<td>Does it vary across SIDS by income level?</td>
+</tr>
+<tr class="odd">
+<td><strong>Question</strong></td>
+<td>Did lower-income SIDS receive less adaptation finance per capita than higher-income SIDS, 2015–2022?</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="activity">
+<p><strong>Individually, 5 minutes:</strong> write your own five rungs.</p>
+<p><strong>In your group, 4 minutes:</strong> swap. Your partners check:</p>
+<ul>
+<li>Is the measure available?</li>
+<li>What <strong>varies</strong>: over time, across units, or both? <em>(For relationships: do X <strong>and</strong> Y vary?)</em></li>
+<li>What <strong>can’t</strong> you conclude?</li>
+</ul>
+</div>
+<p>A few volunteers share <em>(2 min)</em>.</p>
+</div></div>
+<aside class="notes">
+<p>~10 min (~12 with the variation slide). Hand out the question-ladder worksheet. Collect ladders (photo or a shared doc) so you can tailor Part 2 examples. The example question is a Comparison question. Point out that it’s descriptive and answerable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="after-the-break" class="slide level2 divider">
+<h2>After the break</h2>
+<p>Bring your question ladder. We’ll work with real data:</p>
+<p><strong>summary statistics → one good figure → one statistical test</strong></p>
+<p><span class="muted">Break 2:30–2:45 · Lab starts at 2:45. Open RStudio during the break and come find me if anything isn’t working.</span></p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>POLS 081 · SSQL Workshop · Part 1</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"\u003ci class=\"fas fa-gear\">\u003c/i>","content":"\u003cul class=\"slide-menu-items\">\n\u003cli class=\"slide-tool-item active\" data-item=\"0\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\">\u003ckbd>f\u003c/kbd> Fullscreen\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"1\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\">\u003ckbd>s\u003c/kbd> Speaker View\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"2\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\">\u003ckbd>o\u003c/kbd> Slide Overview\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"3\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\">\u003ckbd>e\u003c/kbd> PDF Export Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"4\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\">\u003ckbd>r\u003c/kbd> Scroll View Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"5\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\">\u003ckbd>?\u003c/kbd> Keyboard Help\u003c/a>\u003c/li>\n\u003c/ul>"}],"openButton":true,"openButtonLabel":"Slide menu"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/gamusu\.github\.io\/pols081-ssql-workshop\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+          window.quartoDecorateExternalLinks = function (root) {
+         var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+              if (!link.classList.contains('no-external-icon')) {
+              }
+            }
+          }
+          };
+          window.quartoDecorateExternalLinks(window.document);
+        // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+        // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+        const hideOnEscAndFocusOut = {
+          name: 'hideOnEscAndFocusOut',
+          defaultValue: true,
+          fn(instance) {
+            const dismiss = () => {
+              // A show scheduled by the trigger delay would otherwise reopen it
+              instance.clearDelayTimeouts();
+              instance.hide();
+            };
+            const onKeyDown = (event) => {
+              if (event.key !== 'Escape') {
+                return;
+              }
+              // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+              // except an open reveal.js slide menu, which Esc should close too.
+              // The menu handles keys only when its keyboard option is on.
+              const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+                window.Reveal.getConfig().menu?.keyboard !== false;
+              if (!menuHandlesEsc) {
+                event.stopPropagation();
+              }
+              if (instance.popper.contains(window.document.activeElement)) {
+                // Disabled while refocusing so the focus trigger does not reopen it
+                instance.disable();
+                instance.reference.focus();
+                instance.enable();
+              }
+              dismiss();
+            };
+            const onFocusOut = (event) => {
+              const target = event.relatedTarget;
+              if (target && !instance.reference.contains(target) &&
+                  !instance.popper.contains(target)) {
+                dismiss();
+              }
+            };
+            // On the trigger too: a click trigger (code-annotations: select) has no
+            // blur handling. Attached for the instance's lifetime so leaving the
+            // trigger also cancels a show still pending on the trigger delay.
+            instance.reference.addEventListener('focusout', onFocusOut);
+            return {
+              onShow() {
+                window.document.addEventListener('keydown', onKeyDown, true);
+                instance.popper.addEventListener('focusout', onFocusOut);
+              },
+              onHide() {
+                window.document.removeEventListener('keydown', onKeyDown, true);
+                instance.popper.removeEventListener('focusout', onFocusOut);
+              },
+              onDestroy() {
+                instance.reference.removeEventListener('focusout', onFocusOut);
+              },
+            };
+          },
+        };
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+            plugins: [hideOnEscAndFocusOut],
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

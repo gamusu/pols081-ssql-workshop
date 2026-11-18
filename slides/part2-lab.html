@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.11.9">
+
+  <meta name="author" content="Greg Amusu · Social Science Quantitative Lab (SSQL)">
+  <meta name="dcterms.date" content="2026-11-18">
+  <title>POLS 081 · SSQL Data Workshop – From Data to Evidence</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4deb69a15b6bd7e908aa28ded3394e2e.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">From Data to Evidence</h1>
+  <p class="subtitle">Lab: summary statistics, one figure, one test</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Greg Amusu · Social Science Quantitative Lab (SSQL)
+</div>
+        <p class="quarto-title-affiliation">
+            POLS 081 · Global Environmental Governance
+          </p>
+    </div>
+</div>
+
+  <p class="date">November 18, 2026</p>
+</section>
+<section id="the-lab-245400" class="slide level2">
+<h2>The lab, 2:45–4:00</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>What we do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2:45</td>
+<td>Get the files; anatomy of a Quarto document</td>
+</tr>
+<tr class="even">
+<td>2:55</td>
+<td>Load and look at the data</td>
+</tr>
+<tr class="odd">
+<td>3:00</td>
+<td><strong>Summary statistics</strong></td>
+</tr>
+<tr class="even">
+<td>3:10</td>
+<td><strong>One good figure</strong></td>
+</tr>
+<tr class="odd">
+<td>3:20</td>
+<td><strong>One statistical test</strong></td>
+</tr>
+<tr class="even">
+<td>3:30</td>
+<td>Your turn: Example 2</td>
+</tr>
+<tr class="odd">
+<td>3:45</td>
+<td>Render to PDF</td>
+</tr>
+<tr class="even">
+<td>3:50</td>
+<td>Bring it back to your paper</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:45%;">
+<div class="keyidea">
+<p><strong>The recipe for every data paper question:</strong></p>
+<p>summary statistics → one good figure → one statistical test</p>
+</div>
+<p>We’ll walk through <strong>Example 1</strong> together. You’ll do <strong>Example 2</strong> yourself. The <strong>Workshop Questions</strong> are for after class.</p>
+</div></div>
+<aside class="notes">
+<p>~1 min. Everyone should have R, RStudio and the tidyverse working after the break. Anyone still stuck: pair them with a neighbor for now and fix it while others work on Example 2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="get-the-lab-files" class="slide level2">
+<h2>Get the lab files</h2>
+<ol type="1">
+<li>Download <strong><code>pols081-lab.zip</code></strong> from the workshop website (Part 2 page).</li>
+<li><strong>Unzip it.</strong> On Windows, right-click → <strong>Extract All…</strong> (don’t work inside the zip).</li>
+<li>Open the folder and double-click <strong><code>pols081-lab.Rproj</code></strong>. RStudio opens in that folder.</li>
+<li>In the <strong>Files</strong> pane, open <strong><code>lab-handout.qmd</code></strong>.</li>
+</ol>
+<div class="activity">
+<p><strong>Check:</strong> run the first chunk, <code>library(tidyverse)</code>. A list of packages with ✔ marks means you’re ready. Hand up if you see an error.</p>
+</div>
+<aside class="notes">
+<p>~4 min. Common problems: working inside the zip on Windows (files won’t save, data won’t load); a OneDrive folder with a non-ASCII path; tidyverse not installed. Fix: extract to Desktop or Documents.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="anatomy-of-a-quarto-document" class="slide level2">
+<h2>Anatomy of a Quarto document</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab: Summary Statistics..."</span></span>
+<span id="cb1-3"><a aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Put your name here!"</span></span>
+<span id="cb1-4"><a aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> typst</span></span>
+<span id="cb1-5"><a aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-6"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a aria-hidden="true" tabindex="-1"></a>Text you write, in **Markdown**.</span>
+<span id="cb1-8"><a aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-10"><a aria-hidden="true" tabindex="-1"></a>aid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/adaptation_aid.csv"</span>)</span>
+<span id="cb1-11"><a aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:45%;">
+<ol type="1">
+<li><strong>YAML header</strong> between the <code>---</code> lines: title, author, output format (<code>typst</code> makes a PDF)</li>
+<li><strong>Text</strong>: your writing, with simple formatting</li>
+<li><strong>Code chunks</strong>: R code that runs and puts its results in the document</li>
+</ol>
+<p><br></p>
+<p><strong>Run</strong> a chunk: ▶ or <strong>Cmd/Ctrl + Shift + Enter</strong><br> <strong>Render</strong> the whole file: the <strong>Render</strong> button</p>
+</div></div>
+<aside class="notes">
+<p>~3 min. Put your name in the author line now. Running a chunk shows results in RStudio only; Render runs everything from top to bottom in a fresh session and makes the PDF. If Render fails but chunks run, you probably skipped a chunk or created an object out of order.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section>
+<section id="example-1-do-more-vulnerable-countries-receive-more-adaptation-aid" class="title-slide slide level1 divider center">
+<h1>Example 1 · Do more vulnerable countries receive more adaptation aid?</h1>
+<p>A simple, descriptive version of Tennant et al.&nbsp;(2024)</p>
+</section>
+<section id="load-and-look" class="slide level2">
+<h2>Load and look</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-hidden="true" tabindex="-1"></a>aid <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/adaptation_aid.csv"</span>)</span>
+<span id="cb2-2"><a aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(aid)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 134
+Columns: 8
+$ country        &lt;chr&gt; "Afghanistan", "Albania", "Algeria", "Angola", "Antigua…
+$ iso3c          &lt;chr&gt; "AFG", "ALB", "DZA", "AGO", "ATG", "ARG", "ARM", "AZE",…
+$ region         &lt;chr&gt; "Middle East, North Africa, Afghanistan &amp; Pakistan", "E…
+$ income_group   &lt;chr&gt; "Low income", "Upper middle income", "Upper middle inco…
+$ sids           &lt;chr&gt; "Other", "Other", "Other", "Other", "SIDS", "Other", "O…
+$ population     &lt;dbl&gt; 41454761, 2411658, 46164219, 36749906, 93316, 45538401,…
+$ vulnerability  &lt;dbl&gt; 0.612, 0.416, 0.430, 0.528, 0.485, 0.408, 0.394, 0.428,…
+$ adapt_aid_musd &lt;dbl&gt; 208.061, 177.871, 28.381, 48.847, 0.439, 29.661, 62.074…</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>~3 min. One row = one recipient country. Point out the column types (<chr> text, <dbl> numbers) and walk the codebook in the handout: where each column comes from. This is the Measure step from Part 1: adapt_aid_musd is donor-reported, Rio-marked commitments, not money spent.</dbl></chr></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="build-the-measure-you-need" class="slide level2">
+<h2>Build the measure you need</h2>
+<p>Large countries get more aid in total simply because they have more people. Make a <strong>per-person</strong> measure:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-hidden="true" tabindex="-1"></a>aid <span class="ot">&lt;-</span> aid <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">aid_pc =</span> adapt_aid_musd <span class="sc">*</span> <span class="dv">1000000</span> <span class="sc">/</span> population)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="keyidea">
+<p><strong>Every measure is a choice.</strong> Total aid answers <em>where does the money go?</em> Aid per person answers <em>how much does each person’s country get?</em> They tell different stories. Say which you use and why.</p>
+</div>
+<aside class="notes">
+<p>~2 min. Callback to “numbers are measurements, not the things themselves.”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="summary-statistics" class="title-slide slide level1 divider center">
+<h1>Summary statistics</h1>
+<p>Mean · median · spread · groups · shares</p>
+</section>
+<section id="mean-vs.-median" class="slide level2">
+<h2>Mean vs.&nbsp;median</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-hidden="true" tabindex="-1"></a>aid <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(aid_pc), <span class="at">median =</span> <span class="fu">median</span>(aid_pc), <span class="at">sd =</span> <span class="fu">sd</span>(aid_pc), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+   mean median    sd     n
+  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1  39.2   6.86  159.   134</code></pre>
+</div>
+</div>
+
+<img data-src="part2-lab_files/figure-revealjs/unnamed-chunk-6-1.png" width="1056" class="r-stretch"><aside class="notes">
+<p>~3 min. Mean much bigger than median = right skew: most countries get a few dollars per person, a handful get a lot. Ask: which number describes a “typical” recipient? (The median.) The sd is large relative to the mean, another sign of skew.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="who-gets-the-most-depends-how-you-count" class="slide level2">
+<h2>Who gets the most? Depends how you count</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>In total</strong> (US$ millions per year)</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: left;">SIDS?</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">India</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">1299</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bangladesh</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">1164</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Indonesia</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">1076</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Philippines</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">1031</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ethiopia</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">771</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cambodia</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">528</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colombia</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">524</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morocco</td>
+<td style="text-align: left;">Other</td>
+<td style="text-align: right;">477</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Per person</strong> (US$ per year)</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: left;">SIDS?</th>
+<th style="text-align: right;">Per person</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Tuvalu</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">1693</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Naoero (Nauru)</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">547</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Palau</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">294</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tonga</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">274</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Marshall Islands</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">263</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vanuatu</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">210</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kiribati</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">168</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Samoa</td>
+<td style="text-align: left;">SIDS</td>
+<td style="text-align: right;">126</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div></div>
+<p><code>arrange(desc(...))</code> sorts, <code>select()</code> picks columns, <code>slice_head(n = 8)</code> keeps the top rows.</p>
+<aside class="notes">
+<p>~2 min. Same data, two very different top lists. This sets up the CO2 Workshop Questions (total vs per capita), so don’t give away more than this.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="comparing-groups-and-finding-shares" class="slide level2">
+<h2>Comparing groups and finding shares</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-hidden="true" tabindex="-1"></a>aid <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sids) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_pc =</span> <span class="fu">median</span>(aid_pc), <span class="at">mean_pc =</span> <span class="fu">mean</span>(aid_pc), <span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  sids  median_pc mean_pc     n
+  &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;
+1 Other      5.99    9.83   103
+2 SIDS      25.6   137.      31</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Composition:</strong> what share of all adaptation aid goes to SIDS?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-hidden="true" tabindex="-1"></a>aid <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sids) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">total_musd =</span> <span class="fu">sum</span>(adapt_aid_musd)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">share =</span> total_musd <span class="sc">/</span> <span class="fu">sum</span>(total_musd))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  sids  total_musd  share
+  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;
+1 Other     19795. 0.947 
+2 SIDS       1101. 0.0527</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>~4 min. group_by() + summarize() = one row per group. The composition question is one of the five question types from the prompt. Ask: SIDS get a small share of the total but a lot per person. Which is the “fair” comparison? (No single answer; depends on the question.)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
+<section>
+<section id="one-good-figure" class="title-slide slide level1 divider center">
+<h1>One good figure</h1>
+<p>One question · honest axes · plain labels · a source · a takeaway</p>
+</section>
+<section id="what-makes-a-figure-good" class="slide level2">
+<h2>What makes a figure good?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Answers <strong>one question</strong></li>
+<li><strong>Honest axes</strong>: say when a scale is logged; bars start at zero</li>
+<li><strong>Plain-language labels</strong> with units</li>
+<li>A <strong>source line</strong></li>
+<li>A <strong>one-sentence takeaway</strong> in your text</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><code>ggplot()</code> builds a figure in <strong>layers</strong>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aid, <span class="fu">aes</span>(<span class="at">x =</span> sids, <span class="at">y =</span> aid_pc)) <span class="sc">+</span>   <span class="co"># data + axes</span></span>
+<span id="cb11-2"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                          <span class="co"># the marks</span></span>
+<span id="cb11-3"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span>                         <span class="co"># the scale</span></span>
+<span id="cb11-4"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"..."</span>, <span class="at">x =</span> <span class="cn">NULL</span>,             <span class="co"># the words</span></span>
+<span id="cb11-5"><a aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Aid per person, US$ (log scale)"</span>,</span>
+<span id="cb11-6"><a aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Source: OECD; World Bank."</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                           <span class="co"># the look</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+<aside class="notes">
+<p>~3 min. Point back to the syllabus: “What does this show? Why does it matter? What can I conclude, and what can I not conclude?” Remind them of the AI policy: they must make their own figures.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-comparison-boxplot" class="slide level2">
+<h2>A comparison: boxplot</h2>
+
+<img data-src="part2-lab_files/figure-revealjs/unnamed-chunk-12-1.png" width="1056" class="r-stretch"><aside class="notes">
+<p>~2 min. Read it together: the line is the median, the box the middle half. Log scale: each gridline is 10x the one below. Takeaway: SIDS get far more per person.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-relationship-scatterplot" class="slide level2">
+<h2>A relationship: scatterplot</h2>
+
+<img data-src="part2-lab_files/figure-revealjs/unnamed-chunk-13-1.png" width="1056" class="r-stretch"><div class="activity">
+<p><strong>Your takeaway sentence?</strong> Call one out.</p>
+</div>
+<aside class="notes">
+<p>~3 min. Get two or three takeaway sentences from the room and tighten one together. Watch for causal language (“vulnerability causes…”).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="one-statistical-test" class="title-slide slide level1 divider center">
+<h1>One statistical test</h1>
+<p>Could chance alone produce a pattern this strong?</p>
+</section>
+<section id="correlation-test" class="slide level2">
+<h2>Correlation test</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(aid<span class="sc">$</span>vulnerability, <span class="fu">log</span>(aid<span class="sc">$</span>aid_pc))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  aid$vulnerability and log(aid$aid_pc)
+t = 3.2341, df = 132, p-value = 0.001542
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.1062558 0.4211952
+sample estimates:
+      cor 
+0.2709616 </code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>~4 min. Read three things: the correlation (cor), the 95% CI, the p-value. We use log(aid_pc) because a few extreme values drive an ordinary correlation, and to match the log-scale figure. Recall from Part 1: the p-value asks “if there were no relationship, how often would chance alone produce one this strong?”</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="comparing-two-means-t-test" class="slide level2">
+<h2>Comparing two means: <em>t</em>-test</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(aid_pc <span class="sc">~</span> sids, <span class="at">data =</span> aid)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  aid_pc by sids
+t = -2.2527, df = 30.03, p-value = 0.03174
+alternative hypothesis: true difference in means between group Other and group SIDS is not equal to 0
+95 percent confidence interval:
+ -241.80448  -11.85043
+sample estimates:
+mean in group Other  mean in group SIDS 
+           9.832621          136.660076 </code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>~3 min. The formula reads “aid per person, by SIDS status.” Look at the two group means, the CI for the difference, the p-value. A big difference with a wide CI: the SIDS group is small and very spread out.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-the-test-cant-tell-you" class="slide level2">
+<h2>What the test can’t tell you</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><strong>Confounding:</strong> SIDS are small, and small countries get more per person. Vulnerability, size, or donor ties?</li>
+<li><strong>Selection:</strong> only countries that <em>received</em> adaptation aid are in the data. Tennant’s eligibility stage is invisible.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><strong>Measurement:</strong> donors tag their own projects; “significant” projects count in full.</li>
+<li><strong>Inference:</strong> we have nearly every recipient. The p-value is about chance in allocations, not about a bigger population.</li>
+</ul>
+</div></div>
+<div class="keyidea">
+<p>A small p-value says <strong>chance alone is an unlikely explanation</strong>. It doesn’t say <strong>why</strong>, and it doesn’t say <strong>how much it matters</strong>.</p>
+</div>
+<aside class="notes">
+<p>~3 min. Straight callback to the Part 1 recap: confounding, selection, measurement, uncertainty.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="your-turn-example-2" class="slide level2 smaller">
+<h2>Your turn: Example 2</h2>
+<div class="activity">
+<p><strong>15 minutes, with a neighbor.</strong> In <code>lab-handout.qmd</code>, go to <strong>Example 2: Renewable Energy and National Income</strong>. Fill in each blank chunk using Example 1 as your model.</p>
+</div>
+<ul>
+<li>Same steps, new question: <strong>do richer countries get more of their energy from renewables?</strong></li>
+<li>Stuck? Copy the matching chunk from Example 1 and change the data frame and variable names.</li>
+<li>The <strong>guide PDF</strong> on the website has the Example 2 code if you need to check.</li>
+</ul>
+<div class="fragment">
+<div class="keyidea">
+<p><strong>Look closely at your result.</strong> Does “renewable share” measure a <em>clean-energy transition</em>? Hint: what counts as renewable in poor countries?</p>
+</div>
+<aside class="notes">
+<p>~15 min. Circulate. Common errors: object not found (didn’t run the read_csv chunk), misspelled column names, forgetting quotes in filter(), using = instead of == in filter. At ~3:43, ask what they found: poorer countries have higher renewable shares because traditional biomass counts as renewable. Measure lesson again.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="render-to-pdf" class="slide level2">
+<h2>Render to PDF</h2>
+<ol type="1">
+<li>Save the file.</li>
+<li>Click <strong>Render</strong>. Quarto runs every chunk from the top in a fresh session, then Typst builds the PDF.</li>
+<li>The PDF opens in the Viewer and is saved next to your <code>.qmd</code>.</li>
+</ol>
+<p><strong>If it fails:</strong></p>
+<ul>
+<li><strong>“object not found”</strong>: a chunk uses something created in a chunk that is now blank or out of order</li>
+<li><strong>“could not find function”</strong>: <code>library(tidyverse)</code> didn’t run</li>
+<li><strong>“cannot open file data/…”</strong>: the <code>.qmd</code> isn’t in the folder with <code>data/</code></li>
+</ul>
+<aside class="notes">
+<p>~4 min. Blank chunks render fine. The Workshop Questions chunks are blank too, so the handout renders before they’re done.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="back-to-your-data-paper" class="title-slide slide level1 divider center">
+<h1>Back to your data paper</h1>
+
+</section>
+<section id="which-summary-figure-and-test-for-which-question" class="slide level2 smaller">
+<h2>Which summary, figure and test for which question?</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question type</th>
+<th>Summary statistics</th>
+<th>One good figure</th>
+<th>A test, if you want one</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Change</strong> over time</td>
+<td>Values by year; change from start to end</td>
+<td>Line chart</td>
+<td>Often none; describe the trend</td>
+</tr>
+<tr class="even">
+<td><strong>Distribution</strong></td>
+<td>Mean, median, top 10, spread</td>
+<td>Bar chart of top units; histogram</td>
+<td>Usually none</td>
+</tr>
+<tr class="odd">
+<td><strong>Comparison</strong></td>
+<td>Mean/median by group</td>
+<td>Boxplot or bar chart by group</td>
+<td><em>t</em>-test (two groups)</td>
+</tr>
+<tr class="even">
+<td><strong>Composition</strong></td>
+<td>Shares of a total</td>
+<td>Stacked or simple bar chart of shares</td>
+<td>Usually none</td>
+</tr>
+<tr class="odd">
+<td><strong>Relationship</strong></td>
+<td>Correlation</td>
+<td>Scatterplot</td>
+<td>Correlation test</td>
+</tr>
+</tbody>
+</table>
+<div class="activity">
+<p><strong>2 minutes.</strong> Look at your question ladder from Part 1. Which row is your question in? Write down the <strong>one figure</strong> you’d make first.</p>
+</div>
+<aside class="notes">
+<p>~5 min. Emphasize the syllabus: “A clear graph that answers an interesting question is more valuable than an unnecessary regression.” Tests are optional for their paper. Variation reminder: each row needs something that varies.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="before-you-go" class="slide level2">
+<h2>Before you go</h2>
+<ul>
+<li><strong>Finish the Workshop Questions</strong> (CO<sub>2</sub> in total vs.&nbsp;per person) in <code>lab-handout.qmd</code></li>
+<li><strong>Need to combine two datasets?</strong> Try <code>merging-data.qmd</code> in the same folder</li>
+<li><strong>Find data:</strong> the workshop website has a <strong>data sources</strong> page, organized by primary focus (actor, IO, issue, instrument)</li>
+<li><strong>Get help:</strong> book SSQL office hours with Greg (Science Center 205)</li>
+</ul>
+<div class="keyidea">
+<p>A careful description, an honest figure and a clear statement of <strong>what you can and cannot conclude</strong>: that’s a strong data paper.</p>
+</div>
+<aside class="notes">
+<p>~1 min. Point to the website’s Help page for the booking link.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>POLS 081 · SSQL Workshop · Part 2</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"\u003ci class=\"fas fa-gear\">\u003c/i>","content":"\u003cul class=\"slide-menu-items\">\n\u003cli class=\"slide-tool-item active\" data-item=\"0\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\">\u003ckbd>f\u003c/kbd> Fullscreen\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"1\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\">\u003ckbd>s\u003c/kbd> Speaker View\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"2\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\">\u003ckbd>o\u003c/kbd> Slide Overview\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"3\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\">\u003ckbd>e\u003c/kbd> PDF Export Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"4\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\">\u003ckbd>r\u003c/kbd> Scroll View Mode\u003c/a>\u003c/li>\n\u003cli class=\"slide-tool-item\" data-item=\"5\">\u003ca href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\">\u003ckbd>?\u003c/kbd> Keyboard Help\u003c/a>\u003c/li>\n\u003c/ul>"}],"openButton":true,"openButtonLabel":"Slide menu"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 6.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/gamusu\.github\.io\/pols081-ssql-workshop\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+          window.quartoDecorateExternalLinks = function (root) {
+         var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+              if (!link.classList.contains('no-external-icon')) {
+              }
+            }
+          }
+          };
+          window.quartoDecorateExternalLinks(window.document);
+        // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+        // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+        const hideOnEscAndFocusOut = {
+          name: 'hideOnEscAndFocusOut',
+          defaultValue: true,
+          fn(instance) {
+            const dismiss = () => {
+              // A show scheduled by the trigger delay would otherwise reopen it
+              instance.clearDelayTimeouts();
+              instance.hide();
+            };
+            const onKeyDown = (event) => {
+              if (event.key !== 'Escape') {
+                return;
+              }
+              // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+              // except an open reveal.js slide menu, which Esc should close too.
+              // The menu handles keys only when its keyboard option is on.
+              const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+                window.Reveal.getConfig().menu?.keyboard !== false;
+              if (!menuHandlesEsc) {
+                event.stopPropagation();
+              }
+              if (instance.popper.contains(window.document.activeElement)) {
+                // Disabled while refocusing so the focus trigger does not reopen it
+                instance.disable();
+                instance.reference.focus();
+                instance.enable();
+              }
+              dismiss();
+            };
+            const onFocusOut = (event) => {
+              const target = event.relatedTarget;
+              if (target && !instance.reference.contains(target) &&
+                  !instance.popper.contains(target)) {
+                dismiss();
+              }
+            };
+            // On the trigger too: a click trigger (code-annotations: select) has no
+            // blur handling. Attached for the instance's lifetime so leaving the
+            // trigger also cancels a show still pending on the trigger delay.
+            instance.reference.addEventListener('focusout', onFocusOut);
+            return {
+              onShow() {
+                window.document.addEventListener('keydown', onKeyDown, true);
+                instance.popper.addEventListener('focusout', onFocusOut);
+              },
+              onHide() {
+                window.document.removeEventListener('keydown', onKeyDown, true);
+                instance.popper.removeEventListener('focusout', onFocusOut);
+              },
+              onDestroy() {
+                instance.reference.removeEventListener('focusout', onFocusOut);
+              },
+            };
+          },
+        };
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+            plugins: [hideOnEscAndFocusOut],
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

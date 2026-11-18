@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Step-by-step installation of R, RStudio, the workshop R packages, and TinyTeX on Windows 10/11, with troubleshooting.">
+
+<title>Installing R and RStudio on Windows – POLS 081 · SSQL Data Workshop</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d31a0c91b01e363be7b7a36e602e2c70.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">POLS 081 · SSQL Data Workshop</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-setup-guides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Setup guides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-setup-guides">    
+        <li>
+    <a class="dropdown-item" href="../guides/install-mac.html">
+ <span class="dropdown-text">Install R &amp; RStudio (Mac)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../guides/install-windows.html">
+ <span class="dropdown-text">Install R &amp; RStudio (Windows)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../guides/quarto-pdf.html">
+ <span class="dropdown-text">Quarto &amp; rendering to PDF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-part-1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Part 1</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-part-1">    
+        <li>
+    <a class="dropdown-item" href="../slides/part1-lecture.html">
+ <span class="dropdown-text">Part 1 slides</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../worksheets/paper-discussion.html">
+ <span class="dropdown-text">Paper discussion prompts</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../worksheets/question-ladder.html">
+ <span class="dropdown-text">Question ladder worksheet</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-part-2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Part 2</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-part-2">    
+        <li>
+    <a class="dropdown-item" href="../lab.html">
+ <span class="dropdown-text">Lab materials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../slides/part2-lab.html">
+ <span class="dropdown-text">Part 2 slides</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../data-sources.html"> 
+<span class="menu-text">Data sources</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../help.html"> 
+<span class="menu-text">Help</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+            <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#before-you-start-three-quick-checks" id="toc-before-you-start-three-quick-checks" class="nav-link active" data-scroll-target="#before-you-start-three-quick-checks"><span class="header-section-number">1</span> Before you start: three quick checks</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r"><span class="header-section-number">2</span> Install R</a></li>
+  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio"><span class="header-section-number">3</span> Install RStudio</a>
+  <ul class="collapse">
+  <li><a href="#a-quick-tour" id="toc-a-quick-tour" class="nav-link" data-scroll-target="#a-quick-tour"><span class="header-section-number">3.1</span> A quick tour</a></li>
+  </ul></li>
+  <li><a href="#sec-packages" id="toc-sec-packages" class="nav-link" data-scroll-target="#sec-packages"><span class="header-section-number">4</span> Install the workshop R packages</a></li>
+  <li><a href="#install-tinytex-backup-pdf-engine" id="toc-install-tinytex-backup-pdf-engine" class="nav-link" data-scroll-target="#install-tinytex-backup-pdf-engine"><span class="header-section-number">5</span> Install TinyTeX (backup PDF engine)</a></li>
+  <li><a href="#check-that-everything-works" id="toc-check-that-everything-works" class="nav-link" data-scroll-target="#check-that-everything-works"><span class="header-section-number">6</span> Check that everything works</a></li>
+  <li><a href="#troubleshooting-windows" id="toc-troubleshooting-windows" class="nav-link" data-scroll-target="#troubleshooting-windows"><span class="header-section-number">7</span> Troubleshooting (Windows)</a>
+  <ul class="collapse">
+  <li><a href="#no-admin" id="toc-no-admin" class="nav-link" data-scroll-target="#no-admin"><span class="header-section-number">7.1</span> Installing without administrator rights</a></li>
+  <li><a href="#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed" id="toc-rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed" class="nav-link" data-scroll-target="#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed"><span class="header-section-number">7.2</span> RStudio says “R not found” or “R does not appear to be installed”</a></li>
+  <li><a href="#win10" id="toc-win10" class="nav-link" data-scroll-target="#win10"><span class="header-section-number">7.3</span> RStudio won’t install or open on Windows 10</a></li>
+  <li><a href="#windows-defender-smartscreen-blocks-the-installer" id="toc-windows-defender-smartscreen-blocks-the-installer" class="nav-link" data-scroll-target="#windows-defender-smartscreen-blocks-the-installer"><span class="header-section-number">7.4</span> Windows Defender / SmartScreen blocks the installer</a></li>
+  <li><a href="#tinytex-username" id="toc-tinytex-username" class="nav-link" data-scroll-target="#tinytex-username"><span class="header-section-number">7.5</span> TinyTeX fails, or my username has spaces/accents</a></li>
+  <li><a href="#package-installation-fails-with-cannot-open-url-or-download-failed" id="toc-package-installation-fails-with-cannot-open-url-or-download-failed" class="nav-link" data-scroll-target="#package-installation-fails-with-cannot-open-url-or-download-failed"><span class="header-section-number">7.6</span> Package installation fails with “cannot open URL” or “download failed”</a></li>
+  <li><a href="#old-quarto" id="toc-old-quarto" class="nav-link" data-scroll-target="#old-quarto"><span class="header-section-number">7.7</span> RStudio is using an old version of Quarto</a></li>
+  <li><a href="#onedrive-problems" id="toc-onedrive-problems" class="nav-link" data-scroll-target="#onedrive-problems"><span class="header-section-number">7.8</span> OneDrive problems</a></li>
+  <li><a href="#still-stuck" id="toc-still-stuck" class="nav-link" data-scroll-target="#still-stuck"><span class="header-section-number">7.9</span> Still stuck?</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="install-windows.pdf"><i class="bi bi-file-pdf"></i>Printable PDF</a></li><li><a href="install-windows.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Installing R and RStudio on Windows</h1>
+<p class="subtitle lead">POLS 081 · SSQL Workshop setup guide</p>
+</div>
+
+<div>
+  <div class="description">
+    Step-by-step installation of R, RStudio, the workshop R packages, and TinyTeX on Windows 10/11, with troubleshooting.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">November 17, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Do this before class on Wednesday
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Set aside about <strong>30–45 minutes</strong>. You’ll install four things, in this order:</p>
+<ol type="1">
+<li><strong>R</strong>, the programming language</li>
+<li><strong>RStudio</strong>, the program you’ll actually work in (it includes <strong>Quarto</strong>)</li>
+<li>A few <strong>R packages</strong></li>
+<li><strong>TinyTeX</strong>, a backup tool for making PDFs</li>
+</ol>
+<p>Then work through the <a href="../guides/quarto-pdf.html">Quarto and PDF guide</a> to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Using a Mac?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <a href="../guides/install-mac.html">Mac guide</a> instead.</p>
+</div>
+</div>
+<section id="before-you-start-three-quick-checks" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Before you start: three quick checks</h1>
+<p><strong>1. Do you have administrator rights on this computer?</strong> Most personal laptops do. If Windows has ever asked you to click <strong>Yes</strong> to “allow this app to make changes to your device” and it worked, you’re an administrator. If the computer is managed by an employer or another institution, you may not be. That’s fine: the guide explains what to do at each step.</p>
+<p><strong>2. Are you on Windows 11 or Windows 10?</strong> Go to <strong>Settings → System → About</strong> and look under <strong>Windows specifications → Edition</strong>. The newest RStudio supports <strong>Windows 11</strong>. If you’re on Windows 10, see <a href="#win10">RStudio won’t install or open on Windows 10</a>.</p>
+<p><strong>3. Does your Windows username contain spaces or accented/non-English characters?</strong> Open <strong>File Explorer</strong>, go to <strong>This PC → Local Disk (C:) → Users</strong>, and look at your folder name. If it’s something like <code>C:\Users\maria</code> you’re all set. If it’s like <code>C:\Users\María López</code>, note that. It can cause problems with PDF tools, and the troubleshooting section covers the fix.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Windows on ARM (Snapdragon / Copilot+ laptops)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your laptop has a Qualcomm Snapdragon processor, use the <strong>standard</strong> R and RStudio installers below. They run fine under Windows’ built-in emulation. Check under <strong>Settings → System → About → Processor</strong>.</p>
+</div>
+</div>
+</section>
+<section id="install-r" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Install R</h1>
+<ol type="1">
+<li>Go to <strong><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a></strong>.</li>
+<li>Click <strong>Download R for Windows</strong>, then <strong>base</strong> (or <strong>install R for the first time</strong>).</li>
+<li>Click the large <strong>Download R-4.x.x for Windows</strong> link at the top of the page.</li>
+<li>Open the downloaded <code>.exe</code> file from your Downloads folder.</li>
+<li>If Windows asks <strong>“Do you want to allow this app to make changes to your device?”</strong>:
+<ul>
+<li><strong>If you have admin rights:</strong> click <strong>Yes</strong>.</li>
+<li><strong>If you don’t, or you’re unsure:</strong> click <strong>No</strong>. The installer will continue and install R <strong>just for your user account</strong>, which works fine. See <a href="#no-admin">Installing without administrator rights</a> below.</li>
+</ul></li>
+<li>Click through the installer, <strong>accepting all the default options</strong>: <em>Next → Next → Next…</em> and then <em>Finish</em>.</li>
+</ol>
+<p>You don’t need to open R itself. You’ll use it through RStudio.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t install R inside OneDrive
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If the installer suggests a folder inside <strong>OneDrive</strong>, change it to <code>C:\Users\&lt;yourname&gt;\AppData\Local\Programs\R</code> (or accept <code>C:\Program Files\R</code> if you have admin rights). OneDrive syncing can lock files that R is using.</p>
+</div>
+</div>
+</section>
+<section id="install-rstudio" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Install RStudio</h1>
+<ol type="1">
+<li>Go to <strong><a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></strong>.</li>
+<li>Step 1 on that page is “Install R,” which you’ve just done. Under <strong>Step 2</strong>, click <strong>Download RStudio Desktop for Windows</strong>.</li>
+<li>Open the downloaded <code>.exe</code> file, click <strong>Yes</strong> to allow changes, and accept the defaults: <em>Next → Next → Install → Finish</em>.</li>
+<li>Open RStudio from the <strong>Start menu</strong> (type “RStudio”).</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>No admin rights? RStudio’s regular installer needs them
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the <strong>zip version</strong> instead (no installation needed):</p>
+<ol type="1">
+<li>On the RStudio download page, scroll down to <strong>Zip/Tarballs</strong> and download the <strong>Windows <code>.zip</code></strong> file.</li>
+<li>Right-click the zip → <strong>Extract All…</strong> and extract it to a folder you own, for example <code>C:\Users\&lt;yourname&gt;\RStudio</code>. <strong>Not</strong> inside OneDrive and <strong>not</strong> in Program Files.</li>
+<li>Open that folder and double-click <strong><code>rstudio.exe</code></strong>. Right-click it → <strong>Show more options → Pin to Start</strong> so you can find it again.</li>
+<li>If Windows Defender SmartScreen shows “Windows protected your PC,” click <strong>More info → Run anyway</strong>.</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Quarto is included
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>RStudio comes with <strong>Quarto</strong> built in, so you don’t need to install it separately. If you’ve installed Quarto on your own before, see <a href="#old-quarto">RStudio is using an old version of Quarto</a>.</p>
+</div>
+</div>
+<section id="a-quick-tour" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="a-quick-tour"><span class="header-section-number">3.1</span> A quick tour</h2>
+<p>When RStudio opens, you’ll see (usually) four panes:</p>
+<ul>
+<li><strong>Console</strong> (bottom left): where R runs commands. Type here and press <strong>Enter</strong>.</li>
+<li><strong>Source</strong> (top left): where you edit scripts and Quarto documents. It appears once you open a file.</li>
+<li><strong>Environment / History</strong> (top right): the data and objects you’ve created.</li>
+<li><strong>Files / Plots / Packages / Help / Viewer</strong> (bottom right).</li>
+</ul>
+<p>The Console has a sibling tab called <strong>Terminal</strong>. You’ll use it once below.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Don’t “Run as administrator”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Open RStudio normally, <strong>not</strong> with right-click → <em>Run as administrator</em>. Running as administrator installs packages into a protected system folder, which causes confusing permission errors later.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-packages" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Install the workshop R packages</h1>
+<p>R packages are add-ons that give R new abilities. Click in the <strong>Console</strong>, paste the line below, and press <strong>Enter</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"knitr"</span>, <span class="st">"tinytex"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>If R asks: “Would you like to use a personal library instead?”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Click <strong>Yes</strong>. Then, if it asks <em>“Would you like to create a personal library … to install packages into?”</em>, click <strong>Yes</strong> again.</p>
+<p>This happens because R was installed in a protected folder (<code>C:\Program Files\R</code>) that only administrators can write to. A <strong>personal library</strong> is a folder in your own user account where your packages live. This is normal and exactly what you want.</p>
+</div>
+</div>
+<p>This downloads quite a lot, so give it a few minutes. You’ll see many lines of red and black text scroll past. <strong>Red text isn’t necessarily an error</strong>: R prints routine messages in red.</p>
+<p>It worked if the Console ends with something like:</p>
+<pre><code>The downloaded binary packages are in
+    C:\Users\...\AppData\Local\Temp\...\downloaded_packages</code></pre>
+<p>To confirm, run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You should see a short “Attaching core tidyverse packages” message with a list of package names and check marks. Any “conflicts” listed underneath are normal.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>If R asks about installing from source or mentions <strong>Rtools</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Answer <strong><code>no</code></strong> to “Do you want to install from sources the packages which need compilation?” You don’t need Rtools for this workshop. If RStudio shows a pop-up suggesting you install Rtools, you can ignore it.</p>
+</div>
+</div>
+</section>
+<section id="install-tinytex-backup-pdf-engine" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Install TinyTeX (backup PDF engine)</h1>
+<p>We’ll make PDFs with <strong>Typst</strong>, which comes with Quarto and needs no setup. As a backup, also install <strong>TinyTeX</strong>, a small LaTeX distribution that Quarto can use for PDFs.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Check your username first
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your Windows username contains <strong>spaces or accented/non-English characters</strong> (see check 3 at the top of this page), skip ahead to <a href="#tinytex-username">TinyTeX fails, or my username has spaces/accents</a> and use that method instead.</p>
+</div>
+</div>
+<ol type="1">
+<li>In RStudio, click the <strong>Terminal</strong> tab next to the Console.</li>
+<li>Type the following and press <strong>Enter</strong>:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install tinytex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>If asked to confirm, type <strong><code>Y</code></strong> and press <strong>Enter</strong>. This takes a few minutes.</li>
+<li>When it finishes, <strong>close and reopen RStudio</strong>.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Alternative: install TinyTeX from the R Console instead
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>If the Terminal command fails, run this in the <strong>Console</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then close and reopen RStudio.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="check-that-everything-works" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Check that everything works</h1>
+<p>Run each of these, one at a time.</p>
+<p><strong>In the Console</strong> (should print <code>R version 4.x.x …</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>R.version.string</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>In the Console</strong> (shows where your packages live; at least one path should be in your own user folder or Program Files, <strong>not</strong> OneDrive):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.libPaths</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>In the Terminal</strong> (prints a full report, including your Quarto version, which must be <strong>1.4 or higher</strong> to make Typst PDFs):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Look for green check marks (✓ or <code>[&gt;]</code>) next to <strong>Typst version</strong> and <strong>Checking LaTeX</strong> (which should mention TinyTeX). A check by <strong>Checking R installation</strong> and <strong>Checking Knitr engine render</strong> means Quarto can run R code.</p>
+<p>✅ <strong>You’re done here.</strong> Now go to the <a href="../guides/quarto-pdf.html">Quarto and PDF guide</a> and render the test document.</p>
+</section>
+<section id="troubleshooting-windows" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Troubleshooting (Windows)</h1>
+<section id="no-admin" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="no-admin"><span class="header-section-number">7.1</span> Installing without administrator rights</h2>
+<p>This is the most common Windows problem. Here’s the full picture:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>With admin rights</th>
+<th>Without admin rights</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>R</strong></td>
+<td>Installs to <code>C:\Program Files\R</code></td>
+<td>Click <strong>No</strong> at the admin prompt. R installs to your own user area (e.g., <code>C:\Users\&lt;you&gt;\AppData\Local\Programs\R</code>)</td>
+</tr>
+<tr class="even">
+<td><strong>RStudio</strong></td>
+<td>Normal installer</td>
+<td>Use the <strong>zip version</strong> (see the box under <em>Install RStudio</em>)</td>
+</tr>
+<tr class="odd">
+<td><strong>Packages</strong></td>
+<td>Answer <strong>Yes</strong> to “use a personal library”</td>
+<td>Same. Packages go into your personal library automatically</td>
+</tr>
+<tr class="even">
+<td><strong>TinyTeX</strong></td>
+<td>Installs to your user folder; no admin needed</td>
+<td>Same</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Symptoms that point to a permissions problem:</strong></p>
+<ul>
+<li><code>Warning in install.packages: 'lib = "C:/Program Files/R/R-4.x.x/library"' is not writable</code></li>
+<li><code>Error: cannot remove prior installation of package ...</code> or <code>Permission denied</code></li>
+<li>An installer that closes immediately or says “Access is denied”</li>
+</ul>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Re-run <code>install.packages(...)</code> and answer <strong>Yes</strong> to both “personal library” questions.</li>
+<li>Make sure RStudio isn’t being run <strong>as administrator</strong> (see the warning above).</li>
+<li>If a package is “in use” and can’t be updated: close RStudio, reopen it, and <strong>install before loading anything</strong> (don’t run <code>library()</code> first).</li>
+</ul>
+</section>
+<section id="rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed"><span class="header-section-number">7.2</span> RStudio says “R not found” or “R does not appear to be installed”</h2>
+<ol type="1">
+<li>Make sure you installed <strong>R first</strong>.</li>
+<li>Close RStudio and reopen it. If that doesn’t work, <strong>restart your computer</strong> so RStudio can find the new installation.</li>
+<li>If R was installed somewhere unusual (for example, without admin rights), point RStudio to it: hold <strong>Ctrl</strong> while opening RStudio. A dialog appears letting you <strong>Choose a specific version of R</strong>. Select the R folder (look in <code>C:\Users\&lt;you&gt;\AppData\Local\Programs\R\R-4.x.x</code>) and click <strong>OK</strong>.</li>
+<li>Or, if RStudio opens: <strong>Tools → Global Options → General → R version → Change…</strong></li>
+</ol>
+</section>
+<section id="win10" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="win10"><span class="header-section-number">7.3</span> RStudio won’t install or open on Windows 10</h2>
+<p>The newest version of RStudio supports <strong>Windows 11</strong>. Microsoft ended regular support for Windows 10 in October 2025, so upgrading (<strong>Settings → Windows Update</strong>) is the best long-term fix if your computer is eligible.</p>
+<p>If you can’t upgrade before class:</p>
+<ol type="1">
+<li>Install an <strong>earlier version of RStudio</strong> from Posit’s <a href="https://docs.posit.co/supported-versions/rstudio.html">supported versions page</a>. Pick the most recent release that installs and opens on your computer.</li>
+<li>Open RStudio’s <strong>Terminal</strong> and run <code>quarto check</code>. The Quarto version must be <strong>1.4 or higher</strong> for PDFs.</li>
+<li>If it’s lower, also install the latest Quarto from <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>, then restart RStudio.</li>
+</ol>
+<p>The current R installer still works on Windows 10, so you don’t need to change anything there.</p>
+</section>
+<section id="windows-defender-smartscreen-blocks-the-installer" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="windows-defender-smartscreen-blocks-the-installer"><span class="header-section-number">7.4</span> Windows Defender / SmartScreen blocks the installer</h2>
+<p>Click <strong>More info → Run anyway</strong>. The R and RStudio installers from the official sites are safe. Some antivirus programs also quarantine <code>rstudio.exe</code> or Quarto’s tools. If RStudio flashes and closes immediately, check your antivirus’s quarantine list and allow RStudio.</p>
+</section>
+<section id="tinytex-username" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="tinytex-username"><span class="header-section-number">7.5</span> TinyTeX fails, or my username has spaces/accents</h2>
+<p>TinyTeX (like all LaTeX distributions on Windows) <strong>cannot be installed in a path containing non-English characters</strong>, and spaces can cause problems too. By default it installs under <code>C:\Users\&lt;yourname&gt;\AppData\Roaming\TinyTeX</code>, so a username like <code>María López</code> breaks it.</p>
+<p><strong>Fix: install TinyTeX to a simple folder at the root of C:.</strong> In the <strong>Console</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)   <span class="co"># make sure tinytex is up to date</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>(<span class="at">dir =</span> <span class="st">"C:/TinyTeX"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then <strong>restart RStudio</strong>. You don’t need admin rights to create a folder at <code>C:\</code>.</p>
+<p>Other TinyTeX errors such as <em>“The system cannot find the path specified”</em> or <em>“tlmgr returned a non zero status code”</em> usually have the same cause. Try the fix above.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember: <strong>TinyTeX is only the backup.</strong> If it won’t install, you can still make PDFs with <strong>Typst</strong>. Don’t spend more than 15 minutes on TinyTeX.</p>
+</div>
+</div>
+</section>
+<section id="package-installation-fails-with-cannot-open-url-or-download-failed" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="package-installation-fails-with-cannot-open-url-or-download-failed"><span class="header-section-number">7.6</span> Package installation fails with “cannot open URL” or “download failed”</h2>
+<ul>
+<li>Check your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.</li>
+<li>In RStudio, go to <strong>Tools → Global Options → Packages</strong>. Under <strong>Primary CRAN repository</strong>, click <strong>Change…</strong>, choose <strong>Global (CDN) – Posit</strong>, then click <strong>OK</strong> and try again.</li>
+<li>A VPN or corporate proxy can also block downloads. Turn the VPN off temporarily.</li>
+</ul>
+</section>
+<section id="old-quarto" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="old-quarto"><span class="header-section-number">7.7</span> RStudio is using an old version of Quarto</h2>
+<p>If <code>quarto check</code> shows a version <strong>below 1.4</strong>, you probably have an <strong>old, separately installed</strong> Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:</p>
+<ul>
+<li><strong>Update it:</strong> download and install the latest Quarto from <strong><a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a></strong>, then restart RStudio, <strong>or</strong></li>
+<li><strong>Update RStudio</strong> to the newest version, which bundles a recent Quarto, <strong>or</strong></li>
+<li>uninstall the old Quarto via <strong>Settings → Apps</strong>.</li>
+</ul>
+</section>
+<section id="onedrive-problems" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="onedrive-problems"><span class="header-section-number">7.8</span> OneDrive problems</h2>
+<p>If your <strong>Documents</strong> or <strong>Desktop</strong> folder is synced to OneDrive, OneDrive can lock files while Quarto is writing them, which causes “access denied” or “file in use” errors when rendering. <strong>Keep your workshop folder outside OneDrive</strong> (for example <code>C:\Users\&lt;you&gt;\pols081</code>), or pause OneDrive syncing while you work.</p>
+</section>
+<section id="still-stuck" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="still-stuck"><span class="header-section-number">7.9</span> Still stuck?</h2>
+<p>Email Greg with:</p>
+<ol type="1">
+<li>a <strong>screenshot</strong> of the error,</li>
+<li>your <strong>Windows version</strong> (Settings → System → About), and</li>
+<li>the output of <code>quarto check</code> (copy and paste it from the Terminal).</li>
+</ol>
+<p>If we can’t fix it by email, we’ll sort it out during the break on Wednesday.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/gamusu\.github\.io\/pols081-ssql-workshop\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Swarthmore Social Science Quantitative Lab (SSQL) · Fall 2026</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

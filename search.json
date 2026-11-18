@@ -1,0 +1,849 @@
+[
+  {
+    "objectID": "help.html",
+    "href": "help.html",
+    "title": "Where to Get Help",
+    "section": "",
+    "text": "The Social Science Quantitative Lab (SSQL) helps with every stage of a data paper: finding data, cleaning and merging it, making figures and tables, running and interpreting tests, and getting R, Excel or Stata to cooperate.\n\nWhere: Science Center 205\nBook a time with Greg: SSQL office hours\n\nBring: your question ladder (or your current question), a link to or copy of your data, and the file you’re working in. If something is broken, bring the exact error message.\nYour professor’s office hours are another place to talk through your question and argument. The booking link is in the syllabus."
+  },
+  {
+    "objectID": "help.html#ssql-office-hours",
+    "href": "help.html#ssql-office-hours",
+    "title": "Where to Get Help",
+    "section": "",
+    "text": "The Social Science Quantitative Lab (SSQL) helps with every stage of a data paper: finding data, cleaning and merging it, making figures and tables, running and interpreting tests, and getting R, Excel or Stata to cooperate.\n\nWhere: Science Center 205\nBook a time with Greg: SSQL office hours\n\nBring: your question ladder (or your current question), a link to or copy of your data, and the file you’re working in. If something is broken, bring the exact error message.\nYour professor’s office hours are another place to talk through your question and argument. The booking link is in the syllabus."
+  },
+  {
+    "objectID": "help.html#software-trouble",
+    "href": "help.html#software-trouble",
+    "title": "Where to Get Help",
+    "section": "Software trouble",
+    "text": "Software trouble\n\nWork through the troubleshooting section of the setup guide: Mac · Windows · Quarto and PDF.\nStill stuck? Email Greg with what you did, what you expected, and the exact error (a screenshot helps)."
+  },
+  {
+    "objectID": "help.html#help-inside-r-and-rstudio",
+    "href": "help.html#help-inside-r-and-rstudio",
+    "title": "Where to Get Help",
+    "section": "Help inside R and RStudio",
+    "text": "Help inside R and RStudio\n\n?mean opens the help page for a function (here, mean()). ??median searches all help pages.\nThe Help tab (bottom-right pane in RStudio) searches the documentation.\nFree online books: R for Data Science (2e) and the Quarto guide."
+  },
+  {
+    "objectID": "help.html#a-note-on-ai-tools",
+    "href": "help.html#a-note-on-ai-tools",
+    "title": "Where to Get Help",
+    "section": "A note on AI tools",
+    "text": "A note on AI tools\nThe syllabus allows AI for feedback on work you’ve already done, but not for producing your graphs, tables or visualizations, and you must include an AI-use statement at the end of your paper. When you’re stuck on code, SSQL office hours are a good alternative."
+  },
+  {
+    "objectID": "worksheets/paper-discussion.html",
+    "href": "worksheets/paper-discussion.html",
+    "title": "Paper Discussion Prompts",
+    "section": "",
+    "text": "How this works. In groups of 3–4, discuss each paper for about 4 minutes using the prompts below. Every group gets the same prompts. Then a few groups report back. Jot down one idea per prompt; you don’t need to cover them all.\nFor every paper, start with the syllabus’s reading questions: What is the question? How do the authors investigate it? What is the most important evidence?"
+  },
+  {
+    "objectID": "worksheets/paper-discussion.html#measure-fransen-et-al.-2023",
+    "href": "worksheets/paper-discussion.html#measure-fransen-et-al.-2023",
+    "title": "Paper Discussion Prompts",
+    "section": "Measure · Fransen et al. (2023)",
+    "text": "Measure · Fransen et al. (2023)\nTaking stock of the implementation gap in climate policy. Nature Climate Change.\nThe idea. The “implementation gap” has two parts: a policy adoption gap (pledges vs. projected emissions under adopted policies, from Climate Action Tracker) and a policy outcome gap (what adopted policies should achieve vs. what they do achieve). The outcome gap can’t be measured directly, so the authors compare policy-strength scores (CCPI, 2018–2022) with a 2023 outcome index.\nWarm-up. Pick one concept: climate ambition, state capacity to implement climate policy, inclusivity of a COP, or vulnerability to climate change. Write down (1) an indicator, (2) a data source, and (3) one thing your indicator misses.\n\nHow did the authors get a number for something that can only be measured after the fact?\nValidity: does a CCPI policy score capture implementation?\nReliability: CCPI is partly built from expert assessments. Would different experts score the same country the same way?\nWhere does the outcome gap show up in the data? (Hint: in how countries scatter around the expected diagonal.)"
+  },
+  {
+    "objectID": "worksheets/paper-discussion.html#map-xie-et-al.-2025",
+    "href": "worksheets/paper-discussion.html#map-xie-et-al.-2025",
+    "title": "Paper Discussion Prompts",
+    "section": "Map · Xie et al. (2025)",
+    "text": "Map · Xie et al. (2025)\nTracing inclusivity at UNFCCC conferences through side events and interest group dynamics. Nature Climate Change.\nThe idea. UNFCCC records of COP side events, COP9–COP28 (2003–2023): titles, descriptions and host organizations. Topic modelling traces themes; network analysis maps who co-hosts energy events (COP17–28).\n\nWhat is one observation? An event? An organization? A link between two organizations?\nPopulation or sample? Every registered side event is included. What isn’t? (Unregistered events, country pavilions, the negotiating rooms themselves…)\nMeasurement: how does “inclusivity” become a number? What would you use?\nVariation: what differs across COPs and across actor groups? Is that enough to compare them fairly?\nLimits: does a central position in a network mean influence over negotiated outcomes?"
+  },
+  {
+    "objectID": "worksheets/paper-discussion.html#model-tennant-davies-tennant-2024",
+    "href": "worksheets/paper-discussion.html#model-tennant-davies-tennant-2024",
+    "title": "Paper Discussion Prompts",
+    "section": "Model · Tennant, Davies & Tennant (2024)",
+    "text": "Model · Tennant, Davies & Tennant (2024)\nDeterminants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies. World Development.\nThe idea. Two stages: do donors use different criteria to decide who is eligible for climate finance than to decide how much each eligible country gets? And do small island developing states (SIDS) get more or less than their vulnerability and adaptive capacity would justify?\n\nMeasure: where do the finance numbers come from, and who reports them? (Donors report to the OECD and tag their own projects.)\nIs “more than justified by vulnerability” a causal claim or a comparison? What does “justified” assume?\nConfounders: what factors does the model hold constant? What could still be missing?\nInference: the data cover nearly every recipient. What do the p-values mean here?\nDesign: if you wanted a causal answer, what comparison would you look for? (A sudden disaster? An eligibility cutoff?)"
+  },
+  {
+    "objectID": "worksheets/paper-discussion.html#across-all-three",
+    "href": "worksheets/paper-discussion.html#across-all-three",
+    "title": "Paper Discussion Prompts",
+    "section": "Across all three",
+    "text": "Across all three\n\n\n\n\n\n\n\n\n\n\nMeasure\nMap\nModel\n\n\n\n\nPaper\nFransen et al.\nXie et al.\nTennant et al.\n\n\nKind of claim\nThere is a gap, and here is its size\nHere is who is where\nThese factors predict who gets what\n\n\nMain risk\nValidity of proxies\nWho is missing\nConfounding; meaning of inference\n\n\n\nFor your paper: which of the three is closest to what you want to do? What would you borrow from it?"
+  },
+  {
+    "objectID": "lab.html",
+    "href": "lab.html",
+    "title": "Part 2 Lab Materials",
+    "section": "",
+    "text": "In the lab we take a question from data to evidence: summary statistics → one good figure → one statistical test, in R, RStudio and Quarto."
+  },
+  {
+    "objectID": "lab.html#get-the-lab-files",
+    "href": "lab.html#get-the-lab-files",
+    "title": "Part 2 Lab Materials",
+    "section": "1. Get the lab files",
+    "text": "1. Get the lab files\nDownload pols081-lab.zip\n\nUnzip it. On Windows, right-click the file and choose Extract All…. Don’t work inside the zip.\nMove the pols081-lab folder somewhere easy to find, like Documents. Avoid OneDrive folders if you can.\nDouble-click pols081-lab.Rproj to open the folder in RStudio.\nIn the Files pane, open lab-handout.qmd.\n\nThe folder contains:\n\n\n\n\n\n\n\nFile\nWhat it is\n\n\n\n\nlab-handout.qmd\nThe lab handout: Example 1 (worked), Example 2 (you fill in the code), Workshop Questions\n\n\nmerging-data.qmd\nExtra practice: combining two datasets\n\n\ndata/\nThe four datasets used in the handouts\n\n\nbib/lab.bib\nReferences for the handouts"
+  },
+  {
+    "objectID": "lab.html#slides",
+    "href": "lab.html#slides",
+    "title": "Part 2 Lab Materials",
+    "section": "2. Slides",
+    "text": "2. Slides\n\nPart 2 slides"
+  },
+  {
+    "objectID": "lab.html#stuck-on-example-2",
+    "href": "lab.html#stuck-on-example-2",
+    "title": "Part 2 Lab Materials",
+    "section": "3. Stuck on Example 2?",
+    "text": "3. Stuck on Example 2?\n\nGuide to the handout (PDF) has the Example 2 code filled in. Try each chunk yourself first."
+  },
+  {
+    "objectID": "lab.html#the-data",
+    "href": "lab.html#the-data",
+    "title": "Part 2 Lab Materials",
+    "section": "4. The data",
+    "text": "4. The data\nAll four datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script R/build_lab_data.R in the workshop project, which records every source and step.\n\n\n\n\n\n\n\n\nFile\nRows\nSource\n\n\n\n\nadaptation_aid.csv\nOne row per country receiving adaptation aid\nOECD Rio markers (DAC members, 2020–2024); ND-GAIN; World Bank; UN M49\n\n\nrenewables.csv\nOne row per country, 2021\nWorld Bank, World Development Indicators\n\n\nco2.csv\nOne row per country, 2023\nWorld Bank, World Development Indicators (emissions from EDGAR)\n\n\nsids_list.csv\nOne row per small island developing state\nUN Statistics Division, M49\n\n\n\nCodebooks for each file are in the handouts."
+  },
+  {
+    "objectID": "lab.html#next-steps-for-your-paper",
+    "href": "lab.html#next-steps-for-your-paper",
+    "title": "Part 2 Lab Materials",
+    "section": "Next steps for your paper",
+    "text": "Next steps for your paper\n\nFind data: Data sources page\nSharpen your question: Question ladder worksheet\nGet help: SSQL office hours"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#today",
+    "href": "slides/part1-lecture.html#today",
+    "title": "How Numbers Become Evidence",
+    "section": "Today",
+    "text": "Today\n\n\n1:15–2:30 · Part 1: How numbers become evidence\n\nA short lecture on thinking quantitatively (~22 min)\n\nEvidence, measurement, good questions\nCorrelation and variation\nCorrelation vs. causation\nWhere credible causal claims come from\nSamples, uncertainty, inference\n\nMeasure → Map → Model: the three readings, discussed in small groups (~40 min)\nYour question ladder (~12 min)\n\n\n2:30–2:45 · Break\n2:45–4:00 · Part 2: Hands-on lab\n\nSummary statistics\nOne good figure\nOne statistical test\n\n\n\nThe goal: leave with a question your data paper can actually answer, and the tools to answer it.\n\n\n\n~1 min. Frame the day. Emphasize that the lecture is short and the rest is them talking. The break doubles as install troubleshooting time."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#where-you-are-right-now",
+    "href": "slides/part1-lecture.html#where-you-are-right-now",
+    "title": "How Numbers Become Evidence",
+    "section": "Where you are right now",
+    "text": "Where you are right now\nFrom the pre-workshop survey (9 responses):\n\n7 of 9 are still choosing a topic or have a focus but no question yet, and 6 of 9 haven’t found a dataset. That is normal at this stage.\nBiggest obstacles: narrowing the topic and turning a topic into a question data can answer (5 of 9 each).\nMost comfortable finding data; least comfortable with correlation and regression (5 of 9: “not at all”).\nTop interests: major powers and small states (AOSIS), environmental conflict, NDCs; then climate finance, aid, IOs and North–South divides.\n6 of 9 have used R before. Most plan to use Excel, Stata or haven’t decided: today’s ideas carry over to any tool.\n\n\nToday is built around those obstacles. By the break you should have a draft question. By the end, a first look at data.\n\n\n~1 min. Survey as of Nov 17 (n = 9). Keep it aggregate; never single out individual responses. Also useful: 3 of 9 lean toward a relationship question and 3 aren’t sure yet; 3 plan to focus on a governance instrument or policy and 4 are undecided on focus. Both come back in the variation slides."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#how-do-we-know-what-we-know",
+    "href": "slides/part1-lecture.html#how-do-we-know-what-we-know",
+    "title": "How Numbers Become Evidence",
+    "section": "How do we know what we know?",
+    "text": "How do we know what we know?\nThe course readings use very different kinds of evidence:\n\n\n\n\n\n\n\n\nApproach\nExample from the course\nLearns from…\n\n\n\n\nInterviews and observation\nRietig (2014); Ciplet (2019)\nHow participants experience and explain a process\n\n\nProcess tracing / history\nHaas (1992); Benedick (1998)\nThe sequence of events in one or a few cases\n\n\nDiscourse and document analysis\nLefstad & Paavola (2024)\nHow actors frame problems\n\n\nCounting and measuring\nKaya & Schofield (2020); Tennant et al. (2024)\nPatterns across many cases\n\n\n\n\n\nQuantitative work is one way of knowing, not the only one. It is strongest at describing how much, how often, and how things vary across many cases. It is weakest at explaining the mechanisms inside any one case.\n\n\n~1.5 min. The point: quant and qual are complements. Your 5-page paper is descriptive/correlational quant, and that is a legitimate contribution."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#numbers-are-measurements-not-the-things-themselves",
+    "href": "slides/part1-lecture.html#numbers-are-measurements-not-the-things-themselves",
+    "title": "How Numbers Become Evidence",
+    "section": "Numbers are measurements, not the things themselves",
+    "text": "Numbers are measurements, not the things themselves\n\n\nConcept“participation in climate negotiations”\n\n\n→\n\n\nIndicatornational delegation size\n\n\n→\n\n\nDataUNFCCC lists of participants, COP1–21\n\n\n→\n\n\nNumber“Country X sent 212 delegates”\n\n\n\n\nEvery arrow is a choice someone made, and each choice can be questioned.\nSomebody produced the data: a secretariat, a donor, an NGO, a researcher. Why, and with what incentives?\nA quantitative claim is an argument: data + assumptions → conclusion. Your job is to make the assumptions visible.\n\n\n~1.5 min. Example from Kaya & Schofield (Class 2). Ask aloud: does a bigger delegation mean more participation? More influence? Nothing yet about influence."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#what-makes-a-good-social-scientific-question",
+    "href": "slides/part1-lecture.html#what-makes-a-good-social-scientific-question",
+    "title": "How Numbers Become Evidence",
+    "section": "What makes a good social-scientific question?",
+    "text": "What makes a good social-scientific question?\n\n\nA good question is…\n\nAnswerable with evidence you can actually get\nSpecific: who, what, where, when\nAbout variation: something differs across cases or over time\nConnected to a debate from the course\n\nDescriptive and explanatory questions are both legitimate:\n\nDescriptive: How has X changed? How is X distributed?\nExplanatory: Why does X vary? Does Y affect X?\n\n\nThe five question types in your data-paper prompt\n\n\n\nType\nAsks…\n\n\n\n\nChange\nHow has X changed over time?\n\n\nDistribution\nWho gets/has X?\n\n\nComparison\nHow do groups differ?\n\n\nComposition\nWhat is X made of?\n\n\nRelationship\nDo X and Y move together?\n\n\n\nThe first four are descriptive. The fifth is about association, which is not yet causation.\n\n\n~1.5 min. Flag that “relationship” questions are where people slip into causal language. We return to that in a few minutes."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#checkpoint-which-question-is-better",
+    "href": "slides/part1-lecture.html#checkpoint-which-question-is-better",
+    "title": "How Numbers Become Evidence",
+    "section": "Checkpoint: which question is better?",
+    "text": "Checkpoint: which question is better?\nRaise one hand for A, two hands for B.\n\n\n\n1A. Is climate finance fair?\n\n\n2A. Why do countries pollute?\n\n\n3A. How did the number of non-state organizations hosting COP side events change after the Paris Agreement?\n\n\n\n1B. Did adaptation finance per capita to small island states grow faster than to other developing countries, 2015–2022?\n\n\n2B. Do countries more dependent on fossil-fuel exports submit less ambitious NDCs?\n\n\n3B. Are NGOs important in climate governance?\n\n\n\n\nThe better question in each pair (1B, 2B, 3A) names a measurable quantity, a set of cases, and a comparison or time frame.\n\n\n~2 min. Note that 3 flips the order on purpose. For 1A: “fair” is a normative concept. Ask how you’d measure it. That’s the bridge to Measure later."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#correlation-do-two-things-move-together",
+    "href": "slides/part1-lecture.html#correlation-do-two-things-move-together",
+    "title": "How Numbers Become Evidence",
+    "section": "Correlation: do two things move together?",
+    "text": "Correlation: do two things move together?\nA correlation (r) summarizes how closely two variables move together across cases: from −1 (perfectly opposite) through 0 (no straight-line relationship) to +1 (perfectly together). It says nothing about why.\n\nGuess the correlation. Call out your guess for each panel."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#correlation-the-answers",
+    "href": "slides/part1-lecture.html#correlation-the-answers",
+    "title": "How Numbers Become Evidence",
+    "section": "Correlation: the answers",
+    "text": "Correlation: the answers\n\n\n~2 min across these two slides. Most people underestimate moderate correlations like B. r = 0.35 is a real but noisy relationship, and many social-science relationships look like B."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#correlation-requires-variation",
+    "href": "slides/part1-lecture.html#correlation-requires-variation",
+    "title": "How Numbers Become Evidence",
+    "section": "Correlation requires variation",
+    "text": "Correlation requires variation\n\n\nTo explain a difference, you need a difference. If every country in your data is an AOSIS member, your data cannot tell you what AOSIS membership does.\n\n\n~1 min. Practical implication for paper design: choose cases that vary on the thing you care about."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#too-little-variation-hides-relationships",
+    "href": "slides/part1-lecture.html#too-little-variation-hides-relationships",
+    "title": "How Numbers Become Evidence",
+    "section": "Too little variation hides relationships",
+    "text": "Too little variation hides relationships\n\n\n\n\n\n\n\n\nCutting the range of X weakens the visible relationship, even though the underlying pattern is the same.\n\nAsk of any dataset: who got left out?\n\nOnly countries that received finance?\nOnly initiatives that survived?\nOnly events that were registered?\n\n\n\n\n~1.5 min. This sets up Tennant later: eligibility (who gets any finance) vs amount. If you only look at recipients you can miss the selection stage."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#correlation-is-not-causation-three-reasons",
+    "href": "slides/part1-lecture.html#correlation-is-not-causation-three-reasons",
+    "title": "How Numbers Become Evidence",
+    "section": "Correlation is not causation: three reasons",
+    "text": "Correlation is not causation: three reasons\n\n\n1. Confounding\n\nA third factor drives both.\n\n2. Reverse causality\n\nThe outcome may cause the “cause.”\n\n3. Selection\n\nCases in the data are not a fair picture of all cases (e.g., only firms that choose to disclose emissions)."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#confounding-in-pictures",
+    "href": "slides/part1-lecture.html#confounding-in-pictures",
+    "title": "How Numbers Become Evidence",
+    "section": "Confounding, in pictures",
+    "text": "Confounding, in pictures\n\n\n\n\n\n“Controlling for” state capacity means comparing like with like. It only works for confounders you thought of and measured, and it cannot fix reverse causality.\n\n\n~1.5 min. Pooled: strong positive. Split by capacity: relationship mostly disappears. This is what regression “controls” do, conceptually."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#where-do-credible-causal-claims-come-from",
+    "href": "slides/part1-lecture.html#where-do-credible-causal-claims-come-from",
+    "title": "How Numbers Become Evidence",
+    "section": "Where do credible causal claims come from?",
+    "text": "Where do credible causal claims come from?\nThe core problem: we never see the same country both with and without the “treatment.”\nCredible designs find a fair comparison instead:\n\n\n\n\n\n\n\n\nDesign\nThe idea\nEnvironmental-politics example\n\n\n\n\nRandomized experiment\nChance decides who is treated\nPayments to forest owners, randomized across Ugandan villages, reduced deforestation (Jayachandran et al. 2017)\n\n\nNatural experiment\nNature or history assigns “treatment” as if by chance\nRainfall shocks used to study economic growth and civil conflict (Miguel, Satyanath & Sergenti 2004)\n\n\nDifference-in-differences\nCompare the change in treated vs. untreated units\nFrench manufacturing firms covered by the EU ETS vs. similar uncovered firms, before and after carbon pricing: regulated firms cut CO2 by 14–16% (Colmer et al. 2025)\n\n\nRegression discontinuity\nCompare cases just above vs. just below a cutoff\nDesign idea: countries just above vs. just below an income threshold for concessional finance\n\n\n\n\n\nCredibility comes from the design, meaning how the comparison was set up, more than from adding control variables.\n\n\n~4 min. Don’t teach the methods; teach that they exist and what they buy you. Vanden Eynde & Vargas (Class 12) review this kind of evidence on climate and conflict. Colmer, Martin, Muûls & Wagner (2025), “Does Pricing Carbon Mitigate Climate Change? Firm-Level Evidence from the European Union Emissions Trading System,” Review of Economic Studies 92(3): 1625–1660 (advance access May 2024). Matched difference-in-differences on French administrative data; 14% (phase I) and 16% (phase II) reductions, no detectable drop in output or employment. Verified against the open-access PDF."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#what-this-means-for-your-data-paper",
+    "href": "slides/part1-lecture.html#what-this-means-for-your-data-paper",
+    "title": "How Numbers Become Evidence",
+    "section": "What this means for your data paper",
+    "text": "What this means for your data paper\n\nA careful description or correlation is a full, legitimate contribution. Just say what you found, not more.\n\n\n\n\n\n\n\n\nInstead of…\nWrite…\n\n\n\n\n“Vulnerability causes countries to receive more finance.”\n“More vulnerable countries received more finance on average.”\n\n\n“Delegation size drives influence.”\n“Larger delegations are associated with…”\n\n\n“This proves…”\n“This is consistent with… but could also reflect…”\n\n\n\nName one alternative explanation you can’t rule out. That is what your prompt means by “what you can and cannot conclude.”"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#samples-and-populations",
+    "href": "slides/part1-lecture.html#samples-and-populations",
+    "title": "How Numbers Become Evidence",
+    "section": "Samples and populations",
+    "text": "Samples and populations\n\n\n\nPopulation: every case you want to learn about\nSample: the cases you actually observe\nAny statistic from a sample (a mean, a correlation) would come out a bit different with a different sample\n\n\nLet’s watch that happen with a simulated “world” of 150 countries →"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#different-samples-different-answers",
+    "href": "slides/part1-lecture.html#different-samples-different-answers",
+    "title": "How Numbers Become Evidence",
+    "section": "Different samples, different answers",
+    "text": "Different samples, different answers\n\n\nThree random samples of 30 countries give three different means. None of them is “wrong.”"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#the-spread-of-possible-answers-is-the-uncertainty",
+    "href": "slides/part1-lecture.html#the-spread-of-possible-answers-is-the-uncertainty",
+    "title": "How Numbers Become Evidence",
+    "section": "The spread of possible answers is the uncertainty",
+    "text": "The spread of possible answers is the uncertainty\n\n\n\n\n\nThe standard error measures how much an estimate would bounce around from sample to sample. Bigger samples → smaller standard errors."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#confidence-intervals-and-p-values",
+    "href": "slides/part1-lecture.html#confidence-intervals-and-p-values",
+    "title": "How Numbers Become Evidence",
+    "section": "Confidence intervals and p-values",
+    "text": "Confidence intervals and p-values\n\n\n\n\n95% confidence interval: a procedure that captures the true value in about 95% of samples. (Here, 18 of 20 do.)\np-value: if there were really no relationship, how often would chance alone produce one at least this strong?\nA p-value is not…\n\nthe probability your hypothesis is true\na measure of how big or important the effect is\n\n\n\n~3 min for the whole samples sequence. Statistical significance ≠ substantive significance."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#a-puzzle-what-if-you-already-have-every-country",
+    "href": "slides/part1-lecture.html#a-puzzle-what-if-you-already-have-every-country",
+    "title": "How Numbers Become Evidence",
+    "section": "A puzzle: what if you already have every country?",
+    "text": "A puzzle: what if you already have every country?\nMany datasets in this course cover (almost) every country: OECD climate finance, UNFCCC participant lists, every COP side event.\n\nThen what does a p-value mean?\n\nTreat the data as one realization of an ongoing process (this year’s allocations could have come out differently)\nOr treat the analysis as descriptive: you are reporting what happened, not estimating a hidden truth\nEither way, measurement error and who is missing still matter\n\n\n~1 min. No single right answer. Plant the seed; it comes back with Tennant."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#recap-six-ideas-to-carry-into-the-papers",
+    "href": "slides/part1-lecture.html#recap-six-ideas-to-carry-into-the-papers",
+    "title": "How Numbers Become Evidence",
+    "section": "Recap: six ideas to carry into the papers",
+    "text": "Recap: six ideas to carry into the papers\n\nNumbers are measurements of concepts. Every step from concept to number is a choice.\nGood questions are specific, answerable, and about variation.\nCorrelation needs variation, and who is left out of the data shapes what you see.\nCorrelation ≠ causation: confounding, reverse causality, selection.\nCredible causal claims come from design, not from adding controls.\nEvery estimate comes with uncertainty. Report it honestly and keep statistical and substantive significance apart."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#three-steps-three-papers",
+    "href": "slides/part1-lecture.html#three-steps-three-papers",
+    "title": "How Numbers Become Evidence",
+    "section": "Three steps, three papers",
+    "text": "Three steps, three papers\n\n\nMeasure\nWhat is it, and how do we count it?\nFransen et al. (2023)The implementation gap in climate policy\n\n\nMap\nHow is it distributed? What patterns appear?\nXie et al. (2025)Inclusivity at COP side events\n\n\nModel\nWhat explains it, and how sure are we?\nTennant et al. (2024)Access to climate finance for SIDS\n\n\n\n\nSmall groups of 3–4. Everyone has read all three papers. For each paper, every group discusses the same prompts for about 4 minutes, then we hear from a few groups (2–3 minutes).\n\n\n~1 min. Form groups of 3–4 now and keep them for all three papers. Each part builds on the one before: you can’t map what you haven’t measured, or model what you haven’t mapped. Report-outs: call on a different group each time; ask the others to add only what’s new."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#measure-fransen-et-al.-2023",
+    "href": "slides/part1-lecture.html#measure-fransen-et-al.-2023",
+    "title": "How Numbers Become Evidence",
+    "section": "Measure · Fransen et al. (2023)",
+    "text": "Measure · Fransen et al. (2023)\n\n\nMeasure\n\n\nMap\n\n\nModel\n\n\nThe concept: the climate policy implementation gap. The authors split it into two parts:\n\nPolicy adoption gap: pledges vs. projected emissions under adopted policies (Climate Action Tracker estimates)\nPolicy outcome gap: what adopted policies should achieve vs. what they actually achieve. It cannot be measured directly, so they compare policy-strength scores with later outcomes (CCPI)\n\n\n\nWho makes these numbers?\n\nClimate Action Tracker: Climate Analytics & NewClimate Institute\nCCPI: Germanwatch, NewClimate Institute & CAN, partly from expert assessments\n\n\nWhy it’s a model paper for you\n\nA careful descriptive paper\nOpenly says the outcome gap is a proxy\nTime windows differ across its figures (2014–19, 2018–22, 2023)"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#measure-discuss-in-your-group",
+    "href": "slides/part1-lecture.html#measure-discuss-in-your-group",
+    "title": "How Numbers Become Evidence",
+    "section": "Measure · Discuss in your group",
+    "text": "Measure · Discuss in your group\n\nWarm-up, 3 minutes. As a group, pick one concept. Write down: (1) an indicator, (2) a data source, (3) one thing your indicator misses.\n\n\n\n\nClimate ambition of a country\nState capacity to implement climate policy\nInclusivity of a COP\nVulnerability to climate change\n\n\n\nThen discuss Fransen et al. (4 min), and we’ll hear from a few groups:\n\nHow did Fransen et al. get a number for something that “can only be measured after the fact”?\nValidity: does a CCPI policy score capture implementation?\nReliability: would different experts score the same country the same way?\nWhere does the outcome gap show up in the data? (Hint: in the variation around the expected diagonal.)\n\n\n\n\n~12 min total for Measure: ~3 min paper intro, 3 min warm-up, 4 min group discussion, 2–3 min report-out. Collect 2–3 indicators per concept on the board. Then compare: Xie measures inclusivity; Tennant uses vulnerability indices. Key teaching points: validity vs reliability; comparability across countries; numbers made by NGOs/think tanks have their own choices built in."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#map-xie-et-al.-2025",
+    "href": "slides/part1-lecture.html#map-xie-et-al.-2025",
+    "title": "How Numbers Become Evidence",
+    "section": "Map · Xie et al. (2025)",
+    "text": "Map · Xie et al. (2025)\n\n\nMeasure\n\n\nMap\n\n\nModel\n\n\n\n\nThe data: UNFCCC records of every COP side event, COP9–COP28 (2003–2023): titles, descriptions, host organizations, and who nominated participants\nThe methods:\n\nTopic modelling (machine learning on event text) to trace themes such as energy, food and forests\nNetwork analysis of who co-hosts energy events with whom (COP17–28)\n\nThe pattern: fossil-fuel lobbyists gain access through business NGOs and some governments, and sit at the edge of the anti-fossil-fuel discussion, which grew from a tight network of environmental NGOs.\n\n\nThis is “found data”: administrative records kept for running a conference, repurposed to measure inclusivity.\nMapping is a contribution in itself. No causal claim is needed to make an important point."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#map-discuss-in-your-group",
+    "href": "slides/part1-lecture.html#map-discuss-in-your-group",
+    "title": "How Numbers Become Evidence",
+    "section": "Map · Discuss in your group",
+    "text": "Map · Discuss in your group\n\nIn your group, 4 minutes. Then a few groups report back (2–3 minutes).\n\n\nWhat is one observation? An event? An organization? A link between organizations?\nPopulation or sample? Every registered side event is included. What isn’t?\n\nUnregistered events, country pavilions, the negotiating rooms themselves…\n\nHow does “inclusivity” become a number? Topic shares? Network position? What would you use?\nVariation: what differs across COPs and across actor groups? Is that enough to compare them fairly?\nWhat can’t this paper conclude? Does a central network position mean influence over outcomes?\n\n\n~12 min total for Map: ~4 min paper intro, 4 min groups, 2–3 min report-out. Tie back to the lecture: selection (registered events only), measurement (inclusivity), description as a legitimate end goal. Link to students interested in non-state actors, AOSIS, major powers."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#model-tennant-davies-tennant-2024",
+    "href": "slides/part1-lecture.html#model-tennant-davies-tennant-2024",
+    "title": "How Numbers Become Evidence",
+    "section": "Model · Tennant, Davies & Tennant (2024)",
+    "text": "Model · Tennant, Davies & Tennant (2024)\n\n\nMeasure\n\n\nMap\n\n\nModel\n\n\n\n\nTwo questions:\n\nDo donors use different criteria to decide who is eligible for climate finance than to decide how much they get?\nDo SIDS get more or less finance than their vulnerability and adaptive capacity justify?\n\nTwo stages:\n\n\nFindings (from the abstract):\n\nDAC donors use significantly different criteria at the two stages\nLow-income SIDS with weak capacities are often ineligible, excluded by complex processes, or get meagre allocations\nSIDS are not one group: the average hides a split\n\n\nRemember restricted range: study only recipients and you miss stage 1."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#model-activity-build-the-causal-diagram",
+    "href": "slides/part1-lecture.html#model-activity-build-the-causal-diagram",
+    "title": "How Numbers Become Evidence",
+    "section": "Model · Activity: build the causal diagram",
+    "text": "Model · Activity: build the causal diagram\n\nWhole class, 5 minutes. What else affects how much climate finance a country receives? I’ll draw it as you call it out.\n\n\nStarting point. We add arrows together.\n\nReveal the diagram after students have offered several factors, or draw on the board first and show this as a comparison. Push on: which of these does Tennant control for? Which could still be lurking? Is anything a consequence of finance rather than a cause (reverse causality: does finance build capacity)?"
+  },
+  {
+    "objectID": "slides/part1-lecture.html#model-discuss-in-your-group",
+    "href": "slides/part1-lecture.html#model-discuss-in-your-group",
+    "title": "How Numbers Become Evidence",
+    "section": "Model · Discuss in your group",
+    "text": "Model · Discuss in your group\n\nIn your group, 4 minutes. Then a few groups report back (2–3 minutes).\n\n\nMeasure: where do the finance numbers come from, and who reports them? (Donors report to the OECD and tag projects themselves.)\nIs “more than justified by vulnerability” a causal claim or a comparison? What does “justified” assume?\nConfounders: which factors does the model hold constant? What could still be missing?\nInference: the data cover nearly every recipient. What do the p-values mean here?\nDesign: if you wanted a causal answer, what comparison would you look for? (A sudden disaster? An eligibility cutoff?)\n\n\n~16 min total for Model: ~4 min paper intro, 5 min diagram, 4 min groups, 2–3 min report-out. This is the most advanced paper; aim for intuition, not estimation details. Connect explicitly to Part 2: students will run a simplified version (vulnerability vs adaptation finance, SIDS vs non-SIDS)."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#three-papers-three-kinds-of-claim",
+    "href": "slides/part1-lecture.html#three-papers-three-kinds-of-claim",
+    "title": "How Numbers Become Evidence",
+    "section": "Three papers, three kinds of claim",
+    "text": "Three papers, three kinds of claim\n\n\n\n\n\n\n\n\n\n\nMeasure\nMap\nModel\n\n\n\n\nPaper\nFransen et al.\nXie et al.\nTennant et al.\n\n\nKind of claim\nThere is a gap, and here is its size\nHere is who is where\nThese factors predict who gets what\n\n\nMain risk\nValidity of proxies\nWho is missing\nConfounding; meaning of inference\n\n\nLecture idea\nConcept → number\nVariation and selection\nCorrelation ≠ causation; uncertainty\n\n\n\n\nYour data paper will probably sit in Measure and Map, perhaps with a careful step toward Model. That is exactly the right scope."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#before-you-climb-where-is-your-variation",
+    "href": "slides/part1-lecture.html#before-you-climb-where-is-your-variation",
+    "title": "How Numbers Become Evidence",
+    "section": "Before you climb: where is your variation?",
+    "text": "Before you climb: where is your variation?\nEvery question type needs something that differs. Find yours before you pick a question.\n\n\n\n\n\n\n\nQuestion type\nThe variation you need\n\n\n\n\nChange\nThe same measure in several years\n\n\nDistribution\nMany units that receive or have different amounts\n\n\nComparison\nAt least two groups (or periods), with several cases in each\n\n\nComposition\nA total that splits into parts, and parts that differ in size\n\n\nRelationship\nVariation in both the outcome (Y) and the predictor (X)\n\n\n\n\n~1 min. A relationship question needs both X and Y to vary across the same cases. If your outcome barely varies (every country signed the treaty), there is nothing to explain."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#where-variation-comes-from-by-primary-focus",
+    "href": "slides/part1-lecture.html#where-variation-comes-from-by-primary-focus",
+    "title": "How Numbers Become Evidence",
+    "section": "Where variation comes from, by primary focus",
+    "text": "Where variation comes from, by primary focus\n\n\n\n\n\n\n\n\nYour primary focus\nTypical unit (one row)\nVariation often comes from…\n\n\n\n\nActor (China, AOSIS, a firm)\nActor-year, or the actor vs. peers\nOver time; comparison with similar actors\n\n\nIO / institution (GCF, World Bank)\nProject or recipient\nAcross projects, recipients, sectors, years\n\n\nIssue (adaptation, deforestation)\nCountry or country-year\nAcross countries and over time\n\n\nInstrument / policy (NDCs, carbon pricing)\nCountry or country-year\nAdopters vs. non-adopters; before vs. after\n\n\n\n\nOne actor = no variation across cases. Get it from time, a comparison group, or the parts of a total.\n\n\n~1.5 min. The trap: one actor (say, China) gives no cross-sectional variation, so you need time, a comparison group, or a breakdown into parts. Both tables are on the question-ladder worksheet."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#climb-the-ladder",
+    "href": "slides/part1-lecture.html#climb-the-ladder",
+    "title": "How Numbers Become Evidence",
+    "section": "Climb the ladder",
+    "text": "Climb the ladder\n\n\n\n\n\n\n\n\n\nRung\nExample\n\n\n\n\nTopic\nClimate finance for small islands\n\n\nConcept\nAccess to adaptation finance\n\n\nMeasure\nAdaptation-related development finance per capita (OECD), 2015–2022\n\n\nPattern\nDoes it vary across SIDS by income level?\n\n\nQuestion\nDid lower-income SIDS receive less adaptation finance per capita than higher-income SIDS, 2015–2022?\n\n\n\n\n\nIndividually, 5 minutes: write your own five rungs.\nIn your group, 4 minutes: swap. Your partners check:\n\nIs the measure available?\nWhat varies: over time, across units, or both? (For relationships: do X and Y vary?)\nWhat can’t you conclude?\n\n\nA few volunteers share (2 min).\n\n\n~10 min (~12 with the variation slide). Hand out the question-ladder worksheet. Collect ladders (photo or a shared doc) so you can tailor Part 2 examples. The example question is a Comparison question. Point out that it’s descriptive and answerable."
+  },
+  {
+    "objectID": "slides/part1-lecture.html#after-the-break",
+    "href": "slides/part1-lecture.html#after-the-break",
+    "title": "How Numbers Become Evidence",
+    "section": "After the break",
+    "text": "After the break\nBring your question ladder. We’ll work with real data:\nsummary statistics → one good figure → one statistical test\nBreak 2:30–2:45 · Lab starts at 2:45. Open RStudio during the break and come find me if anything isn’t working."
+  },
+  {
+    "objectID": "guides/install-windows.html",
+    "href": "guides/install-windows.html",
+    "title": "Installing R and RStudio on Windows",
+    "section": "",
+    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install four things, in this order:\n\nR, the programming language\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
+  },
+  {
+    "objectID": "guides/install-windows.html#a-quick-tour",
+    "href": "guides/install-windows.html#a-quick-tour",
+    "title": "Installing R and RStudio on Windows",
+    "section": "3.1 A quick tour",
+    "text": "3.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Enter.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below.\n\n\n\n\n\n\nWarningDon’t “Run as administrator”\n\n\n\nOpen RStudio normally, not with right-click → Run as administrator. Running as administrator installs packages into a protected system folder, which causes confusing permission errors later."
+  },
+  {
+    "objectID": "guides/install-windows.html#no-admin",
+    "href": "guides/install-windows.html#no-admin",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.1 Installing without administrator rights",
+    "text": "7.1 Installing without administrator rights\nThis is the most common Windows problem. Here’s the full picture:\n\n\n\n\n\n\n\n\nStep\nWith admin rights\nWithout admin rights\n\n\n\n\nR\nInstalls to C:\\Program Files\\R\nClick No at the admin prompt. R installs to your own user area (e.g., C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R)\n\n\nRStudio\nNormal installer\nUse the zip version (see the box under Install RStudio)\n\n\nPackages\nAnswer Yes to “use a personal library”\nSame. Packages go into your personal library automatically\n\n\nTinyTeX\nInstalls to your user folder; no admin needed\nSame\n\n\n\nSymptoms that point to a permissions problem:\n\nWarning in install.packages: 'lib = \"C:/Program Files/R/R-4.x.x/library\"' is not writable\nError: cannot remove prior installation of package ... or Permission denied\nAn installer that closes immediately or says “Access is denied”\n\nFixes:\n\nRe-run install.packages(...) and answer Yes to both “personal library” questions.\nMake sure RStudio isn’t being run as administrator (see the warning above).\nIf a package is “in use” and can’t be updated: close RStudio, reopen it, and install before loading anything (don’t run library() first)."
+  },
+  {
+    "objectID": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
+    "href": "guides/install-windows.html#rstudio-says-r-not-found-or-r-does-not-appear-to-be-installed",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.2 RStudio says “R not found” or “R does not appear to be installed”",
+    "text": "7.2 RStudio says “R not found” or “R does not appear to be installed”\n\nMake sure you installed R first.\nClose RStudio and reopen it. If that doesn’t work, restart your computer so RStudio can find the new installation.\nIf R was installed somewhere unusual (for example, without admin rights), point RStudio to it: hold Ctrl while opening RStudio. A dialog appears letting you Choose a specific version of R. Select the R folder (look in C:\\Users\\&lt;you&gt;\\AppData\\Local\\Programs\\R\\R-4.x.x) and click OK.\nOr, if RStudio opens: Tools → Global Options → General → R version → Change…"
+  },
+  {
+    "objectID": "guides/install-windows.html#win10",
+    "href": "guides/install-windows.html#win10",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.3 RStudio won’t install or open on Windows 10",
+    "text": "7.3 RStudio won’t install or open on Windows 10\nThe newest version of RStudio supports Windows 11. Microsoft ended regular support for Windows 10 in October 2025, so upgrading (Settings → Windows Update) is the best long-term fix if your computer is eligible.\nIf you can’t upgrade before class:\n\nInstall an earlier version of RStudio from Posit’s supported versions page. Pick the most recent release that installs and opens on your computer.\nOpen RStudio’s Terminal and run quarto check. The Quarto version must be 1.4 or higher for PDFs.\nIf it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio.\n\nThe current R installer still works on Windows 10, so you don’t need to change anything there."
+  },
+  {
+    "objectID": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
+    "href": "guides/install-windows.html#windows-defender-smartscreen-blocks-the-installer",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.4 Windows Defender / SmartScreen blocks the installer",
+    "text": "7.4 Windows Defender / SmartScreen blocks the installer\nClick More info → Run anyway. The R and RStudio installers from the official sites are safe. Some antivirus programs also quarantine rstudio.exe or Quarto’s tools. If RStudio flashes and closes immediately, check your antivirus’s quarantine list and allow RStudio."
+  },
+  {
+    "objectID": "guides/install-windows.html#tinytex-username",
+    "href": "guides/install-windows.html#tinytex-username",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.5 TinyTeX fails, or my username has spaces/accents",
+    "text": "7.5 TinyTeX fails, or my username has spaces/accents\nTinyTeX (like all LaTeX distributions on Windows) cannot be installed in a path containing non-English characters, and spaces can cause problems too. By default it installs under C:\\Users\\&lt;yourname&gt;\\AppData\\Roaming\\TinyTeX, so a username like María López breaks it.\nFix: install TinyTeX to a simple folder at the root of C:. In the Console:\ninstall.packages(\"tinytex\")   # make sure tinytex is up to date\ntinytex::install_tinytex(dir = \"C:/TinyTeX\")\nThen restart RStudio. You don’t need admin rights to create a folder at C:\\.\nOther TinyTeX errors such as “The system cannot find the path specified” or “tlmgr returned a non zero status code” usually have the same cause. Try the fix above.\n\n\n\n\n\n\nNote\n\n\n\nRemember: TinyTeX is only the backup. If it won’t install, you can still make PDFs with Typst. Don’t spend more than 15 minutes on TinyTeX."
+  },
+  {
+    "objectID": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "href": "guides/install-windows.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.6 Package installation fails with “cannot open URL” or “download failed”",
+    "text": "7.6 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again.\nA VPN or corporate proxy can also block downloads. Turn the VPN off temporarily."
+  },
+  {
+    "objectID": "guides/install-windows.html#old-quarto",
+    "href": "guides/install-windows.html#old-quarto",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.7 RStudio is using an old version of Quarto",
+    "text": "7.7 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto, or\nuninstall the old Quarto via Settings → Apps."
+  },
+  {
+    "objectID": "guides/install-windows.html#onedrive-problems",
+    "href": "guides/install-windows.html#onedrive-problems",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.8 OneDrive problems",
+    "text": "7.8 OneDrive problems\nIf your Documents or Desktop folder is synced to OneDrive, OneDrive can lock files while Quarto is writing them, which causes “access denied” or “file in use” errors when rendering. Keep your workshop folder outside OneDrive (for example C:\\Users\\&lt;you&gt;\\pols081), or pause OneDrive syncing while you work."
+  },
+  {
+    "objectID": "guides/install-windows.html#still-stuck",
+    "href": "guides/install-windows.html#still-stuck",
+    "title": "Installing R and RStudio on Windows",
+    "section": "7.9 Still stuck?",
+    "text": "7.9 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour Windows version (Settings → System → About), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "",
+    "text": "A two-part session led by Greg Amusu of the Social Science Quantitative Lab (SSQL), built to support your data paper."
+  },
+  {
+    "objectID": "index.html#schedule",
+    "href": "index.html#schedule",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nPart\n\n\n\n\n1:15–2:30 pm\nPart 1. Lecture and discussion. Epistemology, quantitative social science, and approaches to the data paper. We’ll work through three course readings in groups.\n\n\n2:30–2:45 pm\nBreak\n\n\n2:45–4:00 pm\nPart 2. Lab. Hands-on data analysis in RStudio and Quarto: summary statistics, a figure, and a statistical test."
+  },
+  {
+    "objectID": "index.html#before-class-set-up-your-computer",
+    "href": "index.html#before-class-set-up-your-computer",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Before class: set up your computer",
+    "text": "Before class: set up your computer\nEveryone will use R, RStudio and Quarto in the lab, whatever software you plan to use for your paper. Please install them before Wednesday:\n\nInstall R and RStudio: Mac guide · Windows guide\nMake your first Quarto document and render it to PDF: Quarto & PDF guide\n\nIf you get stuck, work through the troubleshooting section of each guide, then email Greg. Anything still unresolved, we’ll fix during the break."
+  },
+  {
+    "objectID": "index.html#before-class-the-readings",
+    "href": "index.html#before-class-the-readings",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Before class: the readings",
+    "text": "Before class: the readings\nCome ready to discuss all three papers in small groups. Pay particular attention to their methods (how they turn a concept into something measurable) and their results (what they can and can’t conclude).\n\nFransen et al. (2023), Taking stock of the implementation gap in climate policy\nXie et al. (2025), Tracing inclusivity at UNFCCC conferences through side events and interest group dynamics\nTennant, Davies & Tennant (2024), Determinants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies"
+  },
+  {
+    "objectID": "index.html#materials",
+    "href": "index.html#materials",
+    "title": "Working with Data in Global Environmental Governance",
+    "section": "Materials",
+    "text": "Materials\nPart 1\n\nPart 1 slides\nPaper discussion prompts\nQuestion ladder worksheet\n\nPart 2\n\nLab materials: download the lab files, the guide to Example 2, and extra practice on merging datasets\nPart 2 slides\n\nFor your data paper\n\nData sources, organized by primary focus, plus the data behind the course readings\nWhere to get help, including SSQL office hours in Science Center 205"
+  },
+  {
+    "objectID": "guides/install-mac.html",
+    "href": "guides/install-mac.html",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "",
+    "text": "ImportantDo this before class on Wednesday\n\n\n\nSet aside about 30–45 minutes. You’ll install five things, in this order:\n\nR, the programming language\nXQuartz, which R needs to draw plots on a Mac\nRStudio, the program you’ll actually work in (it includes Quarto)\nA few R packages\nTinyTeX, a backup tool for making PDFs\n\nThen work through the Quarto and PDF guide to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn’t solve it, email Greg with a screenshot of the error."
+  },
+  {
+    "objectID": "guides/install-mac.html#a-quick-tour",
+    "href": "guides/install-mac.html#a-quick-tour",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "4.1 A quick tour",
+    "text": "4.1 A quick tour\nWhen RStudio opens, you’ll see (usually) four panes:\n\nConsole (bottom left): where R runs commands. Type here and press Return.\nSource (top left): where you edit scripts and Quarto documents. It appears once you open a file.\nEnvironment / History (top right): the data and objects you’ve created.\nFiles / Plots / Packages / Help / Viewer (bottom right).\n\nThe Console has a sibling tab called Terminal. You’ll use it once below."
+  },
+  {
+    "objectID": "guides/install-mac.html#dev-control",
+    "href": "guides/install-mac.html#dev-control",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.1 “dev.control() called without an open graphics device”",
+    "text": "8.1 “dev.control() called without an open graphics device”\nYou’ll see this when you render a document that makes a plot. The full message looks something like this:\nError in dev.control(displaylist = if (record) \"enable\" else \"inhibit\") :\n  dev.control() called without an open graphics device\nWarning messages:\n1: In grSoftVersion() : unable to load shared object\n   '.../R.framework/Resources/modules//R_X11.so' ...\n   Reason: tried: '/opt/X11/lib/libSM.6.dylib' (no such file) ...\n2: In cairoVersion() : unable to load shared object ...\nThe telltale signs are warnings that mention X11, libSM.6.dylib or /opt/X11, and cairo. They mean XQuartz isn’t installed (or you haven’t logged out and back in since installing it), so R can’t open a graphics device to draw the plot.\nFix:\n\nInstall XQuartz (see Install XQuartz).\nLog out of your Mac and log back in (or restart).\nOpen RStudio and render again.\n\n\n\n\n\n\n\nTipFallback if XQuartz still doesn’t help\n\n\n\n\n\nYou can tell R to draw plots with the ragg package, which doesn’t need XQuartz. Run this once in the Console:\ninstall.packages(\"ragg\")\nThen add these lines to the YAML header of the document you’re rendering (between the --- lines, at the same level as format:):\nknitr:\n  opts_chunk:\n    dev: ragg_png\nRender again. If this works but XQuartz didn’t, email Greg so we can find out why."
+  },
+  {
+    "objectID": "guides/install-mac.html#gatekeeper",
+    "href": "guides/install-mac.html#gatekeeper",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”",
+    "text": "8.2 “RStudio can’t be opened because Apple cannot check it for malicious software”\n\nOpen System Settings → Privacy & Security.\nScroll down to the Security section. You should see a message about RStudio being blocked.\nClick Open Anyway and enter your password.\n\nAlternatively, in Finder, right-click (or Control-click) RStudio in Applications and choose Open."
+  },
+  {
+    "objectID": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
+    "href": "guides/install-mac.html#rstudio-says-r-not-found-or-asks-you-to-choose-an-r-installation",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.3 RStudio says “R not found” or asks you to choose an R installation",
+    "text": "8.3 RStudio says “R not found” or asks you to choose an R installation\n\nMake sure you installed R first, then quit RStudio completely (RStudio → Quit, or ⌘Q) and reopen it.\nCheck that you downloaded the R installer that matches your chip. An arm64 R won’t run on an Intel Mac.\nIf it still fails, reinstall R, then restart your Mac."
+  },
+  {
+    "objectID": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
+    "href": "guides/install-mac.html#i-installed-the-wrong-r-intel-vs.-apple-silicon",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.4 I installed the wrong R (Intel vs. Apple silicon)",
+    "text": "8.4 I installed the wrong R (Intel vs. Apple silicon)\nDownload and install the correct .pkg. It will replace the old version. Then reinstall the packages (see Install the workshop R packages)."
+  },
+  {
+    "objectID": "guides/install-mac.html#macos-too-old",
+    "href": "guides/install-mac.html#macos-too-old",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.5 My macOS is too old",
+    "text": "8.5 My macOS is too old\nThe simplest fix is to update macOS via System Settings → General → Software Update. Every Apple silicon Mac can run macOS 15 or newer. Updating takes a while, so start early.\nIf you can’t update before class:\n\nRStudio won’t install or open (macOS 14 or older): install an earlier version of RStudio instead. Posit’s supported versions page includes a table showing which RStudio release works with each version of macOS, and links to those releases. Then run quarto check in RStudio’s Terminal: the Quarto version must be 1.4 or higher for PDFs. If it’s lower, also install the latest Quarto from https://quarto.org/docs/get-started/.\nR won’t install (Apple silicon on macOS 11–13, or Intel older than macOS 11): older versions of R that support your macOS are available from CRAN. Email Greg and we’ll find the right one."
+  },
+  {
+    "objectID": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
+    "href": "guides/install-mac.html#xcrun-error-invalid-active-developer-path-or-a-message-about-command-line-tools",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools",
+    "text": "8.6 “xcrun: error: invalid active developer path” or a message about Command Line Tools\nThis means R tried to compile a package from source. Either:\n\nreinstall the package and answer no when asked about installing from source, or\ninstall Apple’s developer tools by running this in the Terminal and following the prompts (it takes a while):\n\nxcode-select --install"
+  },
+  {
+    "objectID": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "href": "guides/install-mac.html#package-installation-fails-with-cannot-open-url-or-download-failed",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.7 Package installation fails with “cannot open URL” or “download failed”",
+    "text": "8.7 Package installation fails with “cannot open URL” or “download failed”\n\nCheck your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.\nIn RStudio, go to Tools → Global Options → Packages. Under Primary CRAN repository, click Change…, choose Global (CDN) – Posit, then click OK and try again."
+  },
+  {
+    "objectID": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
+    "href": "guides/install-mac.html#quarto-install-tinytex-says-quarto-command-not-found",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.8 quarto install tinytex says “quarto: command not found”",
+    "text": "8.8 quarto install tinytex says “quarto: command not found”\nUse the R alternative instead: tinytex::install_tinytex() in the Console. Then restart RStudio."
+  },
+  {
+    "objectID": "guides/install-mac.html#old-quarto",
+    "href": "guides/install-mac.html#old-quarto",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.9 RStudio is using an old version of Quarto",
+    "text": "8.9 RStudio is using an old version of Quarto\nIf quarto check shows a version below 1.4, you probably have an old, separately installed Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:\n\nUpdate it: download and install the latest Quarto from https://quarto.org/docs/get-started/, then restart RStudio, or\nUpdate RStudio to the newest version, which bundles a recent Quarto."
+  },
+  {
+    "objectID": "guides/install-mac.html#still-stuck",
+    "href": "guides/install-mac.html#still-stuck",
+    "title": "Installing R and RStudio on a Mac",
+    "section": "8.10 Still stuck?",
+    "text": "8.10 Still stuck?\nEmail Greg with:\n\na screenshot of the error,\nyour macOS version and chip (from About This Mac), and\nthe output of quarto check (copy and paste it from the Terminal).\n\nIf we can’t fix it by email, we’ll sort it out during the break on Wednesday."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html",
+    "href": "guides/quarto-pdf.html",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "",
+    "text": "ImportantBefore you start\n\n\n\nFinish the installation guide for your computer first: Mac or Windows.\nGoal for tonight: render the test document to HTML and to PDF with Typst. It takes about 20 minutes."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#step-1-download-the-test-document",
+    "href": "guides/quarto-pdf.html#step-1-download-the-test-document",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "6.1 Step 1: Download the test document",
+    "text": "6.1 Step 1: Download the test document\nDownload pdf-test.qmd and save it in your pols081 folder. Then open it in RStudio (File → Open File…).\nIt contains text, a table, a figure made with ggplot2, and some summary statistics, which is everything your data paper will need."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#step-2-look-at-the-header",
+    "href": "guides/quarto-pdf.html#step-2-look-at-the-header",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "6.2 Step 2: Look at the header",
+    "text": "6.2 Step 2: Look at the header\n---\ntitle: \"PDF Test for POLS 081\"\nauthor: \"Your Name\"\nformat:\n  typst:\n    papersize: us-letter\n    margin:\n      x: 1in\n      y: 1in\n    fontsize: 11pt\n    toc: false\n  html: default\n---\nChange \"Your Name\" to your name. The options under typst: control the PDF’s page size, margins and font size."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#step-3-render",
+    "href": "guides/quarto-pdf.html#step-3-render",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "6.3 Step 3: Render",
+    "text": "6.3 Step 3: Render\nClick Render. Because typst is listed first, you’ll get pdf-test.pdf in the same folder. It should open in the Viewer pane or in a separate window.\n✅ If you see a PDF with a table and a scatterplot, you’re ready for Wednesday."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#step-4-optional-try-the-other-formats",
+    "href": "guides/quarto-pdf.html#step-4-optional-try-the-other-formats",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "6.4 Step 4 (optional): Try the other formats",
+    "text": "6.4 Step 4 (optional): Try the other formats\n\nClick ▾ next to Render and choose Render HTML.\nChange typst to pdf to test the TinyTeX (LaTeX) backup.\nAdd docx: default to the format list and render a Word document."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#dev.control-called-without-an-open-graphics-device-mac",
+    "href": "guides/quarto-pdf.html#dev.control-called-without-an-open-graphics-device-mac",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.1 “dev.control() called without an open graphics device” (Mac)",
+    "text": "7.1 “dev.control() called without an open graphics device” (Mac)\nThis is a Mac graphics problem, not a Typst problem: rendering to HTML fails the same way. Look for warnings underneath that mention X11, libSM.6.dylib or cairo. They mean XQuartz isn’t installed, so R can’t open a graphics device to draw your plot.\n\nInstall XQuartz, following the XQuartz step in the Mac guide.\nLog out of your Mac and log back in (or restart).\nOpen RStudio and render again.\n\nFallback: run install.packages(\"ragg\") in the Console, then add these lines to your document’s YAML header (at the same level as format:) and render again:\nknitr:\n  opts_chunk:\n    dev: ragg_png\nSee the Mac troubleshooting entry for more detail."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#unknown-format-typst-typst-is-not-a-valid-format",
+    "href": "guides/quarto-pdf.html#unknown-format-typst-typst-is-not-a-valid-format",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.2 “Unknown format: typst” / “typst is not a valid format”",
+    "text": "7.2 “Unknown format: typst” / “typst is not a valid format”\nYour Quarto is older than 1.4. In the Terminal, run quarto --version.\n\nIf it’s below 1.4, you likely have an old, separately installed Quarto (sometimes from Anaconda or VS Code) that RStudio uses instead of its built-in one. Install the latest Quarto from https://quarto.org/docs/get-started/, or update RStudio, then restart RStudio.\nDon’t confuse this with the R package called quarto, which has its own, different version number. The version that matters is the one printed by quarto --version in the Terminal."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#failed-to-download-package-or-an-error-mentioning-packages.typst.org",
+    "href": "guides/quarto-pdf.html#failed-to-download-package-or-an-error-mentioning-packages.typst.org",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.3 “failed to download package” or an error mentioning packages.typst.org",
+    "text": "7.3 “failed to download package” or an error mentioning packages.typst.org\nSome versions of Quarto download small Typst add-ons (for example, the icons used in callout boxes) the first time you render a PDF.\n\nMake sure you’re connected to the internet (not on a network that blocks downloads) and render again.\nBetter: update Quarto (or RStudio). Recent versions include these add-ons, so no download is needed."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#errors-that-mention-your-title-a-heading-or-a-strange-character",
+    "href": "guides/quarto-pdf.html#errors-that-mention-your-title-a-heading-or-a-strange-character",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.4 Errors that mention your title, a heading, or a strange character",
+    "text": "7.4 Errors that mention your title, a heading, or a strange character\nTypst treats some characters as instructions, especially #, $, @, \\ and *. In the YAML header (title, author, subtitle), these can break the PDF.\n\nRemove them from your title, or put the whole title in quotes: title: \"Climate Finance: 2015–2022\".\nA $ in text (for example “$100 billion”) is fine in the body, but write it as \\$100 billion if you see a math-related error."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#errors-about-an-image-or-figure",
+    "href": "guides/quarto-pdf.html#errors-about-an-image-or-figure",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.5 Errors about an image or figure",
+    "text": "7.5 Errors about an image or figure\n\nTypst can’t use web images (URLs) or unusual formats such as .webp or .tiff. Save the image as .png or .jpg in your project folder and reference it by file name.\nCheck the file name and path: no spaces or accented characters, and the image must be in the folder you point to."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#access-is-denied-permission-denied-or-the-file-is-being-used-by-another-process",
+    "href": "guides/quarto-pdf.html#access-is-denied-permission-denied-or-the-file-is-being-used-by-another-process",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.6 “Access is denied”, “permission denied”, or “the file is being used by another process”",
+    "text": "7.6 “Access is denied”, “permission denied”, or “the file is being used by another process”\nThis usually happens on Windows when the PDF is still open in Adobe Acrobat, Edge, or another viewer while Quarto tries to overwrite it.\n\nClose the PDF in every program, then render again.\nIf your folder is in OneDrive, move it out, or pause syncing."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#warnings-about-fonts-unknown-font-family",
+    "href": "guides/quarto-pdf.html#warnings-about-fonts-unknown-font-family",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.7 Warnings about fonts (“unknown font family”)",
+    "text": "7.7 Warnings about fonts (“unknown font family”)\nThese are warnings, not errors. Typst substitutes a default font and the PDF is still produced. If you added a mainfont: option, remove it or choose a font installed on your computer."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#rendering-crashes-hangs-or-typst-cannot-be-executed",
+    "href": "guides/quarto-pdf.html#rendering-crashes-hangs-or-typst-cannot-be-executed",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.8 Rendering crashes, hangs, or typst “cannot be executed”",
+    "text": "7.8 Rendering crashes, hangs, or typst “cannot be executed”\n\nSome antivirus programs (mostly on Windows) block the Typst program that comes with Quarto. Check your antivirus quarantine and allow it.\nClose and reopen RStudio, then try again.\nRun quarto check in the Terminal. Look for a ✓ next to Typst version. If it’s missing, reinstall the latest Quarto from https://quarto.org/docs/get-started/."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#the-r-code-fails-during-rendering-but-runs-when-i-click",
+    "href": "guides/quarto-pdf.html#the-r-code-fails-during-rendering-but-runs-when-i-click",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.9 The R code fails during rendering (but runs when I click ▶)",
+    "text": "7.9 The R code fails during rendering (but runs when I click ▶)\nWhen you render, Quarto runs your code in a fresh R session from the folder the .qmd is in. Common causes:\n\nA package is loaded in your Console but not in the document. Add library(tidyverse) (or whichever package) to a chunk near the top.\nA data file is referenced with a path that only works from somewhere else. Keep data files in the same folder as the .qmd (or a data/ subfolder) and use relative paths like read_csv(\"data/mydata.csv\").\nAn object was created in the Console but not in the document. Every object must be created by code in the .qmd."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#fallbacks-if-typst-still-wont-work",
+    "href": "guides/quarto-pdf.html#fallbacks-if-typst-still-wont-work",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.10 Fallbacks if Typst still won’t work",
+    "text": "7.10 Fallbacks if Typst still won’t work\n\nUse LaTeX instead: change typst to pdf in the header (this uses TinyTeX). If TinyTeX isn’t installed, run quarto install tinytex in the Terminal.\nUse Word: render to docx, then save as PDF from Word.\nLast resort: render to html, open it in your browser, and use Print → Save as PDF."
+  },
+  {
+    "objectID": "guides/quarto-pdf.html#still-stuck",
+    "href": "guides/quarto-pdf.html#still-stuck",
+    "title": "Your First Quarto Document, and Rendering It to PDF",
+    "section": "7.11 Still stuck?",
+    "text": "7.11 Still stuck?\nEmail Greg with:\n\na screenshot of the error (the first ERROR line in Background Jobs),\nyour operating system (Mac or Windows, and version), and\nthe output of quarto check from the Terminal.\n\nIf we can’t fix it by email, we’ll work on it during the break on Wednesday."
+  },
+  {
+    "objectID": "slides/part2-lab.html#the-lab-245400",
+    "href": "slides/part2-lab.html#the-lab-245400",
+    "title": "From Data to Evidence",
+    "section": "The lab, 2:45–4:00",
+    "text": "The lab, 2:45–4:00\n\n\n\n\n\nTime\nWhat we do\n\n\n\n\n2:45\nGet the files; anatomy of a Quarto document\n\n\n2:55\nLoad and look at the data\n\n\n3:00\nSummary statistics\n\n\n3:10\nOne good figure\n\n\n3:20\nOne statistical test\n\n\n3:30\nYour turn: Example 2\n\n\n3:45\nRender to PDF\n\n\n3:50\nBring it back to your paper\n\n\n\n\n\nThe recipe for every data paper question:\nsummary statistics → one good figure → one statistical test\n\nWe’ll walk through Example 1 together. You’ll do Example 2 yourself. The Workshop Questions are for after class.\n\n\n~1 min. Everyone should have R, RStudio and the tidyverse working after the break. Anyone still stuck: pair them with a neighbor for now and fix it while others work on Example 2."
+  },
+  {
+    "objectID": "slides/part2-lab.html#get-the-lab-files",
+    "href": "slides/part2-lab.html#get-the-lab-files",
+    "title": "From Data to Evidence",
+    "section": "Get the lab files",
+    "text": "Get the lab files\n\nDownload pols081-lab.zip from the workshop website (Part 2 page).\nUnzip it. On Windows, right-click → Extract All… (don’t work inside the zip).\nOpen the folder and double-click pols081-lab.Rproj. RStudio opens in that folder.\nIn the Files pane, open lab-handout.qmd.\n\n\nCheck: run the first chunk, library(tidyverse). A list of packages with ✔ marks means you’re ready. Hand up if you see an error.\n\n\n~4 min. Common problems: working inside the zip on Windows (files won’t save, data won’t load); a OneDrive folder with a non-ASCII path; tidyverse not installed. Fix: extract to Desktop or Documents."
+  },
+  {
+    "objectID": "slides/part2-lab.html#anatomy-of-a-quarto-document",
+    "href": "slides/part2-lab.html#anatomy-of-a-quarto-document",
+    "title": "From Data to Evidence",
+    "section": "Anatomy of a Quarto document",
+    "text": "Anatomy of a Quarto document\n\n\n---\ntitle: \"Lab: Summary Statistics...\"\nauthor: \"Put your name here!\"\nformat: typst\n---\n\nText you write, in **Markdown**.\n\n```{r}\naid &lt;- read_csv(\"data/adaptation_aid.csv\")\n```\n\n\nYAML header between the --- lines: title, author, output format (typst makes a PDF)\nText: your writing, with simple formatting\nCode chunks: R code that runs and puts its results in the document\n\n\nRun a chunk: ▶ or Cmd/Ctrl + Shift + Enter Render the whole file: the Render button\n\n\n~3 min. Put your name in the author line now. Running a chunk shows results in RStudio only; Render runs everything from top to bottom in a fresh session and makes the PDF. If Render fails but chunks run, you probably skipped a chunk or created an object out of order."
+  },
+  {
+    "objectID": "slides/part2-lab.html#load-and-look",
+    "href": "slides/part2-lab.html#load-and-look",
+    "title": "From Data to Evidence",
+    "section": "Load and look",
+    "text": "Load and look\n\naid &lt;- read_csv(\"data/adaptation_aid.csv\")\nglimpse(aid)\n\n\n\nRows: 134\nColumns: 8\n$ country        &lt;chr&gt; \"Afghanistan\", \"Albania\", \"Algeria\", \"Angola\", \"Antigua…\n$ iso3c          &lt;chr&gt; \"AFG\", \"ALB\", \"DZA\", \"AGO\", \"ATG\", \"ARG\", \"ARM\", \"AZE\",…\n$ region         &lt;chr&gt; \"Middle East, North Africa, Afghanistan & Pakistan\", \"E…\n$ income_group   &lt;chr&gt; \"Low income\", \"Upper middle income\", \"Upper middle inco…\n$ sids           &lt;chr&gt; \"Other\", \"Other\", \"Other\", \"Other\", \"SIDS\", \"Other\", \"O…\n$ population     &lt;dbl&gt; 41454761, 2411658, 46164219, 36749906, 93316, 45538401,…\n$ vulnerability  &lt;dbl&gt; 0.612, 0.416, 0.430, 0.528, 0.485, 0.408, 0.394, 0.428,…\n$ adapt_aid_musd &lt;dbl&gt; 208.061, 177.871, 28.381, 48.847, 0.439, 29.661, 62.074…\n\n\n\n~3 min. One row = one recipient country. Point out the column types ( text,  numbers) and walk the codebook in the handout: where each column comes from. This is the Measure step from Part 1: adapt_aid_musd is donor-reported, Rio-marked commitments, not money spent."
+  },
+  {
+    "objectID": "slides/part2-lab.html#build-the-measure-you-need",
+    "href": "slides/part2-lab.html#build-the-measure-you-need",
+    "title": "From Data to Evidence",
+    "section": "Build the measure you need",
+    "text": "Build the measure you need\nLarge countries get more aid in total simply because they have more people. Make a per-person measure:\n\naid &lt;- aid %&gt;%\n  mutate(aid_pc = adapt_aid_musd * 1000000 / population)\n\n\n\nEvery measure is a choice. Total aid answers where does the money go? Aid per person answers how much does each person’s country get? They tell different stories. Say which you use and why.\n\n\n~2 min. Callback to “numbers are measurements, not the things themselves.”"
+  },
+  {
+    "objectID": "slides/part2-lab.html#mean-vs.-median",
+    "href": "slides/part2-lab.html#mean-vs.-median",
+    "title": "From Data to Evidence",
+    "section": "Mean vs. median",
+    "text": "Mean vs. median\n\naid %&gt;%\n  summarize(mean = mean(aid_pc), median = median(aid_pc), sd = sd(aid_pc), n = n())\n\n# A tibble: 1 × 4\n   mean median    sd     n\n  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1  39.2   6.86  159.   134\n\n\n\n\n~3 min. Mean much bigger than median = right skew: most countries get a few dollars per person, a handful get a lot. Ask: which number describes a “typical” recipient? (The median.) The sd is large relative to the mean, another sign of skew."
+  },
+  {
+    "objectID": "slides/part2-lab.html#who-gets-the-most-depends-how-you-count",
+    "href": "slides/part2-lab.html#who-gets-the-most-depends-how-you-count",
+    "title": "From Data to Evidence",
+    "section": "Who gets the most? Depends how you count",
+    "text": "Who gets the most? Depends how you count\n\n\nIn total (US$ millions per year)\n\n\n\n\n\nCountry\nSIDS?\nTotal\n\n\n\n\nIndia\nOther\n1299\n\n\nBangladesh\nOther\n1164\n\n\nIndonesia\nOther\n1076\n\n\nPhilippines\nOther\n1031\n\n\nEthiopia\nOther\n771\n\n\nCambodia\nOther\n528\n\n\nColombia\nOther\n524\n\n\nMorocco\nOther\n477\n\n\n\n\n\n\nPer person (US$ per year)\n\n\n\n\n\nCountry\nSIDS?\nPer person\n\n\n\n\nTuvalu\nSIDS\n1693\n\n\nNaoero (Nauru)\nSIDS\n547\n\n\nPalau\nSIDS\n294\n\n\nTonga\nSIDS\n274\n\n\nMarshall Islands\nSIDS\n263\n\n\nVanuatu\nSIDS\n210\n\n\nKiribati\nSIDS\n168\n\n\nSamoa\nSIDS\n126\n\n\n\n\n\n\narrange(desc(...)) sorts, select() picks columns, slice_head(n = 8) keeps the top rows.\n\n~2 min. Same data, two very different top lists. This sets up the CO2 Workshop Questions (total vs per capita), so don’t give away more than this."
+  },
+  {
+    "objectID": "slides/part2-lab.html#comparing-groups-and-finding-shares",
+    "href": "slides/part2-lab.html#comparing-groups-and-finding-shares",
+    "title": "From Data to Evidence",
+    "section": "Comparing groups and finding shares",
+    "text": "Comparing groups and finding shares\n\naid %&gt;%\n  group_by(sids) %&gt;%\n  summarize(median_pc = median(aid_pc), mean_pc = mean(aid_pc), n = n())\n\n# A tibble: 2 × 4\n  sids  median_pc mean_pc     n\n  &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;\n1 Other      5.99    9.83   103\n2 SIDS      25.6   137.      31\n\n\n\nComposition: what share of all adaptation aid goes to SIDS?\n\naid %&gt;%\n  group_by(sids) %&gt;%\n  summarize(total_musd = sum(adapt_aid_musd)) %&gt;%\n  mutate(share = total_musd / sum(total_musd))\n\n# A tibble: 2 × 3\n  sids  total_musd  share\n  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 Other     19795. 0.947 \n2 SIDS       1101. 0.0527\n\n\n\n~4 min. group_by() + summarize() = one row per group. The composition question is one of the five question types from the prompt. Ask: SIDS get a small share of the total but a lot per person. Which is the “fair” comparison? (No single answer; depends on the question.)"
+  },
+  {
+    "objectID": "slides/part2-lab.html#what-makes-a-figure-good",
+    "href": "slides/part2-lab.html#what-makes-a-figure-good",
+    "title": "From Data to Evidence",
+    "section": "What makes a figure good?",
+    "text": "What makes a figure good?\n\n\n\nAnswers one question\nHonest axes: say when a scale is logged; bars start at zero\nPlain-language labels with units\nA source line\nA one-sentence takeaway in your text\n\n\nggplot() builds a figure in layers:\n\nggplot(aid, aes(x = sids, y = aid_pc)) +   # data + axes\n  geom_boxplot() +                          # the marks\n  scale_y_log10() +                         # the scale\n  labs(title = \"...\", x = NULL,             # the words\n       y = \"Aid per person, US$ (log scale)\",\n       caption = \"Source: OECD; World Bank.\") +\n  theme_minimal()                           # the look\n\n\n\n~3 min. Point back to the syllabus: “What does this show? Why does it matter? What can I conclude, and what can I not conclude?” Remind them of the AI policy: they must make their own figures."
+  },
+  {
+    "objectID": "slides/part2-lab.html#a-comparison-boxplot",
+    "href": "slides/part2-lab.html#a-comparison-boxplot",
+    "title": "From Data to Evidence",
+    "section": "A comparison: boxplot",
+    "text": "A comparison: boxplot\n\n\n~2 min. Read it together: the line is the median, the box the middle half. Log scale: each gridline is 10x the one below. Takeaway: SIDS get far more per person."
+  },
+  {
+    "objectID": "slides/part2-lab.html#a-relationship-scatterplot",
+    "href": "slides/part2-lab.html#a-relationship-scatterplot",
+    "title": "From Data to Evidence",
+    "section": "A relationship: scatterplot",
+    "text": "A relationship: scatterplot\n\n\nYour takeaway sentence? Call one out.\n\n\n~3 min. Get two or three takeaway sentences from the room and tighten one together. Watch for causal language (“vulnerability causes…”)."
+  },
+  {
+    "objectID": "slides/part2-lab.html#correlation-test",
+    "href": "slides/part2-lab.html#correlation-test",
+    "title": "From Data to Evidence",
+    "section": "Correlation test",
+    "text": "Correlation test\n\ncor.test(aid$vulnerability, log(aid$aid_pc))\n\n\n    Pearson's product-moment correlation\n\ndata:  aid$vulnerability and log(aid$aid_pc)\nt = 3.2341, df = 132, p-value = 0.001542\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.1062558 0.4211952\nsample estimates:\n      cor \n0.2709616 \n\n\n\n~4 min. Read three things: the correlation (cor), the 95% CI, the p-value. We use log(aid_pc) because a few extreme values drive an ordinary correlation, and to match the log-scale figure. Recall from Part 1: the p-value asks “if there were no relationship, how often would chance alone produce one this strong?”"
+  },
+  {
+    "objectID": "slides/part2-lab.html#comparing-two-means-t-test",
+    "href": "slides/part2-lab.html#comparing-two-means-t-test",
+    "title": "From Data to Evidence",
+    "section": "Comparing two means: t-test",
+    "text": "Comparing two means: t-test\n\nt.test(aid_pc ~ sids, data = aid)\n\n\n    Welch Two Sample t-test\n\ndata:  aid_pc by sids\nt = -2.2527, df = 30.03, p-value = 0.03174\nalternative hypothesis: true difference in means between group Other and group SIDS is not equal to 0\n95 percent confidence interval:\n -241.80448  -11.85043\nsample estimates:\nmean in group Other  mean in group SIDS \n           9.832621          136.660076 \n\n\n\n~3 min. The formula reads “aid per person, by SIDS status.” Look at the two group means, the CI for the difference, the p-value. A big difference with a wide CI: the SIDS group is small and very spread out."
+  },
+  {
+    "objectID": "slides/part2-lab.html#what-the-test-cant-tell-you",
+    "href": "slides/part2-lab.html#what-the-test-cant-tell-you",
+    "title": "From Data to Evidence",
+    "section": "What the test can’t tell you",
+    "text": "What the test can’t tell you\n\n\n\nConfounding: SIDS are small, and small countries get more per person. Vulnerability, size, or donor ties?\nSelection: only countries that received adaptation aid are in the data. Tennant’s eligibility stage is invisible.\n\n\n\nMeasurement: donors tag their own projects; “significant” projects count in full.\nInference: we have nearly every recipient. The p-value is about chance in allocations, not about a bigger population.\n\n\n\nA small p-value says chance alone is an unlikely explanation. It doesn’t say why, and it doesn’t say how much it matters.\n\n\n~3 min. Straight callback to the Part 1 recap: confounding, selection, measurement, uncertainty."
+  },
+  {
+    "objectID": "slides/part2-lab.html#your-turn-example-2",
+    "href": "slides/part2-lab.html#your-turn-example-2",
+    "title": "From Data to Evidence",
+    "section": "Your turn: Example 2",
+    "text": "Your turn: Example 2\n\n15 minutes, with a neighbor. In lab-handout.qmd, go to Example 2: Renewable Energy and National Income. Fill in each blank chunk using Example 1 as your model.\n\n\nSame steps, new question: do richer countries get more of their energy from renewables?\nStuck? Copy the matching chunk from Example 1 and change the data frame and variable names.\nThe guide PDF on the website has the Example 2 code if you need to check.\n\n\n\nLook closely at your result. Does “renewable share” measure a clean-energy transition? Hint: what counts as renewable in poor countries?\n\n\n~15 min. Circulate. Common errors: object not found (didn’t run the read_csv chunk), misspelled column names, forgetting quotes in filter(), using = instead of == in filter. At ~3:43, ask what they found: poorer countries have higher renewable shares because traditional biomass counts as renewable. Measure lesson again."
+  },
+  {
+    "objectID": "slides/part2-lab.html#render-to-pdf",
+    "href": "slides/part2-lab.html#render-to-pdf",
+    "title": "From Data to Evidence",
+    "section": "Render to PDF",
+    "text": "Render to PDF\n\nSave the file.\nClick Render. Quarto runs every chunk from the top in a fresh session, then Typst builds the PDF.\nThe PDF opens in the Viewer and is saved next to your .qmd.\n\nIf it fails:\n\n“object not found”: a chunk uses something created in a chunk that is now blank or out of order\n“could not find function”: library(tidyverse) didn’t run\n“cannot open file data/…”: the .qmd isn’t in the folder with data/\n\n\n~4 min. Blank chunks render fine. The Workshop Questions chunks are blank too, so the handout renders before they’re done."
+  },
+  {
+    "objectID": "slides/part2-lab.html#which-summary-figure-and-test-for-which-question",
+    "href": "slides/part2-lab.html#which-summary-figure-and-test-for-which-question",
+    "title": "From Data to Evidence",
+    "section": "Which summary, figure and test for which question?",
+    "text": "Which summary, figure and test for which question?\n\n\n\n\n\n\n\n\n\nQuestion type\nSummary statistics\nOne good figure\nA test, if you want one\n\n\n\n\nChange over time\nValues by year; change from start to end\nLine chart\nOften none; describe the trend\n\n\nDistribution\nMean, median, top 10, spread\nBar chart of top units; histogram\nUsually none\n\n\nComparison\nMean/median by group\nBoxplot or bar chart by group\nt-test (two groups)\n\n\nComposition\nShares of a total\nStacked or simple bar chart of shares\nUsually none\n\n\nRelationship\nCorrelation\nScatterplot\nCorrelation test\n\n\n\n\n2 minutes. Look at your question ladder from Part 1. Which row is your question in? Write down the one figure you’d make first.\n\n\n~5 min. Emphasize the syllabus: “A clear graph that answers an interesting question is more valuable than an unnecessary regression.” Tests are optional for their paper. Variation reminder: each row needs something that varies."
+  },
+  {
+    "objectID": "slides/part2-lab.html#before-you-go",
+    "href": "slides/part2-lab.html#before-you-go",
+    "title": "From Data to Evidence",
+    "section": "Before you go",
+    "text": "Before you go\n\nFinish the Workshop Questions (CO2 in total vs. per person) in lab-handout.qmd\nNeed to combine two datasets? Try merging-data.qmd in the same folder\nFind data: the workshop website has a data sources page, organized by primary focus (actor, IO, issue, instrument)\nGet help: book SSQL office hours with Greg (Science Center 205)\n\n\nA careful description, an honest figure and a clear statement of what you can and cannot conclude: that’s a strong data paper.\n\n\n~1 min. Point to the website’s Help page for the booking link."
+  },
+  {
+    "objectID": "worksheets/question-ladder.html",
+    "href": "worksheets/question-ladder.html",
+    "title": "Question Ladder Worksheet",
+    "section": "",
+    "text": "Climb from a broad topic to a specific question that data can answer. Go narrow rather than broad: “climate finance” by itself is too large for a 1,500-word paper."
+  },
+  {
+    "objectID": "worksheets/question-ladder.html#example",
+    "href": "worksheets/question-ladder.html#example",
+    "title": "Question Ladder Worksheet",
+    "section": "Example",
+    "text": "Example\n\n\n\n\n\n\n\nRung\nExample\n\n\n\n\n1. Topic\nClimate finance for small islands\n\n\n2. Concept\nAccess to adaptation finance\n\n\n3. Measure\nAdaptation-related development finance per person (OECD Rio markers), 2015–2022\n\n\n4. Pattern\nDoes it vary across small island developing states (SIDS) by income level?\n\n\n5. Question\nDid lower-income SIDS receive less adaptation finance per person than higher-income SIDS, 2015–2022? (a Comparison question)"
+  },
+  {
+    "objectID": "worksheets/question-ladder.html#your-ladder",
+    "href": "worksheets/question-ladder.html#your-ladder",
+    "title": "Question Ladder Worksheet",
+    "section": "Your ladder",
+    "text": "Your ladder\nMy primary focus (circle one): Actor · International organization · Issue · Governance instrument or policy\n1. Topic · What area of global environmental governance?\n2. Concept · What exactly do you want to know about?\n3. Measure · What number captures it? From which source? Which years?\n4. Pattern · What varies, across what units or years?\n5. Question · Specific, answerable, about variation.\nQuestion type (circle one): Change · Distribution · Comparison · Composition · Relationship"
+  },
+  {
+    "objectID": "worksheets/question-ladder.html#check-it-where-is-your-variation",
+    "href": "worksheets/question-ladder.html#check-it-where-is-your-variation",
+    "title": "Question Ladder Worksheet",
+    "section": "Check it: where is your variation?",
+    "text": "Check it: where is your variation?\nEvery question type needs something that differs.\n\n\n\n\n\n\n\nQuestion type\nThe variation you need\n\n\n\n\nChange\nThe same measure in several years\n\n\nDistribution\nMany units that receive or have different amounts\n\n\nComparison\nAt least two groups (or periods), with several cases in each\n\n\nComposition\nA total that splits into parts, and parts that differ in size\n\n\nRelationship\nVariation in both the outcome (Y) and the predictor (X), across the same cases\n\n\n\n\n\n\n\n\n\n\n\nYour primary focus\nTypical unit (one row of data)\nVariation often comes from…\n\n\n\n\nActor (China, the EU, AOSIS, a firm, an NGO)\nActor-year, or the actor compared with peers\nChange over time; comparison with similar actors; breaking a total into parts\n\n\nIO or institution (World Bank, GCF, GEF, UNFCCC)\nProject, recipient or meeting\nAcross projects, recipients, sectors or years\n\n\nIssue (adaptation, deforestation, critical minerals)\nCountry or country-year\nAcross countries and over time\n\n\nInstrument or policy (NDCs, carbon pricing, ETS)\nCountry, or country-year\nAdopters vs. non-adopters; before vs. after"
+  },
+  {
+    "objectID": "worksheets/question-ladder.html#swap-with-your-group-and-check",
+    "href": "worksheets/question-ladder.html#swap-with-your-group-and-check",
+    "title": "Question Ladder Worksheet",
+    "section": "Swap with your group and check",
+    "text": "Swap with your group and check\n\nIs the measure available, for the cases and years you need? (Name the source.)\nWhat varies: over time, across units, or both? For a relationship, do X and Y both vary?\nWho or what is left out of the data?\nWhat can’t you conclude? Name one alternative explanation.\n\nNotes:"
+  },
+  {
+    "objectID": "data-sources.html",
+    "href": "data-sources.html",
+    "title": "Data Sources for Your Data Paper",
+    "section": "",
+    "text": "Your data paper needs a question you can answer with data you can actually get. This page collects places to look. Start with the section for your primary focus, then look at the data behind the course readings: if a paper you liked used a dataset, you may be able to use it too."
+  },
+  {
+    "objectID": "data-sources.html#sources-listed-in-the-syllabus",
+    "href": "data-sources.html#sources-listed-in-the-syllabus",
+    "title": "Data Sources for Your Data Paper",
+    "section": "Sources listed in the syllabus",
+    "text": "Sources listed in the syllabus\n\n\n\nSource\nWhat you’ll find\n\n\n\n\nUNFCCC\nTreaties, party submissions, NDCs, COP documents. Also the UNFCCC data interface for national greenhouse gas inventories\n\n\nIMF Climate Change Indicators Dashboard\nCountry indicators on emissions, climate finance, green bonds, environmental taxes and more\n\n\nWorld Resources Institute data\nWRI’s datasets, including Climate Watch (emissions and NDC content by country)\n\n\nClimate Action Tracker\nRatings of countries’ targets and policies; projected emissions. Used by Fransen et al. (2023)\n\n\nND-GAIN Country Index\nClimate vulnerability and readiness scores for about 185 countries, every year since 1995\n\n\nOECD Data Explorer\nOECD environment statistics and development finance, including the Rio markers for climate-related aid. The two OECD links in the syllabus point to pages that have moved; search the Data Explorer instead.\n\n\nGermanwatch Climate Risk Index\nRankings of how hard countries have been hit by extreme weather\n\n\nWorld Bank Open Data: climate change\nCountry indicators on emissions, energy, forests and more. The World Development Indicators DataBank lets you choose countries, indicators and years and download a spreadsheet\n\n\nEPA: Selected multilateral environmental instruments in force for the U.S.\nList of treaties the United States has joined\n\n\nInforMEA: treaties\nMultilateral environmental agreements, with parties and decisions\n\n\nEuropean Commission: environmental cooperation\nThe EU’s environmental agreements and partnerships (the syllabus link now redirects here)"
+  },
+  {
+    "objectID": "data-sources.html#data-by-primary-focus",
+    "href": "data-sources.html#data-by-primary-focus",
+    "title": "Data Sources for Your Data Paper",
+    "section": "Data by primary focus",
+    "text": "Data by primary focus\nThe syllabus asks you to choose one primary focus. Here are good starting points for each. Many sources work for more than one focus.\n\nAn actor\nChina, the United States, the EU, AOSIS, a multinational corporation, an NGO.\n\n\n\nSource\nUseful for\n\n\n\n\nClimate Watch\nAny country’s emissions over time and the content of its NDC\n\n\nOur World in Data: CO2 and greenhouse gas emissions (download on GitHub)\nEmissions by country since 1750, per person, by fuel, consumption-based\n\n\nEDGAR and the Global Carbon Budget\nThe emissions estimates behind many other sources\n\n\nUNFCCC party groupings\nWho belongs to AOSIS, the LDCs, the G77 and other negotiating groups\n\n\nUNFCCC past conferences\nLists of participants for each COP (delegation sizes, as in Kaya & Schofield 2020)\n\n\nUNFCCC admitted observer organizations\nNGOs and other observers, by type and year of admission\n\n\nCDP data\nCorporate climate disclosures (some data require registration)\n\n\n\nTip. A single actor gives you no variation across cases. Get variation from time (how has China’s position changed?), a comparison group (China vs. other large emitters), or parts of a total (what is the EU’s climate finance made of?).\n\n\nAn international organization or institution\nThe World Bank, Green Climate Fund, Global Environment Facility, AIIB, UNFCCC.\n\n\n\nSource\nUseful for\n\n\n\n\nWorld Bank projects and operations\nEvery World Bank project, downloadable with sector, country, amount and dates\n\n\nGreen Climate Fund open data\nGCF projects: country, amount, mitigation vs. adaptation, public vs. private\n\n\nGEF project database\nGlobal Environment Facility projects by focal area, country and agency\n\n\nAIIB project list\nAsian Infrastructure Investment Bank projects\n\n\nClimate Funds Update\nPledges, deposits and approvals across multilateral climate funds\n\n\nUNFCCC side events archive\nSide events at past COPs (the data behind Xie et al. 2025)\n\n\n\n\n\nAn issue\nClimate finance, environmental foreign aid, adaptation, loss and damage, deforestation, renewable energy, critical minerals, fossil-fuel dependence.\n\n\n\nIssue\nSources\n\n\n\n\nClimate finance and environmental aid\nOECD Data Explorer: search “Rio markers” or “climate-related development finance” (aid by donor, recipient, year and adaptation/mitigation) · Climate Funds Update · UNFCCC biennial reports\n\n\nAdaptation and vulnerability\nND-GAIN · Germanwatch Climate Risk Index\n\n\nLoss and damage, disasters\nEM-DAT international disaster database (free for academic use after registering)\n\n\nDeforestation\nGlobal Forest Watch (tree cover loss by country and year)\n\n\nRenewable energy\nEmber electricity data · Our World in Data: energy · World Bank WDI (renewables share; note that it counts firewood and charcoal)\n\n\nCritical minerals\nUSGS Mineral Commodity Summaries (production and reserves by country)\n\n\nFossil-fuel dependence and subsidies\nWorld Bank WDI (fuel exports as % of merchandise exports; oil, gas and coal rents) · IMF fossil fuel subsidies\n\n\nEnvironmental conflict\nUppsala Conflict Data Program downloads\n\n\n\n\n\nA governance instrument or policy\nNDCs, carbon pricing, emissions trading, climate-related development finance, voluntary carbon markets, environmental provisions in trade agreements.\n\n\n\nInstrument\nSources\n\n\n\n\nNDCs\nUNFCCC NDC registry (the documents) · Climate Watch (NDC content coded and comparable) · Climate Action Tracker (ratings)\n\n\nCarbon pricing and emissions trading\nWorld Bank Carbon Pricing Dashboard · ICAP ETS map\n\n\nClimate laws and policies\nClimate Change Laws of the World · Climate Policy Database · CCPI (policy scores; used by Fransen et al. 2023)\n\n\nClimate-related development finance\nOECD Data Explorer (Rio markers)\n\n\nVoluntary carbon markets\nBerkeley Carbon Trading Project: Voluntary Registry Offsets Database\n\n\nEnvironmental provisions in trade agreements\nTREND: Trade and Environment Database\n\n\n\nTip. Policy questions often compare adopters and non-adopters, or before and after adoption. Remember from Part 1: that comparison is descriptive unless you have a design that rules out other explanations."
+  },
+  {
+    "objectID": "data-sources.html#data-used-in-the-course-readings",
+    "href": "data-sources.html#data-used-in-the-course-readings",
+    "title": "Data Sources for Your Data Paper",
+    "section": "Data used in the course readings",
+    "text": "Data used in the course readings\nMany course readings are built on data you can use too. The tables below cover readings that analyze quantitative data. Other readings cite statistics (for example, the Financial Times and WRI pieces) but don’t analyze a dataset.\nOriginal data were collected or coded by the authors; secondary data come from an existing source. Entries marked † are based on the paper’s abstract or general knowledge of the source, so check the paper itself for details.\n\nRequired readings\n\n\n\nClass\nReading\nData\nUnit and years\nOriginal or secondary\nGet the data\n\n\n\n\n2\nKaya & Schofield (2020), Which Countries Send More Delegates to Climate Change Conferences?\nDelegation sizes from COP lists of participants, plus country characteristics\nCountry at each COP, 1995–2015\nBoth\nUNFCCC past conferences\n\n\n3\nGrubb (2016), Full Legal Compliance with the Kyoto Protocol’s First Commitment Period †\nAnnex B parties’ emissions vs. Kyoto targets\nAnnex B party, 2008–2012\nSecondary\nUNFCCC data interface\n\n\n4\nFransen et al. (2023), Taking Stock of the Implementation Gap in Climate Policy\nClimate Action Tracker projections and ratings; CCPI policy scores and outcome index\nCountry; 2014–2023 (varies by figure)\nSecondary\nClimate Action Tracker · CCPI\n\n\n5\nMichaelowa & Michaelowa (2017), Transnational Climate Governance Initiatives\n109 transnational initiatives, coded on four design criteria\nInitiative, founded up to about 2015\nOriginal\nIn the article\n\n\n5\nXie et al. (2025), Tracing Inclusivity at UNFCCC Conferences\nCOP side-event records (titles, descriptions, hosts); co-host networks\nSide event and organization, COP9–COP28 (2003–2023)\nBoth\nUNFCCC side events archive; code on Zenodo\n\n\n6\nCastro & Klöck (2020), Fragmentation in the Climate Change Negotiations\nNegotiating coalitions: scope, size, formality, founding date\nCoalition and country, 1995 to about 2019\nOriginal\nUNFCCC party groupings\n\n\n6\nKlöck et al. (2024), Beyond AOSIS: Small Island States’ Presence and Participation at COP27 †\nSIDS delegation size and composition at COP27\nDelegation, 2022\nBoth\nUNFCCC past conferences\n\n\n7\nGraham & Serdaru (2020), Power, Control, and the Logic of Substitution in Institutional Design\nVoting and earmarking rules of 18 climate finance institutions\nFund\nOriginal\nIn the article\n\n\n8\nKalinowski (2024), The Green Climate Fund and Private Sector Climate Finance\nGCF project portfolio (private vs. public, financing structure, sector)\nGCF project, approvals to Sept. 2022\nSecondary\nGCF open data\n\n\n8\nTennant, Davies & Tennant (2024), Determinants of Access to Climate Finance\nClimate-related development finance by recipient and donor type; vulnerability and capacity\nRecipient country by year and donor type\nSecondary\nOECD Data Explorer · ND-GAIN\n\n\n8\nPeterson & Skovgaard (2019), Bureaucratic Politics and the Allocation of Climate Finance\nBilateral climate finance flows; which ministries make donor decisions\nDonor–recipient pair by year\nBoth\nOECD Data Explorer\n\n\n9\nNielson & Tierney (2003), Delegation to International Organizations\nWorld Bank lending coded as environmental or environmentally problematic\nProject and year, 1980–2000\nOriginal\nWorld Bank projects\n\n\n9\nKaya & Leblebicioglu (2025), Understanding the World Bank’s Role in Climate Finance\nProject-level World Bank climate finance, including climate co-benefit shares\nWorld Bank project, before and after Paris\nBoth\nWorld Bank projects\n\n\n9\nKotchen & Vogt (2025), Is the Emphasis on Cofinancing Good for Environmental Multilateral Funds?\nGEF and GCF projects: funding, cofinancing, expected emission reductions\nFund project\nSecondary\nGEF database · GCF open data\n\n\n10\nWiedmann & Lenzen (2018), Environmental and Social Footprints of International Trade †\nFootprint results from multi-regional input–output models (emissions, materials, water, land)\nCountry, country pair and sector\nSecondary\nModel databases such as Eora and EXIOBASE\n\n\n10\nGenovese (2019), Sectors, Pollution, and Trade\nGovernment positions in UN climate negotiations; sector pollution and trade exposure\nCountry and sector\nBoth\nReplication data (Harvard Dataverse)\n\n\n12\nHummel (2017), Relative Water Scarcity and Country Relations Along Cross-Boundary Rivers\nCoded cooperative and conflictual events; river flows\nCountry pair over time, Aral Sea basin\nBoth\nIn the article\n\n\n13\nHickel & Kallis (2019), Is Green Growth Possible? †\nGlobal resource use and CO2 emissions, historical and projected\nWorld\nSecondary\nOur World in Data for the emissions side\n\n\n13\nO’Neill et al. (2018), A Good Life for All Within Planetary Boundaries †\nNational biophysical and social indicators compared with thresholds\nCountry, about 2011\nSecondary\nData explorer\n\n\n\n\n\nSupplementary readings\n\n\n\n\n\n\n\n\n\n\nClass\nReading\nData\nUnit\nOriginal or secondary\n\n\n\n\n5\nKolleck et al. (2017), The Power of Social Networks\nTwitter network around UNFCCC climate-education negotiations\nTwitter account\nOriginal\n\n\n6\nRuiz-Campillo (2024), Post-Paris Agreement Negotiations\nDeveloping-country requests matched to COP decisions\nRequest or decision\nOriginal\n\n\n7\nBen Youssef, La Torre & Jovović (2025), Operationalizing the NCQG\nCountry emissions, income and population feeding an allocation model\nContributor country\nSecondary\n\n\n8\nWeiler, Klöck & Dornan (2018), Vulnerability, Good Governance, or Donor Interests? †\nBilateral adaptation aid (Rio markers); ND-GAIN vulnerability; governance indicators\nDonor–recipient pair by year\nSecondary\n\n\n8\nXie & Chen (2025), Private Governance in Climate Mitigation\nFirms’ participation in voluntary carbon markets, with country characteristics\nFirm\nSecondary\n\n\n9\nNägele & Thiemann (2025), Towards a Green, Clean, Resilient World?\nWorld Bank documents, analyzed as text\nDocument\nOriginal\n\n\n10\nJohnson & Urpelainen (2020), The More Things Change…\nMore than 3,600 paragraphs of governments’ trade-and-environment negotiating text\nParagraph\nOriginal\n\n\n10\nLarch & Wanner (2024), The Consequences of Non-Participation in the Paris Agreement\nTrade, production and emissions data used to calibrate a trade model\nCountry and sector\nSecondary\n\n\nAcross weeks\nChelminski, Andonova & Sun (2022), Emergence and Structuring of the Clean Energy Regime Complex\nNetwork of clean-energy institutions and initiatives\nInstitution, 1980–2014\nOriginal\n\n\n\nOriginal data you can’t download? Many authors share their data on request, and the methods section usually explains how they built it. A small version of their coding, done by you for a handful of cases, can make a good data paper."
+  },
+  {
+    "objectID": "data-sources.html#need-help",
+    "href": "data-sources.html#need-help",
+    "title": "Data Sources for Your Data Paper",
+    "section": "Need help?",
+    "text": "Need help?\nBook SSQL office hours (see the Help page). Bring your question ladder and a link to the data you’re considering."
+  }
+]
