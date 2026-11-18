@@ -24,6 +24,16 @@ The folder contains:
 | `data/` | The four datasets used in the handouts |
 | `bib/lab.bib` | References for the handouts |
 
+::: {.callout-tip}
+## Can't run R on your laptop? Use Posit Cloud
+The lab handout is also in its own GitHub repository, **<https://github.com/gamusu/pols081-ssql-lab>**, which you can open in your browser with Posit Cloud:
+
+1. Go to **<https://posit.cloud>** and log in (a free account is fine).
+2. Click **New Project → New Project from Git Repository**, paste `https://github.com/gamusu/pols081-ssql-lab`, and click **OK**.
+3. In the **Files** pane, open **`setup.R`** and click **Source**. Wait a few minutes for the packages to install.
+4. Open **`lab-handout.qmd`** and click **Render**.
+:::
+
 ## 2. Slides
 
 - [Part 2 slides](slides/part2-lab.qmd)
