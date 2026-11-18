@@ -31,3 +31,7 @@ CLAUDE.md
 worksheets/lab-handout.pdf
 
 /.quarto/
+
+# Instructor-only speaker notes (contain example answers)
+*-speaker-notes.qmd
+*-speaker-notes.pdf
