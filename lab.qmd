@@ -21,7 +21,7 @@ The folder contains:
 |:---|:---|
 | `lab-handout.qmd` | The lab handout: Example 1 (worked), Example 2 (you fill in the code), Workshop Questions |
 | `merging-data.qmd` | Extra practice: combining two datasets |
-| `data/` | The four datasets used in the handouts |
+| `data/` | The datasets used in the handouts and the visualization guide |
 | `bib/lab.bib` | References for the handouts |
 
 ::: {.callout-tip}
@@ -44,13 +44,14 @@ The lab handout is also in its own GitHub repository, **<https://github.com/gamu
 
 ## 4. The data
 
-All four datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script `R/build_lab_data.R` in the workshop project, which records every source and step.
+All the datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script `R/build_lab_data.R` in the workshop project, which records every source and step.
 
 | File | Rows | Source |
 |:---|:---|:---|
 | `adaptation_aid.csv` | One row per country receiving adaptation aid | OECD Rio markers (DAC members, 2020–2024); ND-GAIN; World Bank; UN M49 |
 | `renewables.csv` | One row per country, 2021 | World Bank, World Development Indicators |
 | `co2.csv` | One row per country, 2023 | World Bank, World Development Indicators (emissions from EDGAR) |
+| `co2_trend.csv` | One row per country per year, 2018–2023 | Same as `co2.csv`; used in the [visualization guide](guides/data-visualization.qmd) |
 | `sids_list.csv` | One row per small island developing state | UN Statistics Division, M49 |
 
 Codebooks for each file are in the handouts.

@@ -7,7 +7,7 @@
 #   ├── pols081-lab.Rproj
 #   ├── lab-handout.qmd
 #   ├── merging-data.qmd
-#   ├── data/   (adaptation_aid.csv, renewables.csv, co2.csv, sids_list.csv)
+#   ├── data/   (adaptation_aid.csv, renewables.csv, co2.csv, co2_trend.csv, sids_list.csv)
 #   └── bib/    (lab.bib)
 #
 # Solutions are never included. Run R/build_lab_data.R first.
@@ -15,7 +15,7 @@
 # ---------------------------------------------------------------------------
 
 files <- c("lab-handout.qmd", "merging-data.qmd",
-           file.path("data", c("adaptation_aid.csv", "renewables.csv", "co2.csv", "sids_list.csv")),
+           file.path("data", c("adaptation_aid.csv", "renewables.csv", "co2.csv", "co2_trend.csv", "sids_list.csv")),
            file.path("bib", "lab.bib"))
 missing <- files[!file.exists(file.path("worksheets", files))]
 if (length(missing) > 0) stop("Missing: ", paste(missing, collapse = ", "))

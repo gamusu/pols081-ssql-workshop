@@ -145,6 +145,19 @@ co2 <- countries |>
 write_csv(co2, file.path(out_dir, "co2.csv"))
 message("co2.csv: ", nrow(co2), " rows")
 
+# Same series for 2018-2023, for the "change over time" example in the
+# data visualization guide  -> co2_trend.csv
+co2_trend <- co2 |>
+  select(country, iso3c, region, income_group) |>
+  inner_join(wb_indicator("EN.GHG.CO2.MT.CE.AR5") |> rename(co2_mt = value), by = "iso3c") |>
+  inner_join(wb_indicator("EN.GHG.CO2.PC.CE.AR5") |> rename(co2_pc = value), by = c("iso3c", "year")) |>
+  filter(!is.na(co2_mt), !is.na(co2_pc)) |>
+  mutate(co2_mt = round(co2_mt, 2), co2_pc = round(co2_pc, 2)) |>
+  arrange(country, year)
+
+write_csv(co2_trend, file.path(out_dir, "co2_trend.csv"))
+message("co2_trend.csv: ", nrow(co2_trend), " rows")
+
 # ===========================================================================
 # 4. Merging exercise: two files that share a country code
 # ===========================================================================
