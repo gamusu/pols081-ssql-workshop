@@ -1,0 +1,150 @@
+---
+title: "Data Sources for Your Data Paper"
+subtitle: "POLS 081 · SSQL Workshop"
+description: "Where to find data for the POLS 081 data paper: the syllabus list, sources by primary focus, and the data behind the course readings."
+date-modified: 2026-11-17
+format:
+  html:
+    toc: true
+    toc-depth: 2
+---
+
+Your data paper needs a question you can answer with data you can actually get. This page collects places to look. Start with the section for your **primary focus**, then look at the **data behind the course readings**: if a paper you liked used a dataset, you may be able to use it too.
+
+::: {.callout-tip}
+## Before you commit to a dataset, check four things
+
+1. **Coverage:** does it include the countries, organizations or years you need?
+2. **Variation:** does your measure actually differ across your cases or over time? (See the [question ladder worksheet](worksheets/question-ladder.qmd).)
+3. **Definitions:** read the codebook. What exactly is counted, and who produced the numbers?
+4. **Access:** can you download it as a spreadsheet (`.csv` or `.xlsx`) without paying or registering?
+:::
+
+## Sources listed in the syllabus
+
+| Source | What you'll find |
+|:---|:---|
+| [UNFCCC](https://unfccc.int/) | Treaties, party submissions, NDCs, COP documents. Also the [UNFCCC data interface](https://di.unfccc.int/) for national greenhouse gas inventories |
+| [IMF Climate Change Indicators Dashboard](https://climatedata.imf.org/pages/climatechange-data) | Country indicators on emissions, climate finance, green bonds, environmental taxes and more |
+| [World Resources Institute data](https://www.wri.org/data) | WRI's datasets, including [Climate Watch](https://www.climatewatchdata.org/) (emissions and NDC content by country) |
+| [Climate Action Tracker](https://climateactiontracker.org/) | Ratings of countries' targets and policies; projected emissions. Used by Fransen et al. (2023) |
+| [ND-GAIN Country Index](https://gain.nd.edu/our-work/country-index/) | Climate vulnerability and readiness scores for about 185 countries, every year since 1995 |
+| [OECD Data Explorer](https://data-explorer.oecd.org/) | OECD environment statistics and development finance, including the **Rio markers** for climate-related aid. *The two OECD links in the syllabus point to pages that have moved; search the Data Explorer instead.* |
+| [Germanwatch Climate Risk Index](https://germanwatch.org/en/cri) | Rankings of how hard countries have been hit by extreme weather |
+| [World Bank Open Data: climate change](https://data.worldbank.org/topic/6) | Country indicators on emissions, energy, forests and more. The [World Development Indicators DataBank](https://databank.worldbank.org/source/world-development-indicators) lets you choose countries, indicators and years and download a spreadsheet |
+| [EPA: Selected multilateral environmental instruments in force for the U.S.](https://www.epa.gov/international-cooperation/selected-multilateral-environmental-instruments-force-us) | List of treaties the United States has joined |
+| [InforMEA: treaties](https://www.informea.org/treaties) | Multilateral environmental agreements, with parties and decisions |
+| [European Commission: environmental cooperation](https://environment.ec.europa.eu/international-cooperation/environmental-cooperation-other-countries_en) | The EU's environmental agreements and partnerships (the syllabus link now redirects here) |
+
+## Data by primary focus
+
+The syllabus asks you to choose one **primary focus**. Here are good starting points for each. Many sources work for more than one focus.
+
+### An actor
+
+*China, the United States, the EU, AOSIS, a multinational corporation, an NGO.*
+
+| Source | Useful for |
+|:---|:---|
+| [Climate Watch](https://www.climatewatchdata.org/) | Any country's emissions over time and the content of its NDC |
+| [Our World in Data: CO~2~ and greenhouse gas emissions](https://ourworldindata.org/co2-and-greenhouse-gas-emissions) ([download on GitHub](https://github.com/owid/co2-data)) | Emissions by country since 1750, per person, by fuel, consumption-based |
+| [EDGAR](https://edgar.jrc.ec.europa.eu/) and the [Global Carbon Budget](https://globalcarbonbudget.org/) | The emissions estimates behind many other sources |
+| [UNFCCC party groupings](https://unfccc.int/process-and-meetings/parties-non-party-stakeholders/parties/party-groupings) | Who belongs to AOSIS, the LDCs, the G77 and other negotiating groups |
+| [UNFCCC past conferences](https://unfccc.int/process-and-meetings/conferences/past-conferences) | Lists of participants for each COP (delegation sizes, as in Kaya & Schofield 2020) |
+| [UNFCCC admitted observer organizations](https://unfccc.int/process-and-meetings/parties-non-party-stakeholders/non-party-stakeholders/admitted-ngos/list-of-admitted-observer-organizations) | NGOs and other observers, by type and year of admission |
+| [CDP data](https://www.cdp.net/en/data) | Corporate climate disclosures (some data require registration) |
+
+**Tip.** A single actor gives you no variation across cases. Get variation from **time** (how has China's position changed?), a **comparison group** (China vs. other large emitters), or **parts of a total** (what is the EU's climate finance made of?).
+
+### An international organization or institution
+
+*The World Bank, Green Climate Fund, Global Environment Facility, AIIB, UNFCCC.*
+
+| Source | Useful for |
+|:---|:---|
+| [World Bank projects and operations](https://projects.worldbank.org/en/projects-operations/projects-home) | Every World Bank project, downloadable with sector, country, amount and dates |
+| [Green Climate Fund open data](https://data.greenclimate.fund/public/data/projects) | GCF projects: country, amount, mitigation vs. adaptation, public vs. private |
+| [GEF project database](https://www.thegef.org/projects-operations/database) | Global Environment Facility projects by focal area, country and agency |
+| [AIIB project list](https://www.aiib.org/en/projects/list/index.html) | Asian Infrastructure Investment Bank projects |
+| [Climate Funds Update](https://climatefundsupdate.org/data-dashboard/) | Pledges, deposits and approvals across multilateral climate funds |
+| [UNFCCC side events archive](https://seors.unfccc.int/applications/seors/reports/archive.html) | Side events at past COPs (the data behind Xie et al. 2025) |
+
+### An issue
+
+*Climate finance, environmental foreign aid, adaptation, loss and damage, deforestation, renewable energy, critical minerals, fossil-fuel dependence.*
+
+| Issue | Sources |
+|:---|:---|
+| Climate finance and environmental aid | [OECD Data Explorer](https://data-explorer.oecd.org/): search "Rio markers" or "climate-related development finance" (aid by donor, recipient, year and adaptation/mitigation) · [Climate Funds Update](https://climatefundsupdate.org/data-dashboard/) · [UNFCCC biennial reports](https://unfccc.int/topics/climate-finance/resources/biennial-reports-and-btr) |
+| Adaptation and vulnerability | [ND-GAIN](https://gain.nd.edu/our-work/country-index/) · [Germanwatch Climate Risk Index](https://germanwatch.org/en/cri) |
+| Loss and damage, disasters | [EM-DAT international disaster database](https://www.emdat.be/) (free for academic use after registering) |
+| Deforestation | [Global Forest Watch](https://www.globalforestwatch.org/) (tree cover loss by country and year) |
+| Renewable energy | [Ember electricity data](https://ember-energy.org/data/) · [Our World in Data: energy](https://ourworldindata.org/energy) · World Bank WDI (renewables share; note that it counts firewood and charcoal) |
+| Critical minerals | [USGS Mineral Commodity Summaries](https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries) (production and reserves by country) |
+| Fossil-fuel dependence and subsidies | World Bank WDI (fuel exports as % of merchandise exports; oil, gas and coal rents) · [IMF fossil fuel subsidies](https://www.imf.org/en/Topics/climate-change/energy-subsidies) |
+| Environmental conflict | [Uppsala Conflict Data Program downloads](https://ucdp.uu.se/downloads/) |
+
+### A governance instrument or policy
+
+*NDCs, carbon pricing, emissions trading, climate-related development finance, voluntary carbon markets, environmental provisions in trade agreements.*
+
+| Instrument | Sources |
+|:---|:---|
+| NDCs | [UNFCCC NDC registry](https://unfccc.int/NDCREG) (the documents) · [Climate Watch](https://www.climatewatchdata.org/) (NDC content coded and comparable) · [Climate Action Tracker](https://climateactiontracker.org/) (ratings) |
+| Carbon pricing and emissions trading | [World Bank Carbon Pricing Dashboard](https://carbonpricingdashboard.worldbank.org/) · [ICAP ETS map](https://icapcarbonaction.com/en/ets) |
+| Climate laws and policies | [Climate Change Laws of the World](https://climate-laws.org/) · [Climate Policy Database](https://www.climatepolicydatabase.org/) · [CCPI](https://ccpi.org/) (policy scores; used by Fransen et al. 2023) |
+| Climate-related development finance | [OECD Data Explorer](https://data-explorer.oecd.org/) (Rio markers) |
+| Voluntary carbon markets | [Berkeley Carbon Trading Project: Voluntary Registry Offsets Database](https://gspp.berkeley.edu/research-and-impact/centers/cepp/projects/berkeley-carbon-trading-project/offsets-database) |
+| Environmental provisions in trade agreements | [TREND: Trade and Environment Database](https://klimalog.idos-research.de/trend/) |
+
+**Tip.** Policy questions often compare **adopters and non-adopters**, or **before and after** adoption. Remember from Part 1: that comparison is descriptive unless you have a design that rules out other explanations.
+
+## Data used in the course readings
+
+Many course readings are built on data you can use too. The tables below cover readings that **analyze quantitative data**. Other readings cite statistics (for example, the Financial Times and WRI pieces) but don't analyze a dataset.
+
+**Original** data were collected or coded by the authors; **secondary** data come from an existing source. Entries marked † are based on the paper's abstract or general knowledge of the source, so check the paper itself for details.
+
+### Required readings
+
+| Class | Reading | Data | Unit and years | Original or secondary | Get the data |
+|:---|:---|:---|:---|:---|:---|
+| 2 | Kaya & Schofield (2020), *Which Countries Send More Delegates to Climate Change Conferences?* | Delegation sizes from COP lists of participants, plus country characteristics | Country at each COP, 1995–2015 | Both | [UNFCCC past conferences](https://unfccc.int/process-and-meetings/conferences/past-conferences) |
+| 3 | Grubb (2016), *Full Legal Compliance with the Kyoto Protocol's First Commitment Period* † | Annex B parties' emissions vs. Kyoto targets | Annex B party, 2008–2012 | Secondary | [UNFCCC data interface](https://di.unfccc.int/) |
+| 4 | Fransen et al. (2023), *Taking Stock of the Implementation Gap in Climate Policy* | Climate Action Tracker projections and ratings; CCPI policy scores and outcome index | Country; 2014–2023 (varies by figure) | Secondary | [Climate Action Tracker](https://climateactiontracker.org/) · [CCPI](https://ccpi.org/) |
+| 5 | Michaelowa & Michaelowa (2017), *Transnational Climate Governance Initiatives* | 109 transnational initiatives, coded on four design criteria | Initiative, founded up to about 2015 | Original | In the article |
+| 5 | Xie et al. (2025), *Tracing Inclusivity at UNFCCC Conferences* | COP side-event records (titles, descriptions, hosts); co-host networks | Side event and organization, COP9–COP28 (2003–2023) | Both | [UNFCCC side events archive](https://seors.unfccc.int/applications/seors/reports/archive.html); code on Zenodo |
+| 6 | Castro & Klöck (2020), *Fragmentation in the Climate Change Negotiations* | Negotiating coalitions: scope, size, formality, founding date | Coalition and country, 1995 to about 2019 | Original | [UNFCCC party groupings](https://unfccc.int/process-and-meetings/parties-non-party-stakeholders/parties/party-groupings) |
+| 6 | Klöck et al. (2024), *Beyond AOSIS: Small Island States' Presence and Participation at COP27* † | SIDS delegation size and composition at COP27 | Delegation, 2022 | Both | [UNFCCC past conferences](https://unfccc.int/process-and-meetings/conferences/past-conferences) |
+| 7 | Graham & Serdaru (2020), *Power, Control, and the Logic of Substitution in Institutional Design* | Voting and earmarking rules of 18 climate finance institutions | Fund | Original | In the article |
+| 8 | Kalinowski (2024), *The Green Climate Fund and Private Sector Climate Finance* | GCF project portfolio (private vs. public, financing structure, sector) | GCF project, approvals to Sept. 2022 | Secondary | [GCF open data](https://data.greenclimate.fund/public/data/projects) |
+| 8 | Tennant, Davies & Tennant (2024), *Determinants of Access to Climate Finance* | Climate-related development finance by recipient and donor type; vulnerability and capacity | Recipient country by year and donor type | Secondary | [OECD Data Explorer](https://data-explorer.oecd.org/) · [ND-GAIN](https://gain.nd.edu/our-work/country-index/) |
+| 8 | Peterson & Skovgaard (2019), *Bureaucratic Politics and the Allocation of Climate Finance* | Bilateral climate finance flows; which ministries make donor decisions | Donor–recipient pair by year | Both | [OECD Data Explorer](https://data-explorer.oecd.org/) |
+| 9 | Nielson & Tierney (2003), *Delegation to International Organizations* | World Bank lending coded as environmental or environmentally problematic | Project and year, 1980–2000 | Original | [World Bank projects](https://projects.worldbank.org/en/projects-operations/projects-home) |
+| 9 | Kaya & Leblebicioglu (2025), *Understanding the World Bank's Role in Climate Finance* | Project-level World Bank climate finance, including climate co-benefit shares | World Bank project, before and after Paris | Both | [World Bank projects](https://projects.worldbank.org/en/projects-operations/projects-home) |
+| 9 | Kotchen & Vogt (2025), *Is the Emphasis on Cofinancing Good for Environmental Multilateral Funds?* | GEF and GCF projects: funding, cofinancing, expected emission reductions | Fund project | Secondary | [GEF database](https://www.thegef.org/projects-operations/database) · [GCF open data](https://data.greenclimate.fund/public/data/projects) |
+| 10 | Wiedmann & Lenzen (2018), *Environmental and Social Footprints of International Trade* † | Footprint results from multi-regional input–output models (emissions, materials, water, land) | Country, country pair and sector | Secondary | Model databases such as Eora and EXIOBASE |
+| 10 | Genovese (2019), *Sectors, Pollution, and Trade* | Government positions in UN climate negotiations; sector pollution and trade exposure | Country and sector | Both | [Replication data (Harvard Dataverse)](https://doi.org/10.7910/DVN/1WBFGH) |
+| 12 | Hummel (2017), *Relative Water Scarcity and Country Relations Along Cross-Boundary Rivers* | Coded cooperative and conflictual events; river flows | Country pair over time, Aral Sea basin | Both | In the article |
+| 13 | Hickel & Kallis (2019), *Is Green Growth Possible?* † | Global resource use and CO~2~ emissions, historical and projected | World | Secondary | [Our World in Data](https://ourworldindata.org/co2-and-greenhouse-gas-emissions) for the emissions side |
+| 13 | O'Neill et al. (2018), *A Good Life for All Within Planetary Boundaries* † | National biophysical and social indicators compared with thresholds | Country, about 2011 | Secondary | [Data explorer](https://goodlife.leeds.ac.uk/) |
+
+### Supplementary readings
+
+| Class | Reading | Data | Unit | Original or secondary |
+|:---|:---|:---|:---|:---|
+| 5 | Kolleck et al. (2017), *The Power of Social Networks* | Twitter network around UNFCCC climate-education negotiations | Twitter account | Original |
+| 6 | Ruiz-Campillo (2024), *Post-Paris Agreement Negotiations* | Developing-country requests matched to COP decisions | Request or decision | Original |
+| 7 | Ben Youssef, La Torre & Jovović (2025), *Operationalizing the NCQG* | Country emissions, income and population feeding an allocation model | Contributor country | Secondary |
+| 8 | Weiler, Klöck & Dornan (2018), *Vulnerability, Good Governance, or Donor Interests?* † | Bilateral adaptation aid (Rio markers); ND-GAIN vulnerability; governance indicators | Donor–recipient pair by year | Secondary |
+| 8 | Xie & Chen (2025), *Private Governance in Climate Mitigation* | Firms' participation in voluntary carbon markets, with country characteristics | Firm | Secondary |
+| 9 | Nägele & Thiemann (2025), *Towards a Green, Clean, Resilient World?* | World Bank documents, analyzed as text | Document | Original |
+| 10 | Johnson & Urpelainen (2020), *The More Things Change…* | More than 3,600 paragraphs of governments' trade-and-environment negotiating text | Paragraph | Original |
+| 10 | Larch & Wanner (2024), *The Consequences of Non-Participation in the Paris Agreement* | Trade, production and emissions data used to calibrate a trade model | Country and sector | Secondary |
+| Across weeks | Chelminski, Andonova & Sun (2022), *Emergence and Structuring of the Clean Energy Regime Complex* | Network of clean-energy institutions and initiatives | Institution, 1980–2014 | Original |
+
+**Original data you can't download?** Many authors share their data on request, and the methods section usually explains how they built it. A small version of their coding, done by you for a handful of cases, can make a good data paper.
+
+## Need help?
+
+Book SSQL office hours (see the [Help page](help.qmd)). Bring your question ladder and a link to the data you're considering.

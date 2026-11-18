@@ -1,0 +1,31 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.quarto/
+/_site/
+*_files/
+
+**/*.quarto_ipynb
+
+# Lab data build cache (re-created by R/build_lab_data.R)
+/data-raw/
+
+# Instructor-only solutions (keep local; never publish)
+*-solutions.qmd
+*-solutions.pdf
+
+# Private or reference files kept locally, not for the public repo
+POLS_081_SSQL_Workshop_Survey_Responses*
+ProfKaya_GlobalEnvGov_Fall2026.docx
+POLS081_Readings_Data_Classification.xlsx
+rdae055.pdf
+POLS 081 SSQL Workshop Survey*
+*Survey*Responses*.xlsx
+
+# macOS
+.DS_Store
+
+# Local working notes and student-rendered output
+CLAUDE.md
+worksheets/lab-handout.pdf

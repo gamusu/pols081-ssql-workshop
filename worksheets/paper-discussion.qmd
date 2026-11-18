@@ -1,0 +1,68 @@
+---
+title: "Paper Discussion Prompts"
+subtitle: "POLS 081 · SSQL Workshop, Part 1 · Measure → Map → Model"
+description: "Prompts for small-group discussion of Fransen et al. (2023), Xie et al. (2025) and Tennant, Davies & Tennant (2024)."
+format:
+  html:
+    toc: true
+    format-links:
+      - format: typst
+        text: "Printable PDF"
+  typst:
+    papersize: us-letter
+    margin:
+      x: 0.8in
+      y: 0.7in
+    fontsize: 10pt
+---
+
+**How this works.** In groups of 3–4, discuss each paper for about **4 minutes** using the prompts below. Every group gets the same prompts. Then a few groups report back. Jot down one idea per prompt; you don't need to cover them all.
+
+For every paper, start with the syllabus's reading questions: **What is the question? How do the authors investigate it? What is the most important evidence?**
+
+## Measure · Fransen et al. (2023)
+
+*Taking stock of the implementation gap in climate policy.* Nature Climate Change.
+
+**The idea.** The "implementation gap" has two parts: a **policy adoption gap** (pledges vs. projected emissions under adopted policies, from Climate Action Tracker) and a **policy outcome gap** (what adopted policies should achieve vs. what they do achieve). The outcome gap can't be measured directly, so the authors compare **policy-strength scores** (CCPI, 2018–2022) with a **2023 outcome index**.
+
+**Warm-up.** Pick one concept: climate ambition, state capacity to implement climate policy, inclusivity of a COP, or vulnerability to climate change. Write down (1) an indicator, (2) a data source, and (3) one thing your indicator misses.
+
+1. How did the authors get a number for something that can only be measured after the fact?
+2. **Validity:** does a CCPI policy score capture *implementation*?
+3. **Reliability:** CCPI is partly built from expert assessments. Would different experts score the same country the same way?
+4. Where does the outcome gap show up in the data? *(Hint: in how countries scatter around the expected diagonal.)*
+
+## Map · Xie et al. (2025)
+
+*Tracing inclusivity at UNFCCC conferences through side events and interest group dynamics.* Nature Climate Change.
+
+**The idea.** UNFCCC records of COP side events, **COP9–COP28 (2003–2023)**: titles, descriptions and host organizations. Topic modelling traces themes; network analysis maps who co-hosts energy events (COP17–28).
+
+1. **What is one observation?** An event? An organization? A link between two organizations?
+2. **Population or sample?** Every *registered* side event is included. What isn't? *(Unregistered events, country pavilions, the negotiating rooms themselves…)*
+3. **Measurement:** how does "inclusivity" become a number? What would *you* use?
+4. **Variation:** what differs across COPs and across actor groups? Is that enough to compare them fairly?
+5. **Limits:** does a central position in a network mean **influence** over negotiated outcomes?
+
+## Model · Tennant, Davies & Tennant (2024)
+
+*Determinants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies.* World Development.
+
+**The idea.** Two stages: do donors use **different criteria** to decide *who is eligible* for climate finance than to decide *how much* each eligible country gets? And do small island developing states (SIDS) get more or less than their **vulnerability and adaptive capacity** would justify?
+
+1. **Measure:** where do the finance numbers come from, and who reports them? *(Donors report to the OECD and tag their own projects.)*
+2. Is "more than justified by vulnerability" a **causal claim** or a **comparison**? What does "justified" assume?
+3. **Confounders:** what factors does the model hold constant? What could still be missing?
+4. **Inference:** the data cover nearly every recipient. What do the p-values mean here?
+5. **Design:** if you wanted a *causal* answer, what comparison would you look for? *(A sudden disaster? An eligibility cutoff?)*
+
+## Across all three
+
+| | Measure | Map | Model |
+|:---|:---|:---|:---|
+| **Paper** | Fransen et al. | Xie et al. | Tennant et al. |
+| **Kind of claim** | There is a gap, and here is its size | Here is who is where | These factors predict who gets what |
+| **Main risk** | Validity of proxies | Who is missing | Confounding; meaning of inference |
+
+**For your paper:** which of the three is closest to what you want to do? What would you borrow from it?

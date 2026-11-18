@@ -1,0 +1,31 @@
+---
+title: "Where to Get Help"
+subtitle: "POLS 081 · SSQL Workshop"
+description: "SSQL office hours and other help for the POLS 081 data paper."
+---
+
+## SSQL office hours
+
+The **Social Science Quantitative Lab (SSQL)** helps with every stage of a data paper: finding data, cleaning and merging it, making figures and tables, running and interpreting tests, and getting R, Excel or Stata to cooperate.
+
+- **Where:** Science Center 205
+- **Book a time with Greg:** [SSQL office hours](https://www.swarthmore.edu/social-sciences-quantitative-laboratory/office-hours)
+
+**Bring:** your question ladder (or your current question), a link to or copy of your data, and the file you're working in. If something is broken, bring the exact error message.
+
+Your professor's office hours are another place to talk through your question and argument. The booking link is in the syllabus.
+
+## Software trouble
+
+1. Work through the troubleshooting section of the setup guide: [Mac](guides/install-mac.qmd) · [Windows](guides/install-windows.qmd) · [Quarto and PDF](guides/quarto-pdf.qmd).
+2. Still stuck? Email Greg with **what you did, what you expected, and the exact error** (a screenshot helps).
+
+## Help inside R and RStudio
+
+- `?mean` opens the help page for a function (here, `mean()`). `??median` searches all help pages.
+- The **Help** tab (bottom-right pane in RStudio) searches the documentation.
+- Free online books: [R for Data Science (2e)](https://r4ds.hadley.nz/) and the [Quarto guide](https://quarto.org/docs/guide/).
+
+## A note on AI tools
+
+The syllabus allows AI for feedback on work you've already done, but **not** for producing your graphs, tables or visualizations, and you must include an AI-use statement at the end of your paper. When you're stuck on code, SSQL office hours are a good alternative.

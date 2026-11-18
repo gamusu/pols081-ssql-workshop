@@ -1,0 +1,300 @@
+---
+title: "Installing R and RStudio on Windows"
+subtitle: "POLS 081 · SSQL Workshop setup guide"
+description: "Step-by-step installation of R, RStudio, the workshop R packages, and TinyTeX on Windows 10/11, with troubleshooting."
+date-modified: 2026-11-17
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    format-links:
+      - format: typst
+        text: "Printable PDF"
+  typst:
+    toc: true
+    section-numbering: "1.1"
+    papersize: us-letter
+    margin:
+      x: 0.9in
+      y: 0.9in
+    fontsize: 10.5pt
+---
+
+::: {.callout-important}
+## Do this before class on Wednesday
+
+Set aside about **30–45 minutes**. You'll install four things, in this order:
+
+1. **R**, the programming language
+2. **RStudio**, the program you'll actually work in (it includes **Quarto**)
+3. A few **R packages**
+4. **TinyTeX**, a backup tool for making PDFs
+
+Then work through the [Quarto and PDF guide](quarto-pdf.qmd) to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn't solve it, email Greg with a screenshot of the error.
+:::
+
+::: {.callout-note}
+## Using a Mac?
+Use the [Mac guide](install-mac.qmd) instead.
+:::
+
+# Before you start: three quick checks
+
+**1. Do you have administrator rights on this computer?**
+Most personal laptops do. If Windows has ever asked you to click **Yes** to "allow this app to make changes to your device" and it worked, you're an administrator. If the computer is managed by an employer or another institution, you may not be. That's fine: the guide explains what to do at each step.
+
+**2. Are you on Windows 11 or Windows 10?**
+Go to **Settings → System → About** and look under **Windows specifications → Edition**. The newest RStudio supports **Windows 11**. If you're on Windows 10, see [RStudio won't install or open on Windows 10](#win10).
+
+**3. Does your Windows username contain spaces or accented/non-English characters?**
+Open **File Explorer**, go to **This PC → Local Disk (C:) → Users**, and look at your folder name. If it's something like `C:\Users\maria` you're all set. If it's like `C:\Users\María López`, note that. It can cause problems with PDF tools, and the troubleshooting section covers the fix.
+
+::: {.callout-tip}
+## Windows on ARM (Snapdragon / Copilot+ laptops)
+If your laptop has a Qualcomm Snapdragon processor, use the **standard** R and RStudio installers below. They run fine under Windows' built-in emulation. Check under **Settings → System → About → Processor**.
+:::
+
+# Install R
+
+1. Go to **<https://cran.r-project.org>**.
+2. Click **Download R for Windows**, then **base** (or **install R for the first time**).
+3. Click the large **Download R-4.x.x for Windows** link at the top of the page.
+4. Open the downloaded `.exe` file from your Downloads folder.
+5. If Windows asks **"Do you want to allow this app to make changes to your device?"**:
+   - **If you have admin rights:** click **Yes**.
+   - **If you don't, or you're unsure:** click **No**. The installer will continue and install R **just for your user account**, which works fine. See [Installing without administrator rights](#no-admin) below.
+6. Click through the installer, **accepting all the default options**: *Next → Next → Next…* and then *Finish*.
+
+You don't need to open R itself. You'll use it through RStudio.
+
+::: {.callout-warning}
+## Don't install R inside OneDrive
+If the installer suggests a folder inside **OneDrive**, change it to `C:\Users\<yourname>\AppData\Local\Programs\R` (or accept `C:\Program Files\R` if you have admin rights). OneDrive syncing can lock files that R is using.
+:::
+
+# Install RStudio
+
+1. Go to **<https://posit.co/download/rstudio-desktop/>**.
+2. Step 1 on that page is "Install R," which you've just done. Under **Step 2**, click **Download RStudio Desktop for Windows**.
+3. Open the downloaded `.exe` file, click **Yes** to allow changes, and accept the defaults: *Next → Next → Install → Finish*.
+4. Open RStudio from the **Start menu** (type "RStudio").
+
+::: {.callout-note}
+## No admin rights? RStudio's regular installer needs them
+Use the **zip version** instead (no installation needed):
+
+1. On the RStudio download page, scroll down to **Zip/Tarballs** and download the **Windows `.zip`** file.
+2. Right-click the zip → **Extract All…** and extract it to a folder you own, for example `C:\Users\<yourname>\RStudio`. **Not** inside OneDrive and **not** in Program Files.
+3. Open that folder and double-click **`rstudio.exe`**. Right-click it → **Show more options → Pin to Start** so you can find it again.
+4. If Windows Defender SmartScreen shows "Windows protected your PC," click **More info → Run anyway**.
+:::
+
+::: {.callout-note}
+## Quarto is included
+RStudio comes with **Quarto** built in, so you don't need to install it separately. If you've installed Quarto on your own before, see [RStudio is using an old version of Quarto](#old-quarto).
+:::
+
+## A quick tour
+
+When RStudio opens, you'll see (usually) four panes:
+
+- **Console** (bottom left): where R runs commands. Type here and press **Enter**.
+- **Source** (top left): where you edit scripts and Quarto documents. It appears once you open a file.
+- **Environment / History** (top right): the data and objects you've created.
+- **Files / Plots / Packages / Help / Viewer** (bottom right).
+
+The Console has a sibling tab called **Terminal**. You'll use it once below.
+
+::: {.callout-warning}
+## Don't "Run as administrator"
+Open RStudio normally, **not** with right-click → *Run as administrator*. Running as administrator installs packages into a protected system folder, which causes confusing permission errors later.
+:::
+
+# Install the workshop R packages {#sec-packages}
+
+R packages are add-ons that give R new abilities. Click in the **Console**, paste the line below, and press **Enter**:
+
+```r
+install.packages(c("tidyverse", "rmarkdown", "knitr", "tinytex"))
+```
+
+::: {.callout-important}
+## If R asks: "Would you like to use a personal library instead?"
+Click **Yes**. Then, if it asks *"Would you like to create a personal library … to install packages into?"*, click **Yes** again.
+
+This happens because R was installed in a protected folder (`C:\Program Files\R`) that only administrators can write to. A **personal library** is a folder in your own user account where your packages live. This is normal and exactly what you want.
+:::
+
+This downloads quite a lot, so give it a few minutes. You'll see many lines of red and black text scroll past. **Red text isn't necessarily an error**: R prints routine messages in red.
+
+It worked if the Console ends with something like:
+
+```
+The downloaded binary packages are in
+	C:\Users\...\AppData\Local\Temp\...\downloaded_packages
+```
+
+To confirm, run:
+
+```r
+library(tidyverse)
+```
+
+You should see a short "Attaching core tidyverse packages" message with a list of package names and check marks. Any "conflicts" listed underneath are normal.
+
+::: {.callout-warning}
+## If R asks about installing from source or mentions **Rtools**
+Answer **`no`** to "Do you want to install from sources the packages which need compilation?" You don't need Rtools for this workshop. If RStudio shows a pop-up suggesting you install Rtools, you can ignore it.
+:::
+
+# Install TinyTeX (backup PDF engine)
+
+We'll make PDFs with **Typst**, which comes with Quarto and needs no setup. As a backup, also install **TinyTeX**, a small LaTeX distribution that Quarto can use for PDFs.
+
+::: {.callout-warning}
+## Check your username first
+If your Windows username contains **spaces or accented/non-English characters** (see check 3 at the top of this page), skip ahead to [TinyTeX fails, or my username has spaces/accents](#tinytex-username) and use that method instead.
+:::
+
+1. In RStudio, click the **Terminal** tab next to the Console.
+2. Type the following and press **Enter**:
+
+```bash
+quarto install tinytex
+```
+
+3. If asked to confirm, type **`Y`** and press **Enter**. This takes a few minutes.
+4. When it finishes, **close and reopen RStudio**.
+
+::: {.callout-tip collapse="true"}
+## Alternative: install TinyTeX from the R Console instead
+If the Terminal command fails, run this in the **Console**:
+
+```r
+tinytex::install_tinytex()
+```
+
+Then close and reopen RStudio.
+:::
+
+# Check that everything works
+
+Run each of these, one at a time.
+
+**In the Console** (should print `R version 4.x.x …`):
+
+```r
+R.version.string
+```
+
+**In the Console** (shows where your packages live; at least one path should be in your own user folder or Program Files, **not** OneDrive):
+
+```r
+.libPaths()
+```
+
+**In the Terminal** (prints a full report, including your Quarto version, which must be **1.4 or higher** to make Typst PDFs):
+
+```bash
+quarto check
+```
+
+Look for green check marks (✓ or `[>]`) next to **Typst version** and **Checking LaTeX** (which should mention TinyTeX). A check by **Checking R installation** and **Checking Knitr engine render** means Quarto can run R code.
+
+✅ **You're done here.** Now go to the [Quarto and PDF guide](quarto-pdf.qmd) and render the test document.
+
+# Troubleshooting (Windows)
+
+## Installing without administrator rights {#no-admin}
+
+This is the most common Windows problem. Here's the full picture:
+
+| Step | With admin rights | Without admin rights |
+|---|---|---|
+| **R** | Installs to `C:\Program Files\R` | Click **No** at the admin prompt. R installs to your own user area (e.g., `C:\Users\<you>\AppData\Local\Programs\R`) |
+| **RStudio** | Normal installer | Use the **zip version** (see the box under *Install RStudio*) |
+| **Packages** | Answer **Yes** to "use a personal library" | Same. Packages go into your personal library automatically |
+| **TinyTeX** | Installs to your user folder; no admin needed | Same |
+
+**Symptoms that point to a permissions problem:**
+
+- `Warning in install.packages: 'lib = "C:/Program Files/R/R-4.x.x/library"' is not writable`
+- `Error: cannot remove prior installation of package ...` or `Permission denied`
+- An installer that closes immediately or says "Access is denied"
+
+**Fixes:**
+
+- Re-run `install.packages(...)` and answer **Yes** to both "personal library" questions.
+- Make sure RStudio isn't being run **as administrator** (see the warning above).
+- If a package is "in use" and can't be updated: close RStudio, reopen it, and **install before loading anything** (don't run `library()` first).
+
+## RStudio says "R not found" or "R does not appear to be installed"
+
+1. Make sure you installed **R first**.
+2. Close RStudio and reopen it. If that doesn't work, **restart your computer** so RStudio can find the new installation.
+3. If R was installed somewhere unusual (for example, without admin rights), point RStudio to it: hold **Ctrl** while opening RStudio. A dialog appears letting you **Choose a specific version of R**. Select the R folder (look in `C:\Users\<you>\AppData\Local\Programs\R\R-4.x.x`) and click **OK**.
+4. Or, if RStudio opens: **Tools → Global Options → General → R version → Change…**
+
+## RStudio won't install or open on Windows 10 {#win10}
+
+The newest version of RStudio supports **Windows 11**. Microsoft ended regular support for Windows 10 in October 2025, so upgrading (**Settings → Windows Update**) is the best long-term fix if your computer is eligible.
+
+If you can't upgrade before class:
+
+1. Install an **earlier version of RStudio** from Posit's [supported versions page](https://docs.posit.co/supported-versions/rstudio.html). Pick the most recent release that installs and opens on your computer.
+2. Open RStudio's **Terminal** and run `quarto check`. The Quarto version must be **1.4 or higher** for PDFs.
+3. If it's lower, also install the latest Quarto from <https://quarto.org/docs/get-started/>, then restart RStudio.
+
+The current R installer still works on Windows 10, so you don't need to change anything there.
+
+## Windows Defender / SmartScreen blocks the installer
+
+Click **More info → Run anyway**. The R and RStudio installers from the official sites are safe. Some antivirus programs also quarantine `rstudio.exe` or Quarto's tools. If RStudio flashes and closes immediately, check your antivirus's quarantine list and allow RStudio.
+
+## TinyTeX fails, or my username has spaces/accents {#tinytex-username}
+
+TinyTeX (like all LaTeX distributions on Windows) **cannot be installed in a path containing non-English characters**, and spaces can cause problems too. By default it installs under `C:\Users\<yourname>\AppData\Roaming\TinyTeX`, so a username like `María López` breaks it.
+
+**Fix: install TinyTeX to a simple folder at the root of C:.** In the **Console**:
+
+```r
+install.packages("tinytex")   # make sure tinytex is up to date
+tinytex::install_tinytex(dir = "C:/TinyTeX")
+```
+
+Then **restart RStudio**. You don't need admin rights to create a folder at `C:\`.
+
+Other TinyTeX errors such as *"The system cannot find the path specified"* or *"tlmgr returned a non zero status code"* usually have the same cause. Try the fix above.
+
+::: {.callout-note}
+Remember: **TinyTeX is only the backup.** If it won't install, you can still make PDFs with **Typst**. Don't spend more than 15 minutes on TinyTeX.
+:::
+
+## Package installation fails with "cannot open URL" or "download failed"
+
+- Check your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.
+- In RStudio, go to **Tools → Global Options → Packages**. Under **Primary CRAN repository**, click **Change…**, choose **Global (CDN) – Posit**, then click **OK** and try again.
+- A VPN or corporate proxy can also block downloads. Turn the VPN off temporarily.
+
+## RStudio is using an old version of Quarto {#old-quarto}
+
+If `quarto check` shows a version **below 1.4**, you probably have an **old, separately installed** Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:
+
+- **Update it:** download and install the latest Quarto from **<https://quarto.org/docs/get-started/>**, then restart RStudio, **or**
+- **Update RStudio** to the newest version, which bundles a recent Quarto, **or**
+- uninstall the old Quarto via **Settings → Apps**.
+
+## OneDrive problems
+
+If your **Documents** or **Desktop** folder is synced to OneDrive, OneDrive can lock files while Quarto is writing them, which causes "access denied" or "file in use" errors when rendering. **Keep your workshop folder outside OneDrive** (for example `C:\Users\<you>\pols081`), or pause OneDrive syncing while you work.
+
+## Still stuck?
+
+Email Greg with:
+
+1. a **screenshot** of the error,
+2. your **Windows version** (Settings → System → About), and
+3. the output of `quarto check` (copy and paste it from the Terminal).
+
+If we can't fix it by email, we'll sort it out during the break on Wednesday.

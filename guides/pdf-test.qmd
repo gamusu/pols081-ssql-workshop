@@ -1,0 +1,66 @@
+---
+title: "PDF Test for POLS 081"
+author: "Your Name"
+date: today
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    fontsize: 11pt
+    toc: false
+  html: default
+---
+
+## Purpose
+
+If you can read this as a **PDF**, Quarto, R and Typst are all working on your computer. You are ready for Wednesday's workshop.
+
+This document uses `airquality`, a small dataset that comes with R: daily air-quality measurements in New York, May to September 1973.
+
+```{r}
+#| label: setup
+#| message: false
+library(tidyverse)
+library(knitr)
+```
+
+## Summary statistics
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Average ozone and temperature by month, New York, 1973."
+airquality |>
+  group_by(Month) |>
+  summarise(
+    `Days measured` = n(),
+    `Mean ozone (ppb)` = round(mean(Ozone, na.rm = TRUE), 1),
+    `Mean temperature (F)` = round(mean(Temp), 1)
+  ) |>
+  mutate(Month = month.name[Month]) |>
+  kable()
+```
+
+## A figure
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Hotter days had higher ozone concentrations."
+#| warning: false
+#| fig-width: 6
+#| fig-height: 3.6
+ggplot(airquality, aes(x = Temp, y = Ozone)) +
+  geom_point(alpha = 0.7, colour = "#2a78d6") +
+  geom_smooth(method = "lm", formula = y ~ x, colour = "#eb6834", se = TRUE) +
+  labs(x = "Daily maximum temperature (F)", y = "Ozone (parts per billion)") +
+  theme_minimal()
+```
+
+## A statistic in the text
+
+The correlation between temperature and ozone is
+`r round(cor(airquality$Temp, airquality$Ozone, use = "complete.obs"), 2)`.
+That number was calculated by R when this document was rendered, not typed by hand.
+
+See you Wednesday!

@@ -1,0 +1,59 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - guides/install-mac.qmd
+    - guides/install-windows.qmd
+    - guides/quarto-pdf.qmd
+    - slides/part1-lecture.qmd
+    - slides/part2-lab.qmd
+    - lab.qmd
+    - worksheets/question-ladder.qmd
+    - worksheets/paper-discussion.qmd
+    - data-sources.qmd
+    - help.qmd
+  resources:
+    - guides/pdf-test.qmd
+    - worksheets/pols081-lab.zip
+    - worksheets/lab-handout-guide.pdf
+
+website:
+  title: "POLS 081 · SSQL Data Workshop"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: "Setup guides"
+        menu:
+          - href: guides/install-mac.qmd
+            text: "Install R & RStudio (Mac)"
+          - href: guides/install-windows.qmd
+            text: "Install R & RStudio (Windows)"
+          - href: guides/quarto-pdf.qmd
+            text: "Quarto & rendering to PDF"
+      - text: "Part 1"
+        menu:
+          - href: slides/part1-lecture.qmd
+            text: "Part 1 slides"
+          - href: worksheets/paper-discussion.qmd
+            text: "Paper discussion prompts"
+          - href: worksheets/question-ladder.qmd
+            text: "Question ladder worksheet"
+      - text: "Part 2"
+        menu:
+          - href: lab.qmd
+            text: "Lab materials"
+          - href: slides/part2-lab.qmd
+            text: "Part 2 slides"
+      - href: data-sources.qmd
+        text: "Data sources"
+      - href: help.qmd
+        text: "Help"
+  page-footer:
+    left: "Swarthmore Social Science Quantitative Lab (SSQL) · Fall 2026"
+
+format:
+  html:
+    theme: cosmo
+    toc: true

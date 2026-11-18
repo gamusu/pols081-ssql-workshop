@@ -1,0 +1,528 @@
+---
+title: "Lab: Summary Statistics, One Figure, One Test"
+subtitle: "POLS 081 · SSQL Workshop, Part 2 · Guide: Example 2 code filled in"
+author: "Put your name here!"
+format:
+  typst:
+    bibliographystyle: chicago-author-date
+    include-in-header:
+      text: |
+        #set bibliography(title: none)
+        #show link: it => underline(text(fill: rgb("#0b5cab"), it))
+    margin:
+      x: 1in
+      y: 1in
+    fig-width: 6.5
+    fig-height: 3.8
+bibliography: bib/lab.bib
+---
+
+In this lab, you'll take a question about global environmental governance from raw data to an answer: **summary statistics**, then **one good figure**, then **one statistical test**. We'll use real, public data on adaptation aid, renewable energy and carbon dioxide emissions, and the tidyverse tools that you can reuse for your own data paper. Along the way we'll keep asking the questions from Part 1: what does this number measure, what varies, and what can and can't we conclude?
+
+## How to use this handout
+
+-   Work **top to bottom**. Run each code chunk with the green ▶ button (or **Cmd/Ctrl + Shift + Enter**) and read the output before moving on.
+-   Some chunks are blank on purpose. The text above each one tells you what to write.
+-   Click **Render** to turn this file into a PDF. Quarto does this with Typst, which comes with Quarto, so there is nothing extra to install.
+-   Keep this file in the same folder as the `data` and `bib` folders. R looks for the data files relative to this file.
+
+## Topics and Concepts Covered
+
+-   Loading packages and reading a data file
+-   Getting to know a dataset and its codebook
+-   Creating new variables (for example, a per-person measure)
+-   Summary statistics: mean, median, standard deviation, and skew
+-   Comparing groups and finding shares of a total (composition)
+-   Making one good figure: scatterplots, boxplots and bar charts with honest labels and a source line
+-   Correlation and the correlation test
+-   Comparing two group means with a *t*-test
+-   Reading a p-value, and what a test can't tell you
+
+## R Commands Covered
+
+-   Installing packages with `install.packages()` (once) and loading them with `library()`
+-   Reading data with `read_csv()`, and chaining steps together with the pipe `%>%`
+-   Looking at data with `glimpse()`, `nrow()` and `count()`
+-   Extracting a column with `$`
+-   Choosing rows and columns with `filter()` (using `==` and `%in%`) and `select()`
+-   Creating new columns with `mutate()`
+-   Sorting with `arrange()` and `desc()`, and keeping the first rows with `slice_head()`
+-   Summarizing with `summarize()` and `group_by()`, using `mean()`, `median()`, `sd()`, `sum()` and `n()`
+-   Making figures with `ggplot()` and `aes()`, plus `geom_point()`, `geom_boxplot()` and `geom_col()`; labelling with `labs()`; ordering bars with `reorder()`; log scales with `scale_x_log10()` and `scale_y_log10()`; colors with `scale_color_manual()`; and a clean look with `theme_minimal()`
+-   Transforming a variable with `log()`
+-   Testing with `cor()`, `cor.test()` and `t.test()`
+
+## Note
+
+In this handout, we use tidyverse syntax (`%>%`, `mutate()`, `summarize()`, `ggplot()`) for nearly everything, and base R for a few quick jobs such as `nrow()`, `$`, `cor()` and the two tests. Most real data analysis mixes the two. It's 100% okay to write code that uses a mix of approaches.
+
+# Packages
+
+We only need the **tidyverse**, which you installed before the workshop. If you haven't installed it yet, run this once (it is set not to run when you render):
+
+```{r}
+#| eval: false
+install.packages("tidyverse", repos = "https://cloud.r-project.org")
+```
+
+Load it at the start of every session:
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+# Example 1: Do More Vulnerable Countries Receive More Adaptation Aid?
+
+In Part 1 we discussed @Tennant.etal2024, who ask whether donors give climate finance to the countries that need it most, and whether small island developing states (SIDS) receive more or less than their vulnerability justifies. We'll do a much simpler, descriptive version of their question.
+
+Each row of `adaptation_aid.csv` is a **country that received adaptation-related aid** from members of the OECD Development Assistance Committee (DAC) in 2020–2024. Aid amounts come from the OECD's Rio marker data [@OECD2026]: donors tag each aid project that targets adaptation as a "principal" or "significant" objective, and we add both together. Vulnerability comes from the ND-GAIN Country Index [@Chen.etal2015], population and income groups from the World Bank [@WorldBank2026], and the SIDS list from the UN Statistics Division [@UNSD2026].
+
+| Name | Description |
+|:---|:---|
+| `country` | Country name (World Bank) |
+| `iso3c` | Three-letter ISO country code |
+| `region` | World Bank region |
+| `income_group` | World Bank income group |
+| `sids` | `"SIDS"` if a small island developing state (UN M49 list), otherwise `"Other"` |
+| `population` | Population, 2023 |
+| `vulnerability` | ND-GAIN vulnerability score, from 0 (least vulnerable) to 1 (most vulnerable) |
+| `adapt_aid_musd` | Average yearly adaptation-related aid commitments from DAC members, 2020–2024, millions of constant 2024 US dollars |
+
+: Codebook for `adaptation_aid.csv`
+
+## Reading the data into R
+
+When we read in a file we follow a *three-step procedure*: (1) read it in, (2) look at it, (3) check how many rows we have. We'll name the data frame `aid`.
+
+```{r}
+aid <- read_csv("data/adaptation_aid.csv")
+glimpse(aid)
+nrow(aid)
+```
+
+`glimpse()` lists every column, its type (`<chr>` for text, `<dbl>` for numbers) and its first few values. Always check that numbers were read as numbers.
+
+How many SIDS and how many other countries are there? `count()` counts the rows in each category:
+
+```{r}
+aid %>% count(sids)
+aid %>% count(income_group)
+```
+
+## Creating a new variable
+
+A large country will receive more aid in total simply because it has more people. To compare countries of very different sizes, we'll create **aid per person** in US dollars with `mutate()`. Aid is in millions, so we multiply by 1,000,000 first.
+
+```{r}
+aid <- aid %>%
+  mutate(aid_pc = adapt_aid_musd * 1000000 / population)
+```
+
+## Summary statistics
+
+`summarize()` collapses many rows into one row of statistics. Here are the mean, median, standard deviation and number of countries for aid per person:
+
+```{r}
+aid %>%
+  summarize(mean = mean(aid_pc),
+            median = median(aid_pc),
+            sd = sd(aid_pc),
+            n = n())
+```
+
+The **mean is much larger than the median**. That tells us the distribution is **skewed**: most countries get a few dollars per person, and a handful get a great deal. When data are skewed, the median is the better description of a "typical" country.
+
+Who gets the most? `arrange(desc())` sorts from largest to smallest, `select()` keeps the columns we want to see, and `slice_head()` keeps the first rows.
+
+```{r}
+aid %>%
+  arrange(desc(adapt_aid_musd)) %>%
+  select(country, sids, adapt_aid_musd, aid_pc) %>%
+  slice_head(n = 10)
+
+aid %>%
+  arrange(desc(aid_pc)) %>%
+  select(country, sids, population, aid_pc) %>%
+  slice_head(n = 10)
+```
+
+The two lists are very different. The largest recipients **in total** are big countries; the largest **per person** are small ones, all of them SIDS. Which measure you choose changes the story, so say which one you use and why.
+
+## Comparing groups
+
+To compare SIDS with other recipients, add `group_by()` before `summarize()`. Now we get one row per group:
+
+```{r}
+aid %>%
+  group_by(sids) %>%
+  summarize(mean_pc = mean(aid_pc),
+            median_pc = median(aid_pc),
+            sd_pc = sd(aid_pc),
+            n = n())
+```
+
+We can also ask a **composition** question: what share of all adaptation aid goes to SIDS? We add up aid in each group with `sum()`, then divide each group's total by the overall total:
+
+```{r}
+aid %>%
+  group_by(sids) %>%
+  summarize(total_musd = sum(adapt_aid_musd)) %>%
+  mutate(share = total_musd / sum(total_musd))
+```
+
+@Tennant.etal2024 stress that **SIDS are not one group**: low-income SIDS with weak capacity often get very little. `filter()` keeps only the rows we ask for. `%in%` means "is one of these values." Let's repeat the comparison for lower-income recipients only:
+
+```{r}
+aid_low <- aid %>%
+  filter(income_group %in% c("Low income", "Lower middle income"))
+
+aid_low %>%
+  group_by(sids) %>%
+  summarize(median_pc = median(aid_pc),
+            n = n())
+```
+
+## One good figure
+
+A good figure answers **one question**, has **honest axes**, **labels in plain words**, a **source line**, and comes with a **one-sentence takeaway**. With `ggplot()` you build a figure in layers: the data and `aes()` (which variable goes on which axis), then a `geom_` (the kind of mark), then labels and a theme.
+
+First, a boxplot comparing SIDS and other recipients. Because aid per person is so skewed, we put the y-axis on a **log scale** with `scale_y_log10()`: each gridline is ten times the one below it. Always tell your reader when an axis is logged. On its own, R labels a log axis in scientific notation (`1e+03` means 1,000), so we set the gridlines with `breaks` and write their labels with `labels`.
+
+```{r}
+ggplot(aid, aes(x = sids, y = aid_pc)) +
+  geom_boxplot(fill = "#2a78d6", alpha = 0.3) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c("0.1", "1", "10", "100", "1,000")) +
+  labs(title = "Adaptation aid per person, SIDS vs. other recipients",
+       x = NULL,
+       y = "Aid per person, US$ per year (log scale)",
+       caption = "Source: OECD Rio markers (DAC members, 2020–2024 average); World Bank; UN M49.") +
+  theme_minimal()
+```
+
+The thick line in each box is the median; the box holds the middle half of the countries.
+
+Next, the relationship: do **more vulnerable** countries receive **more aid per person**? A scatterplot puts one dot per country. We color the dots by `sids` with `scale_color_manual()`.
+
+```{r}
+ggplot(aid, aes(x = vulnerability, y = aid_pc, color = sids)) +
+  geom_point(alpha = 0.8) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
+                labels = c("0.1", "1", "10", "100", "1,000")) +
+  scale_color_manual(values = c(Other = "#2a78d6", SIDS = "#eb6834")) +
+  labs(title = "Vulnerability and adaptation aid per person",
+       x = "ND-GAIN vulnerability (higher = more vulnerable)",
+       y = "Aid per person, US$ (log scale)",
+       color = NULL,
+       caption = "Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.") +
+  theme_minimal()
+```
+
+Finally, a bar chart of the ten largest recipients in total. `geom_col()` draws bars whose length is a value in the data, and `reorder()` sorts the bars by size so the chart is easy to read.
+
+```{r}
+aid %>%
+  arrange(desc(adapt_aid_musd)) %>%
+  slice_head(n = 10) %>%
+  ggplot(aes(x = adapt_aid_musd, y = reorder(country, adapt_aid_musd))) +
+  geom_col(fill = "#2a78d6") +
+  labs(title = "Ten largest recipients of adaptation aid",
+       x = "Average yearly commitments, 2020–2024 (US$ millions, 2024 prices)",
+       y = NULL,
+       caption = "Source: OECD Rio markers (DAC members).") +
+  theme_minimal()
+```
+
+**Takeaway sentence (write one for every figure):** *SIDS receive far more adaptation aid per person than other recipients, while the largest totals go to large, populous countries.*
+
+## One statistical test
+
+### Correlation
+
+`cor()` gives the correlation between two columns. We use `$` to pull a column out of the data frame. Because aid per person is so skewed, we correlate vulnerability with the **log** of aid per person, which matches the log scale in our figure. (A few extreme values can drive an ordinary correlation.)
+
+```{r}
+cor(aid$vulnerability, log(aid$aid_pc))
+```
+
+`cor.test()` adds a p-value and a 95% confidence interval:
+
+```{r}
+cor.test(aid$vulnerability, log(aid$aid_pc))
+```
+
+**How to read it.** The `cor` at the bottom is the correlation. The p-value answers: *if there were really no relationship, how often would chance alone produce a correlation at least this strong?* A small p-value (by convention, below 0.05) means chance alone is an unlikely explanation. It does **not** tell you how big or important the relationship is, and it does **not** tell you why it exists.
+
+### Comparing two means: the *t*-test
+
+`t.test()` asks whether the average differs between two groups. The formula `aid_pc ~ sids` reads "aid per person, by SIDS status."
+
+```{r}
+t.test(aid_pc ~ sids, data = aid)
+```
+
+Look at the two group means, the 95% confidence interval for their difference, and the p-value. Then run the same test for lower-income recipients only:
+
+```{r}
+t.test(aid_pc ~ sids, data = aid_low)
+```
+
+### What these tests can't tell us
+
+-   **Correlation is not causation.** Small countries get more per person, and many SIDS are small. Is it vulnerability, or size, or historical ties to donors (a **confounder**)?
+-   **Selection.** Our data include only countries that *received* adaptation aid. Countries that got nothing are missing, so we can't see the eligibility stage that @Tennant.etal2024 study.
+-   **Measurement.** Donors tag their own projects as "adaptation," and "significant" projects count in full here, which overstates the money spent on adaptation.
+-   **Inference.** These data cover nearly every recipient. The p-value is best read as "could a pattern this strong easily arise by chance in year-to-year allocations?", not as a statement about a larger population.
+
+# Example 2: Renewable Energy and National Income
+
+Now it's your turn. We'll repeat the same steps with a new question: **do richer countries get more of their energy from renewable sources?**
+
+Each row of `renewables.csv` is a country in 2021, the most recent year with near-complete data. The data come from the World Bank's World Development Indicators [@WorldBank2026].
+
+| Name | Description |
+|:---|:---|
+| `country` | Country name |
+| `iso3c` | Three-letter ISO country code |
+| `region` | World Bank region |
+| `income_group` | World Bank income group |
+| `population` | Population, 2021 |
+| `gdp_pc` | GDP per person, current US dollars, 2021 |
+| `renew_share` | Renewable energy consumption, % of total final energy consumption, 2021 |
+
+: Codebook for `renewables.csv`
+
+## Reading the data into R
+
+Read `data/renewables.csv` into a data frame named `renew`. Then use `glimpse()` and `nrow()` to check it.
+
+```{r}
+renew <- read_csv("data/renewables.csv")
+glimpse(renew)
+nrow(renew)
+```
+
+Use `count()` to find how many countries are in each income group.
+
+```{r}
+renew %>% count(income_group)
+```
+
+## Summary statistics
+
+Find the mean, median, standard deviation and number of countries for `renew_share`.
+
+```{r}
+renew %>%
+  summarize(mean = mean(renew_share),
+            median = median(renew_share),
+            sd = sd(renew_share),
+            n = n())
+```
+
+List the ten countries with the highest renewable share. Show `country`, `income_group`, `gdp_pc` and `renew_share`.
+
+```{r}
+renew %>%
+  arrange(desc(renew_share)) %>%
+  select(country, income_group, gdp_pc, renew_share) %>%
+  slice_head(n = 10)
+```
+
+## Comparing groups
+
+Use `group_by()` and `summarize()` to find the mean, median, standard deviation and number of countries for `renew_share` in each income group.
+
+```{r}
+renew %>%
+  group_by(income_group) %>%
+  summarize(mean = mean(renew_share),
+            median = median(renew_share),
+            sd = sd(renew_share),
+            n = n())
+```
+
+A composition question: what share of the world's population (in these data) lives in each income group? Add up `population` by income group with `sum()`, then divide by the overall total.
+
+```{r}
+renew %>%
+  group_by(income_group) %>%
+  summarize(total_pop = sum(population)) %>%
+  mutate(share = total_pop / sum(total_pop))
+```
+
+## One good figure
+
+Make a scatterplot with `gdp_pc` on the x-axis and `renew_share` on the y-axis. GDP per person is very skewed, so use `scale_x_log10()`. Add a title, axis labels and a source caption, and use `theme_minimal()`.
+
+```{r}
+ggplot(renew, aes(x = gdp_pc, y = renew_share)) +
+  geom_point(color = "#2a78d6", alpha = 0.8) +
+  scale_x_log10() +
+  labs(title = "National income and renewable energy, 2021",
+       x = "GDP per person, US$ (log scale)",
+       y = "Renewables, % of final energy use",
+       caption = "Source: World Bank, World Development Indicators.") +
+  theme_minimal()
+```
+
+Make a boxplot of `renew_share` by `income_group`. Use `reorder(income_group, renew_share)` on the x-axis so the groups appear in order.
+
+```{r}
+ggplot(renew, aes(x = reorder(income_group, renew_share), y = renew_share)) +
+  geom_boxplot(fill = "#2a78d6", alpha = 0.3) +
+  labs(title = "Renewable energy share by income group, 2021",
+       x = NULL,
+       y = "Renewables, % of final energy use",
+       caption = "Source: World Bank, World Development Indicators.") +
+  theme_minimal()
+```
+
+**Write a one-sentence takeaway for your figure here:** *Poorer countries get a much larger share of their energy from renewables than rich countries do.*
+
+## One statistical test
+
+Find the correlation between `log(gdp_pc)` and `renew_share` with `cor()`, then test it with `cor.test()`.
+
+```{r}
+cor(log(renew$gdp_pc), renew$renew_share)
+cor.test(log(renew$gdp_pc), renew$renew_share)
+```
+
+Create a data frame named `renew_two` that keeps only `"High income"` and `"Low income"` countries. Then use `t.test()` to compare the mean `renew_share` of the two groups.
+
+```{r}
+renew_two <- renew %>%
+  filter(income_group %in% c("High income", "Low income"))
+
+t.test(renew_share ~ income_group, data = renew_two)
+```
+
+**Think about it.** The result may surprise you: the poorest countries have the *highest* renewable shares. That's because the World Bank's measure counts **traditional biomass** (firewood, charcoal, crop waste) as renewable. Is "renewable share" a good measure of a *clean-energy transition*? This is the Part 1 lesson again: a number is a measurement of a concept, and the match can be poor.
+
+# Workshop Questions
+
+Let's use our data analysis skills to answer a few questions posed by Professor Kaya: how do countries compare when we measure carbon dioxide (CO~2~) emissions **in total** and **per person**? Why is it useful to look at both, how does the top 10 change between them, and how do the results compare across country income groups?
+
+The file `data/co2.csv` has one row per country for 2023. The World Bank's emissions series come from the EDGAR database [@Crippa.etal2024; @WorldBank2026]. EDGAR doesn't estimate a few very small territories and islands separately (the World Bank reports zero or a few tonnes for them), so we left those out.
+
+| Name | Description |
+|:---|:---|
+| `country` | Country name |
+| `iso3c` | Three-letter ISO country code |
+| `region` | World Bank region |
+| `income_group` | World Bank income group |
+| `population` | Population, 2023 |
+| `co2_mt` | CO~2~ emissions excluding land use, million tonnes, 2023 |
+| `co2_pc` | CO~2~ emissions excluding land use, tonnes per person, 2023 |
+
+: Codebook for `co2.csv`
+
+Please answer the following questions using the commands from Examples 1 and 2.
+
+### Question 1
+
+Read the data into a data frame named `co2`. How many countries are in the data?
+
+```{r, solution = TRUE}
+
+```
+
+### Question 2
+
+List the ten largest emitters **in total** (`co2_mt`). Show `country`, `income_group`, `co2_mt` and `co2_pc`.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 3
+
+List the ten largest emitters **per person** (`co2_pc`). Show `country`, `income_group`, `population`, `co2_mt` and `co2_pc`.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 4
+
+How do the two top-10 lists differ? Which countries appear on both? Why might a negotiator from a large developing country prefer one measure, and a negotiator from a small, rich country prefer the other? Look at the populations in Question 3, too: why should we be careful about per-person figures for very small countries?
+
+```{asis, solution = TRUE}
+
+```
+
+### Question 5
+
+Find the mean, median, standard deviation and number of countries for `co2_pc` in each income group.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 6
+
+In which income group are the mean and the median furthest apart? What does that tell you about the shape of the distribution in that group?
+
+```{asis, solution = TRUE}
+
+```
+
+### Question 7
+
+A composition question: what share of total CO~2~ emissions comes from each income group? What share of the population lives in each group? (Use `sum()` for both, then divide by the overall totals.)
+
+```{r, solution = TRUE}
+
+```
+
+### Question 8
+
+Make a boxplot of `co2_pc` by `income_group`, with the groups in order. Include a title, axis labels and a source caption. Then write a one-sentence takeaway.
+
+```{r, solution = TRUE}
+
+```
+
+```{asis, solution = TRUE}
+
+```
+
+### Question 9
+
+Make a bar chart of the ten largest emitters per person, sorted by size. Compare it with a bar chart of the ten largest emitters in total. (Make both.)
+
+```{r, solution = TRUE}
+
+```
+
+### Question 10
+
+Create a data frame named `co2_two` with only high-income and low-income countries. Use a *t*-test to compare their mean emissions per person. Report the two means and the p-value.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 11
+
+Is a country's **total** emissions correlated with its emissions **per person**? Use `cor.test()`. What does the answer tell you about the two measures?
+
+```{r, solution = TRUE}
+
+```
+
+```{asis, solution = TRUE}
+
+```
+
+### Question 12
+
+Your *t*-test in Question 10 found a large difference between high- and low-income countries. Name one thing this result can't tell you. (Hint: think about causation and about what a p-value means when you have data on nearly every country.)
+
+```{asis, solution = TRUE}
+
+```
+
+# References

@@ -1,0 +1,49 @@
+---
+title: "Working with Data in Global Environmental Governance"
+subtitle: "POLS 081 · Class Meeting #11 · Wednesday, November 18, 2026"
+---
+
+A two-part session led by Greg Amusu of the Social Science Quantitative Lab (SSQL), built to support your data paper.
+
+## Schedule
+
+| Time | Part |
+|---|---|
+| 1:15–2:30 pm | **Part 1. Lecture and discussion.** Epistemology, quantitative social science, and approaches to the data paper. We'll work through three course readings in groups. |
+| 2:30–2:45 pm | Break |
+| 2:45–4:00 pm | **Part 2. Lab.** Hands-on data analysis in RStudio and Quarto: summary statistics, a figure, and a statistical test. |
+
+## Before class: set up your computer
+
+Everyone will use **R, RStudio and Quarto** in the lab, whatever software you plan to use for your paper. Please install them before Wednesday:
+
+1. **Install R and RStudio:** [Mac guide](guides/install-mac.qmd) · [Windows guide](guides/install-windows.qmd)
+2. **Make your first Quarto document and render it to PDF:** [Quarto & PDF guide](guides/quarto-pdf.qmd)
+
+If you get stuck, work through the troubleshooting section of each guide, then email Greg. Anything still unresolved, we'll fix during the break.
+
+## Before class: the readings
+
+Come ready to discuss **all three** papers in small groups. Pay particular attention to their **methods** (how they turn a concept into something measurable) and their **results** (what they can and can't conclude).
+
+- Fransen et al. (2023), *Taking stock of the implementation gap in climate policy*
+- Xie et al. (2025), *Tracing inclusivity at UNFCCC conferences through side events and interest group dynamics*
+- Tennant, Davies & Tennant (2024), *Determinants of access to climate finance: Nuanced insights for SIDS and other vulnerable economies*
+
+## Materials
+
+**Part 1**
+
+- [Part 1 slides](slides/part1-lecture.qmd)
+- [Paper discussion prompts](worksheets/paper-discussion.qmd)
+- [Question ladder worksheet](worksheets/question-ladder.qmd)
+
+**Part 2**
+
+- [Lab materials](lab.qmd): download the lab files, the guide to Example 2, and extra practice on merging datasets
+- [Part 2 slides](slides/part2-lab.qmd)
+
+**For your data paper**
+
+- [Data sources](data-sources.qmd), organized by primary focus, plus the data behind the course readings
+- [Where to get help](help.qmd), including SSQL office hours in Science Center 205

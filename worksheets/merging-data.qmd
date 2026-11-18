@@ -1,0 +1,166 @@
+---
+title: "Extra Practice: Merging Two Datasets"
+subtitle: "POLS 081 · SSQL Workshop"
+author: "Put your name here!"
+format:
+  typst:
+    bibliographystyle: chicago-author-date
+    include-in-header:
+      text: |
+        #set bibliography(title: none)
+        #show link: it => underline(text(fill: rgb("#0b5cab"), it))
+    margin:
+      x: 1in
+      y: 1in
+    fig-width: 6.5
+    fig-height: 3.8
+bibliography: bib/lab.bib
+---
+
+For your data paper you will often need variables that live in **different files**: emissions from one source, a list of coalition members from another, aid flows from a third. Combining them is called **merging** or **joining**. This short exercise shows you how to do it safely in R.
+
+## How to use this handout
+
+-   Work **top to bottom**. Run each code chunk with the green ▶ button (or **Cmd/Ctrl + Shift + Enter**) and read the output before moving on.
+-   Some chunks are blank on purpose. The text above each one tells you what to write.
+-   Click **Render** to turn this file into a PDF with Typst.
+-   Keep this file in the same folder as the `data` and `bib` folders from the lab.
+
+## Topics and Concepts Covered
+
+-   What a **key** is, and why country *codes* beat country *names*
+-   Joining two data frames with a left join and an inner join
+-   Checking a merge: counting rows and finding rows that didn't match
+-   Filling in missing values created by a join
+
+## R Commands Covered
+
+-   `left_join()`, `inner_join()` and `anti_join()` with `by =`
+-   `is.na()` and `if_else()` to fill in missing values
+-   From the lab: `read_csv()`, `nrow()`, `select()`, `filter()`, `mutate()`, `count()`, `group_by()`, `summarize()`, `median()`, `n()`
+
+## Note
+
+Merging is where many data projects quietly go wrong. Rows can disappear, or be duplicated, without any error message. **Always count your rows before and after a merge.**
+
+```{r}
+#| message: false
+library(tidyverse)
+```
+
+# Worked Example: Emissions and Renewable Energy
+
+We have two files from the lab. `co2.csv` has CO~2~ emissions for 2023, and `renewables.csv` has the renewable share of energy and GDP per person for 2021 [@WorldBank2026; @Crippa.etal2024]. Suppose we want both in one data frame.
+
+```{r}
+co2 <- read_csv("data/co2.csv")
+renew <- read_csv("data/renewables.csv")
+nrow(co2)
+nrow(renew)
+```
+
+## Step 1: Pick the key
+
+A **key** is a column that identifies the same unit in both files. Both files have `country` and `iso3c`. Use the **code**: names are spelled differently across sources ("Türkiye" vs. "Turkey", "Korea, Rep." vs. "South Korea"), but ISO codes are standard.
+
+Both files also have `country`, `region`, `income_group` and `population`. To avoid duplicate columns, keep only the key and the new variables from the second file:
+
+```{r}
+renew_small <- renew %>%
+  select(iso3c, gdp_pc, renew_share)
+```
+
+## Step 2: Join
+
+A **left join** keeps *every* row of the first (left) data frame and adds matching columns from the second. Rows with no match get `NA`.
+
+```{r}
+co2_renew <- co2 %>%
+  left_join(renew_small, by = "iso3c")
+
+nrow(co2_renew)
+```
+
+The number of rows is the same as in `co2`, as it should be for a left join on a unique key. (If it went *up*, the key was duplicated in the second file.)
+
+An **inner join** keeps only rows that match in *both* files:
+
+```{r}
+co2_renew_inner <- co2 %>%
+  inner_join(renew_small, by = "iso3c")
+
+nrow(co2_renew_inner)
+```
+
+## Step 3: Check what didn't match
+
+`anti_join()` shows the rows in the first file that have **no match** in the second. Always look at these: are they missing at random, or is a whole group of countries dropping out?
+
+```{r}
+co2 %>%
+  anti_join(renew_small, by = "iso3c") %>%
+  select(country, iso3c, income_group)
+```
+
+Three of the six unmatched countries (Eritrea, North Korea and Yemen) are low-income countries in conflict or isolated from international statistics. Missing data are rarely random, and dropping them quietly changes who your analysis is about.
+
+Now we can use both sets of variables together, for example to compare renewable shares with emissions per person:
+
+```{r}
+co2_renew %>%
+  filter(!is.na(renew_share)) %>%
+  group_by(income_group) %>%
+  summarize(median_co2_pc = median(co2_pc),
+            median_renew = median(renew_share),
+            n = n())
+```
+
+# Practice: Are SIDS Low Emitters?
+
+`sids_list.csv` lists the 53 small island developing states (SIDS) on the UN Statistics Division's M49 list [@UNSD2026]. It has three columns: `iso3c`, `sids_name` (the UN's name for the country) and `sids` (always `"SIDS"`).
+
+### Question 1
+
+Read `data/sids_list.csv` into a data frame named `sids`. How many rows does it have?
+
+```{r, solution = TRUE}
+
+```
+
+### Question 2
+
+Use `left_join()` to add the `sids` column to `co2`, matching on `iso3c`. Keep only `iso3c` and `sids` from the SIDS file. Name the result `co2_sids` and check its number of rows.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 3
+
+Countries that aren't SIDS now have `NA` in the `sids` column. Use `mutate()` with `if_else(is.na(sids), "Other", sids)` to replace those `NA`s with `"Other"`. Then use `count()` to see how many countries are in each group.
+
+```{r, solution = TRUE}
+
+```
+
+### Question 4
+
+Some SIDS on the UN list are missing from `co2`. Use `anti_join()` to find which ones. Why might they be missing?
+
+```{r, solution = TRUE}
+
+```
+
+```{asis, solution = TRUE}
+
+```
+
+### Question 5
+
+Compare the median emissions per person (`co2_pc`) and the number of countries for SIDS and other countries.
+
+```{r, solution = TRUE}
+
+```
+
+# References

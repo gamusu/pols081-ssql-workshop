@@ -1,0 +1,437 @@
+---
+title: "From Data to Evidence"
+subtitle: "Lab: summary statistics, one figure, one test"
+author: "Greg Amusu · Social Science Quantitative Lab (SSQL)"
+institute: "POLS 081 · Global Environmental Governance"
+date: 2026-11-18
+date-format: "MMMM D, YYYY"
+format:
+  revealjs:
+    theme: [default, ssql.scss]
+    slide-number: c/t
+    width: 1280
+    height: 720
+    margin: 0.06
+    transition: none
+    preview-links: auto
+    chalkboard: false
+    footer: "POLS 081 · SSQL Workshop · Part 2"
+    code-line-numbers: false
+execute:
+  echo: false
+  message: false
+  warning: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+aid <- read_csv("../worksheets/data/adaptation_aid.csv") %>%
+  mutate(aid_pc = adapt_aid_musd * 1000000 / population)
+
+pal <- c(blue = "#2a78d6", orange = "#eb6834", aqua = "#1baf7a")
+theme_slide <- theme_minimal(base_size = 20) +
+  theme(plot.background = element_rect(fill = "#fcfcfb", colour = NA),
+        panel.grid.minor = element_blank(),
+        plot.caption = element_text(hjust = 0, colour = "#52514e", size = 13))
+knitr::opts_chunk$set(dev.args = list(bg = "#fcfcfb"))
+```
+
+## The lab, 2:45–4:00
+
+:::: {.columns}
+::: {.column width="55%"}
+| Time | What we do |
+|---|---|
+| 2:45 | Get the files; anatomy of a Quarto document |
+| 2:55 | Load and look at the data |
+| 3:00 | **Summary statistics** |
+| 3:10 | **One good figure** |
+| 3:20 | **One statistical test** |
+| 3:30 | Your turn: Example 2 |
+| 3:45 | Render to PDF |
+| 3:50 | Bring it back to your paper |
+:::
+::: {.column width="45%"}
+::: {.keyidea}
+**The recipe for every data paper question:**
+
+summary statistics → one good figure → one statistical test
+:::
+
+We'll walk through **Example 1** together. You'll do **Example 2** yourself. The **Workshop Questions** are for after class.
+:::
+::::
+
+::: {.notes}
+~1 min. Everyone should have R, RStudio and the tidyverse working after the break. Anyone still stuck: pair them with a neighbor for now and fix it while others work on Example 2.
+:::
+
+## Get the lab files
+
+1. Download **`pols081-lab.zip`** from the workshop website (Part 2 page).
+2. **Unzip it.** On Windows, right-click → **Extract All…** (don't work inside the zip).
+3. Open the folder and double-click **`pols081-lab.Rproj`**. RStudio opens in that folder.
+4. In the **Files** pane, open **`lab-handout.qmd`**.
+
+::: {.activity}
+**Check:** run the first chunk, `library(tidyverse)`. A list of packages with ✔ marks means you're ready. Hand up if you see an error.
+:::
+
+::: {.notes}
+~4 min. Common problems: working inside the zip on Windows (files won't save, data won't load); a OneDrive folder with a non-ASCII path; tidyverse not installed. Fix: extract to Desktop or Documents.
+:::
+
+## Anatomy of a Quarto document
+
+:::: {.columns}
+::: {.column width="55%"}
+````markdown
+---
+title: "Lab: Summary Statistics..."
+author: "Put your name here!"
+format: typst
+---
+
+Text you write, in **Markdown**.
+
+```{{r}}
+aid <- read_csv("data/adaptation_aid.csv")
+```
+````
+:::
+::: {.column width="45%"}
+1. **YAML header** between the `---` lines: title, author, output format (`typst` makes a PDF)
+2. **Text**: your writing, with simple formatting
+3. **Code chunks**: R code that runs and puts its results in the document
+
+<br>
+
+**Run** a chunk: ▶ or **Cmd/Ctrl + Shift + Enter**<br>
+**Render** the whole file: the **Render** button
+:::
+::::
+
+::: {.notes}
+~3 min. Put your name in the author line now. Running a chunk shows results in RStudio only; Render runs everything from top to bottom in a fresh session and makes the PDF. If Render fails but chunks run, you probably skipped a chunk or created an object out of order.
+:::
+
+# Example 1 · Do more vulnerable countries receive more adaptation aid? {.divider}
+
+A simple, descriptive version of Tennant et al. (2024)
+
+## Load and look
+
+```{r}
+#| echo: true
+#| eval: false
+aid <- read_csv("data/adaptation_aid.csv")
+glimpse(aid)
+```
+
+```{r}
+glimpse(aid %>% select(-aid_pc))
+```
+
+::: {.notes}
+~3 min. One row = one recipient country. Point out the column types (<chr> text, <dbl> numbers) and walk the codebook in the handout: where each column comes from. This is the Measure step from Part 1: adapt_aid_musd is donor-reported, Rio-marked commitments, not money spent.
+:::
+
+## Build the measure you need
+
+Large countries get more aid in total simply because they have more people. Make a **per-person** measure:
+
+```{r}
+#| echo: true
+#| eval: false
+aid <- aid %>%
+  mutate(aid_pc = adapt_aid_musd * 1000000 / population)
+```
+
+. . .
+
+::: {.keyidea}
+**Every measure is a choice.** Total aid answers *where does the money go?* Aid per person answers *how much does each person's country get?* They tell different stories. Say which you use and why.
+:::
+
+::: {.notes}
+~2 min. Callback to "numbers are measurements, not the things themselves."
+:::
+
+# Summary statistics {.divider}
+
+Mean · median · spread · groups · shares
+
+## Mean vs. median
+
+```{r}
+#| echo: true
+aid %>%
+  summarize(mean = mean(aid_pc), median = median(aid_pc), sd = sd(aid_pc), n = n())
+```
+
+```{r}
+#| fig-height: 3.2
+#| fig-width: 11
+ggplot(aid, aes(aid_pc)) +
+  geom_histogram(bins = 40, fill = pal["blue"], colour = "#fcfcfb") +
+  labs(x = "Adaptation aid per person, US$ per year", y = "Countries",
+       caption = "Source: OECD Rio markers (DAC members, 2020–2024 average); World Bank.") +
+  theme_slide
+```
+
+::: {.notes}
+~3 min. Mean much bigger than median = right skew: most countries get a few dollars per person, a handful get a lot. Ask: which number describes a "typical" recipient? (The median.) The sd is large relative to the mean, another sign of skew.
+:::
+
+## Who gets the most? Depends how you count
+
+:::: {.columns}
+::: {.column width="50%"}
+**In total** (US$ millions per year)
+
+```{r}
+aid %>% arrange(desc(adapt_aid_musd)) %>%
+  select(country, sids, adapt_aid_musd) %>%
+  slice_head(n = 8) %>%
+  mutate(adapt_aid_musd = round(adapt_aid_musd)) %>%
+  knitr::kable(col.names = c("Country", "SIDS?", "Total"))
+```
+:::
+::: {.column width="50%"}
+**Per person** (US$ per year)
+
+```{r}
+aid %>% arrange(desc(aid_pc)) %>%
+  select(country, sids, aid_pc) %>%
+  slice_head(n = 8) %>%
+  mutate(aid_pc = round(aid_pc)) %>%
+  knitr::kable(col.names = c("Country", "SIDS?", "Per person"))
+```
+:::
+::::
+
+`arrange(desc(...))` sorts, `select()` picks columns, `slice_head(n = 8)` keeps the top rows.
+
+::: {.notes}
+~2 min. Same data, two very different top lists. This sets up the CO2 Workshop Questions (total vs per capita), so don't give away more than this.
+:::
+
+## Comparing groups and finding shares
+
+```{r}
+#| echo: true
+aid %>%
+  group_by(sids) %>%
+  summarize(median_pc = median(aid_pc), mean_pc = mean(aid_pc), n = n())
+```
+
+. . .
+
+**Composition:** what share of all adaptation aid goes to SIDS?
+
+```{r}
+#| echo: true
+aid %>%
+  group_by(sids) %>%
+  summarize(total_musd = sum(adapt_aid_musd)) %>%
+  mutate(share = total_musd / sum(total_musd))
+```
+
+::: {.notes}
+~4 min. group_by() + summarize() = one row per group. The composition question is one of the five question types from the prompt. Ask: SIDS get a small share of the total but a lot per person. Which is the "fair" comparison? (No single answer; depends on the question.)
+:::
+
+# One good figure {.divider}
+
+One question · honest axes · plain labels · a source · a takeaway
+
+## What makes a figure good?
+
+:::: {.columns}
+::: {.column width="50%"}
+1. Answers **one question**
+2. **Honest axes**: say when a scale is logged; bars start at zero
+3. **Plain-language labels** with units
+4. A **source line**
+5. A **one-sentence takeaway** in your text
+:::
+::: {.column width="50%"}
+`ggplot()` builds a figure in **layers**:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(aid, aes(x = sids, y = aid_pc)) +   # data + axes
+  geom_boxplot() +                          # the marks
+  scale_y_log10() +                         # the scale
+  labs(title = "...", x = NULL,             # the words
+       y = "Aid per person, US$ (log scale)",
+       caption = "Source: OECD; World Bank.") +
+  theme_minimal()                           # the look
+```
+:::
+::::
+
+::: {.notes}
+~3 min. Point back to the syllabus: "What does this show? Why does it matter? What can I conclude, and what can I not conclude?" Remind them of the AI policy: they must make their own figures.
+:::
+
+## A comparison: boxplot
+
+```{r}
+#| fig-height: 5.2
+#| fig-width: 11
+ggplot(aid, aes(x = sids, y = aid_pc)) +
+  geom_boxplot(fill = pal["blue"], alpha = 0.3, width = 0.5) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000), labels = c("0.1", "1", "10", "100", "1,000")) +
+  labs(title = "Adaptation aid per person, SIDS vs. other recipients",
+       x = NULL, y = "US$ per person (log scale)",
+       caption = "Source: OECD Rio markers (DAC members, 2020–2024 average); World Bank; UN M49.") +
+  theme_slide
+```
+
+::: {.notes}
+~2 min. Read it together: the line is the median, the box the middle half. Log scale: each gridline is 10x the one below. Takeaway: SIDS get far more per person.
+:::
+
+## A relationship: scatterplot
+
+```{r}
+#| fig-height: 5.2
+#| fig-width: 11
+ggplot(aid, aes(x = vulnerability, y = aid_pc, colour = sids)) +
+  geom_point(alpha = 0.8, size = 2.6) +
+  scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000), labels = c("0.1", "1", "10", "100", "1,000")) +
+  scale_colour_manual(values = c(Other = unname(pal["blue"]), SIDS = unname(pal["orange"]))) +
+  labs(title = "Vulnerability and adaptation aid per person",
+       x = "ND-GAIN vulnerability (higher = more vulnerable)", y = "US$ per person (log scale)",
+       colour = NULL, caption = "Source: OECD Rio markers; ND-GAIN; World Bank; UN M49.") +
+  theme_slide + theme(legend.position = "right")
+```
+
+::: {.activity}
+**Your takeaway sentence?** Call one out.
+:::
+
+::: {.notes}
+~3 min. Get two or three takeaway sentences from the room and tighten one together. Watch for causal language ("vulnerability causes...").
+:::
+
+# One statistical test {.divider}
+
+Could chance alone produce a pattern this strong?
+
+## Correlation test
+
+```{r}
+#| echo: true
+cor.test(aid$vulnerability, log(aid$aid_pc))
+```
+
+::: {.notes}
+~4 min. Read three things: the correlation (cor), the 95% CI, the p-value. We use log(aid_pc) because a few extreme values drive an ordinary correlation, and to match the log-scale figure. Recall from Part 1: the p-value asks "if there were no relationship, how often would chance alone produce one this strong?"
+:::
+
+## Comparing two means: *t*-test
+
+```{r}
+#| echo: true
+t.test(aid_pc ~ sids, data = aid)
+```
+
+::: {.notes}
+~3 min. The formula reads "aid per person, by SIDS status." Look at the two group means, the CI for the difference, the p-value. A big difference with a wide CI: the SIDS group is small and very spread out.
+:::
+
+## What the test can't tell you
+
+:::: {.columns}
+::: {.column width="50%"}
+- **Confounding:** SIDS are small, and small countries get more per person. Vulnerability, size, or donor ties?
+- **Selection:** only countries that *received* adaptation aid are in the data. Tennant's eligibility stage is invisible.
+:::
+::: {.column width="50%"}
+- **Measurement:** donors tag their own projects; "significant" projects count in full.
+- **Inference:** we have nearly every recipient. The p-value is about chance in allocations, not about a bigger population.
+:::
+::::
+
+::: {.keyidea}
+A small p-value says **chance alone is an unlikely explanation**. It doesn't say **why**, and it doesn't say **how much it matters**.
+:::
+
+::: {.notes}
+~3 min. Straight callback to the Part 1 recap: confounding, selection, measurement, uncertainty.
+:::
+
+## Your turn: Example 2 {.smaller}
+
+::: {.activity}
+**15 minutes, with a neighbor.** In `lab-handout.qmd`, go to **Example 2: Renewable Energy and National Income**. Fill in each blank chunk using Example 1 as your model.
+:::
+
+- Same steps, new question: **do richer countries get more of their energy from renewables?**
+- Stuck? Copy the matching chunk from Example 1 and change the data frame and variable names.
+- The **guide PDF** on the website has the Example 2 code if you need to check.
+
+. . .
+
+::: {.keyidea}
+**Look closely at your result.** Does "renewable share" measure a *clean-energy transition*? Hint: what counts as renewable in poor countries?
+:::
+
+::: {.notes}
+~15 min. Circulate. Common errors: object not found (didn't run the read_csv chunk), misspelled column names, forgetting quotes in filter(), using = instead of == in filter. At ~3:43, ask what they found: poorer countries have higher renewable shares because traditional biomass counts as renewable. Measure lesson again.
+:::
+
+## Render to PDF
+
+1. Save the file.
+2. Click **Render**. Quarto runs every chunk from the top in a fresh session, then Typst builds the PDF.
+3. The PDF opens in the Viewer and is saved next to your `.qmd`.
+
+**If it fails:**
+
+- **"object not found"**: a chunk uses something created in a chunk that is now blank or out of order
+- **"could not find function"**: `library(tidyverse)` didn't run
+- **"cannot open file data/..."**: the `.qmd` isn't in the folder with `data/`
+
+::: {.notes}
+~4 min. Blank chunks render fine. The Workshop Questions chunks are blank too, so the handout renders before they're done.
+:::
+
+# Back to your data paper {.divider}
+
+## Which summary, figure and test for which question? {.smaller}
+
+| Question type | Summary statistics | One good figure | A test, if you want one |
+|---|---|---|---|
+| **Change** over time | Values by year; change from start to end | Line chart | Often none; describe the trend |
+| **Distribution** | Mean, median, top 10, spread | Bar chart of top units; histogram | Usually none |
+| **Comparison** | Mean/median by group | Boxplot or bar chart by group | *t*-test (two groups) |
+| **Composition** | Shares of a total | Stacked or simple bar chart of shares | Usually none |
+| **Relationship** | Correlation | Scatterplot | Correlation test |
+
+::: {.activity}
+**2 minutes.** Look at your question ladder from Part 1. Which row is your question in? Write down the **one figure** you'd make first.
+:::
+
+::: {.notes}
+~5 min. Emphasize the syllabus: "A clear graph that answers an interesting question is more valuable than an unnecessary regression." Tests are optional for their paper. Variation reminder: each row needs something that varies.
+:::
+
+## Before you go
+
+- **Finish the Workshop Questions** (CO~2~ in total vs. per person) in `lab-handout.qmd`
+- **Need to combine two datasets?** Try `merging-data.qmd` in the same folder
+- **Find data:** the workshop website has a **data sources** page, organized by primary focus (actor, IO, issue, instrument)
+- **Get help:** book SSQL office hours with Greg (Science Center 205)
+
+::: {.keyidea}
+A careful description, an honest figure and a clear statement of **what you can and cannot conclude**: that's a strong data paper.
+:::
+
+::: {.notes}
+~1 min. Point to the website's Help page for the booking link.
+:::

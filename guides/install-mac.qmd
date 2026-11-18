@@ -1,0 +1,303 @@
+---
+title: "Installing R and RStudio on a Mac"
+subtitle: "POLS 081 · SSQL Workshop setup guide"
+description: "Step-by-step installation of R, RStudio, the workshop R packages, and TinyTeX on macOS, with troubleshooting."
+date-modified: 2026-11-17
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    format-links:
+      - format: typst
+        text: "Printable PDF"
+  typst:
+    toc: true
+    section-numbering: "1.1"
+    papersize: us-letter
+    margin:
+      x: 0.9in
+      y: 0.9in
+    fontsize: 10.5pt
+---
+
+::: {.callout-important}
+## Do this before class on Wednesday
+
+Set aside about **30–45 minutes**. You'll install five things, in this order:
+
+1. **R**, the programming language
+2. **XQuartz**, which R needs to draw plots on a Mac
+3. **RStudio**, the program you'll actually work in (it includes **Quarto**)
+4. A few **R packages**
+5. **TinyTeX**, a backup tool for making PDFs
+
+Then work through the [Quarto and PDF guide](quarto-pdf.qmd) to check that everything works. If you get stuck, try the troubleshooting section at the bottom of this page first. If that doesn't solve it, email Greg with a screenshot of the error.
+:::
+
+::: {.callout-note}
+## Using a Windows PC?
+Use the [Windows guide](install-windows.qmd) instead.
+:::
+
+# Before you start: which Mac do you have?
+
+R has two versions for Mac, and you need the one that matches your computer's chip.
+
+1. Click the **Apple menu** () in the top-left corner of your screen.
+2. Choose **About This Mac**.
+3. Look at the line labelled **Chip** or **Processor**:
+
+| If it says… | You have… | Download this version of R |
+|---|---|---|
+| **Apple M1, M2, M3, M4** (or newer) | An Apple silicon Mac | The **arm64** installer (`R-x.y.z-arm64.pkg`) |
+| **Intel Core i5, i7, i9…** | An Intel Mac | The **x86_64** installer (`R-x.y.z-x86_64.pkg`) |
+
+While you're in **About This Mac**, also note your **macOS version** (for example *Sonoma 14.5* or *Sequoia 15.1*). You'll need it if something goes wrong.
+
+::: {.callout-warning}
+## Minimum macOS versions
+- **R** for **Apple silicon** Macs needs **macOS 14 (Sonoma) or newer**. The **Intel** version needs **macOS 11 (Big Sur) or newer**.
+- The newest **RStudio** needs **macOS 15 (Sequoia) or newer**.
+
+If your Mac is older than that, you can still take part: see [My macOS is too old](#macos-too-old) in the troubleshooting section.
+:::
+
+# Install R
+
+1. Go to **<https://cran.r-project.org>**.
+2. Click **Download R for macOS**.
+3. Under **Latest release**, click the installer that matches your chip (**arm64** for Apple silicon, **x86_64** for Intel).
+4. When the download finishes, **double-click the `.pkg` file** and click through the installer: *Continue → Continue → Agree → Install*. Enter your Mac password when asked.
+5. When you see "The installation was successful," click **Close**. You can move the installer to the Trash.
+
+::: {.callout-tip}
+## Installer stuck or refused to open from Downloads?
+On recent versions of macOS, the Apple Installer sometimes needs permission to read your **Downloads** folder. If the installer complains or hangs, move the `.pkg` file to your **Desktop** and double-click it there.
+:::
+
+You don't need to open R itself. You'll use it through RStudio.
+
+# Install XQuartz {#sec-xquartz}
+
+::: {.callout-important}
+## Don't skip this step
+R on a Mac needs **XQuartz** to draw some kinds of plots, including when you render a Quarto document. Without it, rendering any document with a figure fails with the error *"dev.control() called without an open graphics device"*.
+:::
+
+1. Go to **<https://www.xquartz.org>**.
+2. Click the **`XQuartz-x.y.z.pkg`** download link (in November 2026 it's `XQuartz-2.8.6.pkg`). CRAN asks for **version 2.8.5 or later**.
+3. **Double-click the `.pkg` file** and click through the installer: *Continue → Continue → Agree → Install*. Enter your Mac password when asked.
+4. When the installer finishes, **log out of your Mac and log back in** (**Apple menu () → Log Out**), or restart. **This step is important**: XQuartz doesn't work until you do.
+
+::: {.callout-tip}
+## Upgraded macOS later?
+CRAN recommends that you **reinstall XQuartz whenever you upgrade to a new major version of macOS** (for example, from Sequoia to the next release).
+:::
+
+# Install RStudio
+
+1. Go to **<https://posit.co/download/rstudio-desktop/>**.
+2. Step 1 on that page is "Install R," which you've just done. Under **Step 2**, click **Download RStudio Desktop for macOS**.
+3. Open the downloaded `.dmg` file. A window appears with the RStudio icon and an **Applications** folder.
+4. **Drag the RStudio icon onto the Applications folder.** This step matters: don't run RStudio directly from the `.dmg` window.
+5. Eject the RStudio disk image: right-click it on your Desktop or in Finder's sidebar and choose **Eject**.
+6. Open **Applications** in Finder and double-click **RStudio**. If macOS asks whether you're sure you want to open an app downloaded from the internet, click **Open**.
+
+::: {.callout-note}
+## Quarto is included
+RStudio comes with **Quarto** built in, so you don't need to install it separately. If you've installed Quarto on your own before, see [RStudio is using an old version of Quarto](#old-quarto) below.
+:::
+
+## A quick tour
+
+When RStudio opens, you'll see (usually) four panes:
+
+- **Console** (bottom left): where R runs commands. Type here and press **Return**.
+- **Source** (top left): where you edit scripts and Quarto documents. It appears once you open a file.
+- **Environment / History** (top right): the data and objects you've created.
+- **Files / Plots / Packages / Help / Viewer** (bottom right).
+
+The Console has a sibling tab called **Terminal**. You'll use it once below.
+
+# Install the workshop R packages {#sec-packages}
+
+R packages are add-ons that give R new abilities. Click in the **Console**, paste the line below, and press **Return**:
+
+```r
+install.packages(c("tidyverse", "rmarkdown", "knitr", "tinytex"))
+```
+
+This downloads quite a lot, so give it a few minutes. You'll see many lines of red and black text scroll past. **Red text isn't necessarily an error**: R prints routine messages in red.
+
+It worked if the Console ends with something like:
+
+```
+The downloaded binary packages are in
+	/var/folders/.../downloaded_packages
+```
+
+To confirm, run:
+
+```r
+library(tidyverse)
+```
+
+You should see a short "Attaching core tidyverse packages" message with a list of package names and check marks. Any "conflicts" listed underneath are normal.
+
+::: {.callout-warning}
+## If R asks: "Do you want to install from sources the packages which need compilation?"
+Type **`no`** and press **Return**. Installing from source requires extra developer tools, and the pre-built versions work fine.
+:::
+
+# Install TinyTeX (backup PDF engine)
+
+We'll make PDFs with **Typst**, which comes with Quarto and needs no setup. As a backup, also install **TinyTeX**, a small LaTeX distribution that Quarto can use for PDFs.
+
+1. In RStudio, click the **Terminal** tab next to the Console.
+2. Type the following and press **Return**:
+
+```bash
+quarto install tinytex
+```
+
+3. If asked to confirm, type **`Y`** and press **Return**. This takes a few minutes.
+4. When it finishes, **quit and reopen RStudio**.
+
+::: {.callout-tip collapse="true"}
+## Alternative: install TinyTeX from the R Console instead
+If the Terminal command fails, run this in the **Console**:
+
+```r
+tinytex::install_tinytex()
+```
+
+Then quit and reopen RStudio.
+:::
+
+# Check that everything works
+
+Run each of these, one at a time.
+
+**In the Console** (should print `R version 4.x.x …`):
+
+```r
+R.version.string
+```
+
+**In the Terminal** (prints a full report, including your Quarto version, which must be **1.4 or higher** to make Typst PDFs):
+
+```bash
+quarto check
+```
+
+Look for green check marks (✓) next to **Typst version** and **Checking LaTeX** (which should mention TinyTeX). A ✓ by **Checking R installation** and **Checking Knitr engine render** means Quarto can run R code.
+
+✅ **You're done here.** Now go to the [Quarto and PDF guide](quarto-pdf.qmd) and render the test document.
+
+# Troubleshooting (Mac)
+
+## "dev.control() called without an open graphics device" {#dev-control}
+
+You'll see this when you **render a document that makes a plot**. The full message looks something like this:
+
+```
+Error in dev.control(displaylist = if (record) "enable" else "inhibit") :
+  dev.control() called without an open graphics device
+Warning messages:
+1: In grSoftVersion() : unable to load shared object
+   '.../R.framework/Resources/modules//R_X11.so' ...
+   Reason: tried: '/opt/X11/lib/libSM.6.dylib' (no such file) ...
+2: In cairoVersion() : unable to load shared object ...
+```
+
+The telltale signs are warnings that mention **X11**, **`libSM.6.dylib`** or **`/opt/X11`**, and **cairo**. They mean **XQuartz isn't installed** (or you haven't logged out and back in since installing it), so R can't open a graphics device to draw the plot.
+
+**Fix:**
+
+1. Install XQuartz (see [Install XQuartz](#sec-xquartz)).
+2. **Log out of your Mac and log back in** (or restart).
+3. Open RStudio and render again.
+
+::: {.callout-tip collapse="true"}
+## Fallback if XQuartz still doesn't help
+You can tell R to draw plots with the **ragg** package, which doesn't need XQuartz. Run this once in the **Console**:
+
+```r
+install.packages("ragg")
+```
+
+Then add these lines to the **YAML header** of the document you're rendering (between the `---` lines, at the same level as `format:`):
+
+```yaml
+knitr:
+  opts_chunk:
+    dev: ragg_png
+```
+
+Render again. If this works but XQuartz didn't, email Greg so we can find out why.
+:::
+
+## "RStudio can't be opened because Apple cannot check it for malicious software" {#gatekeeper}
+
+1. Open **System Settings → Privacy & Security**.
+2. Scroll down to the **Security** section. You should see a message about RStudio being blocked.
+3. Click **Open Anyway** and enter your password.
+
+Alternatively, in Finder, **right-click (or Control-click) RStudio** in Applications and choose **Open**.
+
+## RStudio says "R not found" or asks you to choose an R installation
+
+- Make sure you installed **R first**, then **quit RStudio completely** (**RStudio → Quit**, or ⌘Q) and reopen it.
+- Check that you downloaded the R installer that **matches your chip**. An arm64 R won't run on an Intel Mac.
+- If it still fails, reinstall R, then restart your Mac.
+
+## I installed the wrong R (Intel vs. Apple silicon)
+
+Download and install the correct `.pkg`. It will replace the old version. Then reinstall the packages (see [Install the workshop R packages](#sec-packages)).
+
+## My macOS is too old {#macos-too-old}
+
+**The simplest fix is to update macOS** via **System Settings → General → Software Update**. Every Apple silicon Mac can run macOS 15 or newer. Updating takes a while, so start early.
+
+If you can't update before class:
+
+- **RStudio won't install or open (macOS 14 or older):** install an **earlier version of RStudio** instead. Posit's [supported versions page](https://docs.posit.co/supported-versions/rstudio.html) includes a table showing which RStudio release works with each version of macOS, and links to those releases. Then run `quarto check` in RStudio's Terminal: the Quarto version must be **1.4 or higher** for PDFs. If it's lower, also install the latest Quarto from <https://quarto.org/docs/get-started/>.
+- **R won't install (Apple silicon on macOS 11–13, or Intel older than macOS 11):** older versions of R that support your macOS are available from CRAN. Email Greg and we'll find the right one.
+
+## "xcrun: error: invalid active developer path" or a message about Command Line Tools
+
+This means R tried to **compile** a package from source. Either:
+
+- reinstall the package and answer **`no`** when asked about installing from source, **or**
+- install Apple's developer tools by running this in the **Terminal** and following the prompts (it takes a while):
+
+```bash
+xcode-select --install
+```
+
+## Package installation fails with "cannot open URL" or "download failed"
+
+- Check your internet connection. Some public Wi-Fi networks block downloads, so try eduroam or another network.
+- In RStudio, go to **Tools → Global Options → Packages**. Under **Primary CRAN repository**, click **Change…**, choose **Global (CDN) – Posit**, then click **OK** and try again.
+
+## `quarto install tinytex` says "quarto: command not found"
+
+Use the R alternative instead: `tinytex::install_tinytex()` in the Console. Then restart RStudio.
+
+## RStudio is using an old version of Quarto {#old-quarto}
+
+If `quarto check` shows a version **below 1.4**, you probably have an **old, separately installed** Quarto that RStudio is picking up first. You might have installed it yourself, or it came with Anaconda or VS Code. Either:
+
+- **Update it:** download and install the latest Quarto from **<https://quarto.org/docs/get-started/>**, then restart RStudio, **or**
+- **Update RStudio** to the newest version, which bundles a recent Quarto.
+
+## Still stuck?
+
+Email Greg with:
+
+1. a **screenshot** of the error,
+2. your **macOS version** and **chip** (from *About This Mac*), and
+3. the output of `quarto check` (copy and paste it from the Terminal).
+
+If we can't fix it by email, we'll sort it out during the break on Wednesday.

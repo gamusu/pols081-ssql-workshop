@@ -1,0 +1,52 @@
+---
+title: "Part 2 Lab Materials"
+subtitle: "POLS 081 · Class Meeting #11 · 2:45–4:00 pm"
+description: "Download the lab files, the guide to Example 2, and extra practice on merging datasets."
+---
+
+In the lab we take a question from data to evidence: **summary statistics → one good figure → one statistical test**, in R, RStudio and Quarto.
+
+## 1. Get the lab files
+
+**[Download pols081-lab.zip](worksheets/pols081-lab.zip){download="pols081-lab.zip"}**
+
+1. **Unzip it.** On Windows, right-click the file and choose **Extract All…**. Don't work inside the zip.
+2. Move the `pols081-lab` folder somewhere easy to find, like Documents. Avoid OneDrive folders if you can.
+3. Double-click **`pols081-lab.Rproj`** to open the folder in RStudio.
+4. In the **Files** pane, open **`lab-handout.qmd`**.
+
+The folder contains:
+
+| File | What it is |
+|:---|:---|
+| `lab-handout.qmd` | The lab handout: Example 1 (worked), Example 2 (you fill in the code), Workshop Questions |
+| `merging-data.qmd` | Extra practice: combining two datasets |
+| `data/` | The four datasets used in the handouts |
+| `bib/lab.bib` | References for the handouts |
+
+## 2. Slides
+
+- [Part 2 slides](slides/part2-lab.qmd)
+
+## 3. Stuck on Example 2?
+
+- **[Guide to the handout (PDF)](worksheets/lab-handout-guide.pdf)** has the Example 2 code filled in. Try each chunk yourself first.
+
+## 4. The data
+
+All four datasets are real and public. They were downloaded and cleaned on November 17, 2026, by the script `R/build_lab_data.R` in the workshop project, which records every source and step.
+
+| File | Rows | Source |
+|:---|:---|:---|
+| `adaptation_aid.csv` | One row per country receiving adaptation aid | OECD Rio markers (DAC members, 2020–2024); ND-GAIN; World Bank; UN M49 |
+| `renewables.csv` | One row per country, 2021 | World Bank, World Development Indicators |
+| `co2.csv` | One row per country, 2023 | World Bank, World Development Indicators (emissions from EDGAR) |
+| `sids_list.csv` | One row per small island developing state | UN Statistics Division, M49 |
+
+Codebooks for each file are in the handouts.
+
+## Next steps for your paper
+
+- Find data: [Data sources page](data-sources.qmd)
+- Sharpen your question: [Question ladder worksheet](worksheets/question-ladder.qmd)
+- Get help: [SSQL office hours](help.qmd)

@@ -1,0 +1,109 @@
+---
+title: "Question Ladder Worksheet"
+subtitle: "POLS 081 · SSQL Workshop, Part 1"
+description: "From a topic to a question your data can answer: five rungs, a variation check, and an example."
+format:
+  html:
+    toc: false
+    format-links:
+      - format: typst
+        text: "Printable PDF"
+  typst:
+    papersize: us-letter
+    margin:
+      x: 0.75in
+      y: 0.7in
+    fontsize: 10pt
+---
+
+Climb from a broad topic to a specific question that data can answer. Go **narrow rather than broad**: "climate finance" by itself is too large for a 1,500-word paper.
+
+## Example
+
+| Rung | Example |
+|:---|:---|
+| **1. Topic** | Climate finance for small islands |
+| **2. Concept** | Access to adaptation finance |
+| **3. Measure** | Adaptation-related development finance per person (OECD Rio markers), 2015–2022 |
+| **4. Pattern** | Does it vary across small island developing states (SIDS) by income level? |
+| **5. Question** | Did lower-income SIDS receive less adaptation finance per person than higher-income SIDS, 2015–2022? *(a Comparison question)* |
+
+## Your ladder
+
+**My primary focus** (circle one): Actor · International organization · Issue · Governance instrument or policy
+
+**1. Topic** · *What area of global environmental governance?*
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 0.55in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::
+
+**2. Concept** · *What exactly do you want to know about?*
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 0.55in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::
+
+**3. Measure** · *What number captures it? From which source? Which years?*
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 0.55in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::
+
+**4. Pattern** · *What varies, across what units or years?*
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 0.55in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::
+
+**5. Question** · *Specific, answerable, about variation.*
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 0.55in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::
+
+**Question type** (circle one): Change · Distribution · Comparison · Composition · Relationship
+
+## Check it: where is your variation?
+
+Every question type needs something that **differs**.
+
+| Question type | The variation you need |
+|:---|:---|
+| **Change** | The same measure in several years |
+| **Distribution** | Many units that receive or have different amounts |
+| **Comparison** | At least two groups (or periods), with several cases in each |
+| **Composition** | A total that splits into parts, and parts that differ in size |
+| **Relationship** | Variation in **both** the outcome (*Y*) **and** the predictor (*X*), across the same cases |
+
+| Your primary focus | Typical unit (one row of data) | Variation often comes from… |
+|:---|:---|:---|
+| **Actor** (China, the EU, AOSIS, a firm, an NGO) | Actor-year, or the actor compared with peers | Change over time; comparison with similar actors; breaking a total into parts |
+| **IO or institution** (World Bank, GCF, GEF, UNFCCC) | Project, recipient or meeting | Across projects, recipients, sectors or years |
+| **Issue** (adaptation, deforestation, critical minerals) | Country or country-year | Across countries and over time |
+| **Instrument or policy** (NDCs, carbon pricing, ETS) | Country, or country-year | Adopters vs. non-adopters; before vs. after |
+
+## Swap with your group and check
+
+1. Is the **measure** available, for the cases and years you need? *(Name the source.)*
+2. What **varies**: over time, across units, or both? For a relationship, do **X and Y** both vary?
+3. Who or what is **left out** of the data?
+4. What **can't** you conclude? Name one alternative explanation.
+
+Notes:
+
+::: {.content-visible when-format="typst"}
+```{=typst}
+#box(width: 100%, height: 1.6in, stroke: 0.5pt + rgb("#c9c8c3"), radius: 3pt)
+```
+:::

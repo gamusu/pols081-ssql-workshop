@@ -1,0 +1,282 @@
+---
+title: "Your First Quarto Document, and Rendering It to PDF"
+subtitle: "POLS 081 · SSQL Workshop setup guide"
+description: "Create a Quarto document in RStudio, render it to HTML, Word, slides and PDF (via Typst), and troubleshoot PDF rendering."
+date-modified: 2026-11-17
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    format-links:
+      - format: typst
+        text: "Printable PDF"
+  typst:
+    toc: true
+    section-numbering: "1.1"
+    papersize: us-letter
+    margin:
+      x: 0.9in
+      y: 0.9in
+    fontsize: 10.5pt
+---
+
+::: {.callout-important}
+## Before you start
+Finish the installation guide for your computer first: [Mac](install-mac.qmd) or [Windows](install-windows.qmd).
+
+**Goal for tonight:** render the test document to **HTML** and to **PDF with Typst**. It takes about 20 minutes.
+:::
+
+# What is Quarto, and why are we using it?
+
+**Quarto** is a tool for writing documents that combine **text, code, and the code's results** (tables, figures, statistics) in a single file. You write in a `.qmd` file. When you click **Render**, Quarto:
+
+1. **runs your R code** (using a package called *knitr*),
+2. **inserts the results** (numbers, tables, plots) into your text, and
+3. **converts** everything into a finished document: a web page, a PDF, a Word file, or a slide deck.
+
+Why this matters for your data paper:
+
+- **Reproducibility:** your figures and numbers come straight from your code, so they can't drift out of sync with your analysis. Change the data, click Render, and everything updates.
+- **One source, many outputs:** the same file can become a PDF to submit, a Word doc to share, or slides to present.
+- **A lab notebook:** you can keep notes about what you tried and why, right next to the code that did it.
+
+(The slides for Wednesday's session were made in Quarto, too.)
+
+# Create a new Quarto document
+
+1. Open **RStudio**.
+2. Go to **File → New File → Quarto Document…**
+3. In the dialog box:
+   - **Title:** `My first Quarto document`
+   - **Author:** your name
+   - Leave **HTML** selected and **Engine: Knitr**
+   - Leave **"Use visual markdown editor"** checked if you'd like a Word-like editor (recommended for beginners)
+4. Click **Create**.
+5. **Save it right away** (**File → Save**, or Ctrl+S / ⌘S). Use a short file name **without spaces or special characters**, for example `first-quarto.qmd`, in a folder that's **not** synced by OneDrive or iCloud. For example, make a folder called `pols081` in your home folder.
+
+::: {.callout-tip}
+## Visual vs. Source editor
+At the top left of the document there are two buttons: **Source** and **Visual**.
+
+- **Visual** looks like a word processor: toolbar buttons for bold, headings, lists, tables and so on.
+- **Source** shows the plain text underneath (Markdown).
+
+You can switch back and forth at any time, and your content stays the same. When something won't render, **Source** mode makes it easier to spot typos.
+:::
+
+# The three parts of a Quarto document
+
+Switch to **Source** mode to see what's underneath:
+
+````markdown
+---
+title: "My first Quarto document"
+author: "Your Name"
+format: html
+---
+
+## Introduction
+
+This is **ordinary text**. You can write *italics*, make lists,
+and add [links](https://quarto.org).
+
+```{{r}}
+# This is an R code chunk
+summary(cars)
+```
+
+The code above runs when you render, and its output appears here.
+````
+
+1. **The YAML header**, between the two `---` lines at the top. These are settings for the whole document: title, author, and, importantly, the **`format`** (what kind of file to produce).
+2. **Text**, written in Markdown: `**bold**`, `*italics*`, `## Heading`, and `-` for bullet lists.
+3. **Code chunks**, which start with ```` ```{r} ```` and end with ```` ``` ````. Insert a new one with **Ctrl+Alt+I** (Windows) or **⌘⌥I** (Mac), or with the green **+C** button in the toolbar.
+
+You can run a chunk on its own (without rendering the whole document) by clicking the green ▶ **play arrow** at its top right. The output appears right below the chunk.
+
+# Render it
+
+Click the **Render** button (blue arrow) at the top of the editor, or press **Ctrl+Shift+K** / **⌘⇧K**.
+
+- Quarto runs your code and builds the document. Progress appears in the **Background Jobs** tab next to the Console.
+- The result appears in the **Viewer** pane (bottom right) or a new window.
+- A new file (`first-quarto.html`) is saved **in the same folder** as your `.qmd`.
+
+::: {.callout-tip}
+## Render on save
+Tick **Render on Save** in the editor toolbar and the document will re-render every time you save.
+:::
+
+::: {.callout-note collapse="true"}
+## RStudio asks to install packages when you first render?
+If a yellow bar says something like *"Package rmarkdown required but is not installed"*, click **Install**. (You should already have it from the installation guide.)
+:::
+
+# Output formats
+
+Change the `format:` line in the YAML header to get a different kind of document from the **same** file:
+
+| `format:` | You get | Good for | Extra software needed? |
+|---|---|---|---|
+| `html` | A web page (`.html`) | Quick previews, interactive output, sharing online | None |
+| `typst` | A **PDF**, made by Typst | **Submitting your paper**. Fast, simple, reliable | None (built into Quarto 1.4+) |
+| `pdf` | A **PDF**, made by LaTeX | Very fine typesetting control, journal templates | **TinyTeX** (installed as backup) |
+| `docx` | A Word document | Sharing with people who want to edit in Word | None (Word to open it) |
+| `revealjs` | HTML slides | Presentations in the browser | None |
+| `pptx` | PowerPoint slides | Presentations in PowerPoint | None (PowerPoint to open it) |
+
+You can list **several formats** at once:
+
+```yaml
+---
+title: "My first Quarto document"
+format:
+  html: default
+  typst: default
+  docx: default
+---
+```
+
+Then click the small ▾ **arrow next to Render** to choose which one to build. Clicking **Render** itself builds the **first** format listed.
+
+# Render to PDF with Typst
+
+**Typst** is a modern typesetting system that comes **built into Quarto** (version 1.4 and up). It makes clean PDFs quickly, without installing LaTeX.
+
+## Step 1: Download the test document
+
+Download **[pdf-test.qmd](pdf-test.qmd){download="pdf-test.qmd"}** and save it in your `pols081` folder. Then open it in RStudio (**File → Open File…**).
+
+It contains text, a table, a figure made with `ggplot2`, and some summary statistics, which is everything your data paper will need.
+
+## Step 2: Look at the header
+
+```yaml
+---
+title: "PDF Test for POLS 081"
+author: "Your Name"
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      x: 1in
+      y: 1in
+    fontsize: 11pt
+    toc: false
+  html: default
+---
+```
+
+Change `"Your Name"` to your name. The options under `typst:` control the PDF's page size, margins and font size.
+
+## Step 3: Render
+
+Click **Render**. Because `typst` is listed first, you'll get **`pdf-test.pdf`** in the same folder. It should open in the Viewer pane or in a separate window.
+
+✅ **If you see a PDF with a table and a scatterplot, you're ready for Wednesday.**
+
+## Step 4 (optional): Try the other formats
+
+- Click ▾ next to **Render** and choose **Render HTML**.
+- Change `typst` to `pdf` to test the TinyTeX (LaTeX) backup.
+- Add `docx: default` to the format list and render a Word document.
+
+# Troubleshooting PDF rendering
+
+::: {.callout-tip}
+## First, find the actual error
+When rendering fails, look in the **Background Jobs** tab (next to the Console) and scroll up to the **first** line that says `ERROR` or `error:`. The lines after it are usually less useful. That first message, plus a screenshot, is what to send Greg if you get stuck.
+
+For a fuller error message, you can also render from the **Terminal**, in the folder where your file is:
+
+```bash
+quarto render pdf-test.qmd --to typst
+```
+:::
+
+## "dev.control() called without an open graphics device" (Mac)
+
+This is a **Mac graphics problem, not a Typst problem**: rendering to HTML fails the same way. Look for warnings underneath that mention **X11**, **`libSM.6.dylib`** or **cairo**. They mean **XQuartz** isn't installed, so R can't open a graphics device to draw your plot.
+
+1. Install XQuartz, following the [XQuartz step in the Mac guide](install-mac.qmd#sec-xquartz).
+2. **Log out of your Mac and log back in** (or restart).
+3. Open RStudio and render again.
+
+**Fallback:** run `install.packages("ragg")` in the Console, then add these lines to your document's YAML header (at the same level as `format:`) and render again:
+
+```yaml
+knitr:
+  opts_chunk:
+    dev: ragg_png
+```
+
+See [the Mac troubleshooting entry](install-mac.qmd#dev-control) for more detail.
+
+## "Unknown format: typst" / "typst is not a valid format"
+
+Your Quarto is **older than 1.4**. In the **Terminal**, run `quarto --version`.
+
+- If it's below 1.4, you likely have an old, separately installed Quarto (sometimes from Anaconda or VS Code) that RStudio uses instead of its built-in one. **Install the latest Quarto** from <https://quarto.org/docs/get-started/>, or **update RStudio**, then restart RStudio.
+- Don't confuse this with the R *package* called `quarto`, which has its own, different version number. The version that matters is the one printed by `quarto --version` in the Terminal.
+
+## "failed to download package" or an error mentioning `packages.typst.org`
+
+Some versions of Quarto download small Typst add-ons (for example, the icons used in callout boxes) **the first time** you render a PDF.
+
+- Make sure you're **connected to the internet** (not on a network that blocks downloads) and render again.
+- Better: **update Quarto** (or RStudio). Recent versions include these add-ons, so no download is needed.
+
+## Errors that mention your title, a heading, or a strange character
+
+Typst treats some characters as **instructions**, especially `#`, `$`, `@`, `\` and `*`. In the YAML header (title, author, subtitle), these can break the PDF.
+
+- Remove them from your title, or **put the whole title in quotes**: `title: "Climate Finance: 2015–2022"`.
+- A `$` in text (for example "$100 billion") is fine in the body, but write it as `\$100 billion` if you see a math-related error.
+
+## Errors about an image or figure
+
+- Typst can't use **web images** (URLs) or unusual formats such as `.webp` or `.tiff`. Save the image as **`.png` or `.jpg`** in your project folder and reference it by file name.
+- Check the file name and path: **no spaces or accented characters**, and the image must be in the folder you point to.
+
+## "Access is denied", "permission denied", or "the file is being used by another process"
+
+This usually happens on **Windows** when the **PDF is still open** in Adobe Acrobat, Edge, or another viewer while Quarto tries to overwrite it.
+
+- **Close the PDF** in every program, then render again.
+- If your folder is in **OneDrive**, move it out, or pause syncing.
+
+## Warnings about fonts ("unknown font family")
+
+These are **warnings, not errors**. Typst substitutes a default font and the PDF is still produced. If you added a `mainfont:` option, remove it or choose a font installed on your computer.
+
+## Rendering crashes, hangs, or `typst` "cannot be executed"
+
+- Some antivirus programs (mostly on Windows) block the Typst program that comes with Quarto. Check your antivirus quarantine and allow it.
+- **Close and reopen RStudio**, then try again.
+- Run `quarto check` in the Terminal. Look for a ✓ next to **Typst version**. If it's missing, reinstall the latest Quarto from <https://quarto.org/docs/get-started/>.
+
+## The R code fails during rendering (but runs when I click ▶)
+
+When you render, Quarto runs your code in a **fresh R session** from the **folder the `.qmd` is in**. Common causes:
+
+- A package is loaded in your Console but **not in the document**. Add `library(tidyverse)` (or whichever package) to a chunk near the top.
+- A data file is referenced with a path that only works from somewhere else. Keep data files in the **same folder** as the `.qmd` (or a `data/` subfolder) and use relative paths like `read_csv("data/mydata.csv")`.
+- An object was created in the Console but **not in the document**. Every object must be created by code in the `.qmd`.
+
+## Fallbacks if Typst still won't work
+
+1. **Use LaTeX instead:** change `typst` to `pdf` in the header (this uses TinyTeX). If TinyTeX isn't installed, run `quarto install tinytex` in the Terminal.
+2. **Use Word:** render to `docx`, then save as PDF from Word.
+3. **Last resort:** render to `html`, open it in your browser, and use **Print → Save as PDF**.
+
+## Still stuck?
+
+Email Greg with:
+
+1. a **screenshot** of the error (the first `ERROR` line in Background Jobs),
+2. your operating system (Mac or Windows, and version), and
+3. the output of `quarto check` from the Terminal.
+
+If we can't fix it by email, we'll work on it during the break on Wednesday.
