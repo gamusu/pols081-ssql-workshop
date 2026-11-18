@@ -51,8 +51,8 @@ airquality |>
 #| fig-width: 6
 #| fig-height: 3.6
 ggplot(airquality, aes(x = Temp, y = Ozone)) +
-  geom_point(alpha = 0.7, colour = "#2a78d6") +
-  geom_smooth(method = "lm", formula = y ~ x, colour = "#eb6834", se = TRUE) +
+  geom_point(alpha = 0.7, colour = "steelblue") +
+  geom_smooth(method = "lm", formula = y ~ x, colour = "darkorange", se = TRUE) +
   labs(x = "Daily maximum temperature (F)", y = "Ozone (parts per billion)") +
   theme_minimal()
 ```

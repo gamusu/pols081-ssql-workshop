@@ -14,8 +14,8 @@ out_dir <- "slides/figs"
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
 # --- Palette & theme --------------------------------------------------------
-pal <- c(blue = "#2a78d6", orange = "#eb6834", aqua = "#1baf7a")
-ink <- "#0b0b0b"; ink2 <- "#52514e"; grid_col <- "#e6e5e1"; surface <- "#fcfcfb"
+pal <- c(blue = "steelblue", orange = "darkorange", aqua = "seagreen")
+ink <- "grey20"; ink2 <- "grey40"; grid_col <- "grey90"; surface <- "white"
 
 theme_ssql <- function(base_size = 18) {
   theme_minimal(base_size = base_size) +
@@ -106,7 +106,7 @@ save_fig(p_rr_full, "restricted_full.png", h = 4.8)
 p_rr <- ggplot(rr, aes(vuln, fin, colour = group)) +
   geom_point(size = 2.6, alpha = 0.85) +
   scale_colour_manual(values = c("Kept in a narrow sample" = unname(pal["blue"]),
-                                 "Dropped from the sample" = "#c9c8c3")) +
+                                 "Dropped from the sample" = "grey75")) +
   annotate("text", x = 0.25, y = Inf, hjust = 0, vjust = 1.2, size = 6, colour = ink,
            label = sprintf("All countries: r = %.2f\nOnly the most vulnerable: r = %.2f", r_all, r_kept)) +
   labs(x = "Vulnerability index", y = "Finance received per capita", caption = sim_note) +
@@ -169,7 +169,7 @@ samp_means <- sapply(draws, function(d) mean(d$value))
 mlab <- data.frame(draw = paste("Sample", 1:3), m = samp_means)
 p_samp <- ggplot(samp, aes(value)) +
   geom_histogram(bins = 15, fill = pal["blue"], colour = surface, linewidth = 0.6) +
-  geom_vline(xintercept = mu, colour = "#c9c8c3", linewidth = 1, linetype = "dashed") +
+  geom_vline(xintercept = mu, colour = "grey75", linewidth = 1, linetype = "dashed") +
   geom_vline(data = mlab, aes(xintercept = m), colour = pal["orange"], linewidth = 1.3) +
   geom_text(data = mlab, aes(x = m, y = Inf, label = sprintf("mean = %.1f", m)),
             vjust = 1.5, hjust = -0.08, size = 5, colour = ink) +
@@ -261,7 +261,7 @@ draw_diagram <- function(nodes, edges, xlim, ylim, file, w = 6, h = 4, text_size
   ggsave(file.path(out_dir, file), p, width = w, height = h, dpi = 200, bg = surface)
 }
 
-grey_fill <- "#f1f0ec"; blue_fill <- "#eaf2fc"; orange_fill <- "#fdf0ea"
+grey_fill <- "grey95"; blue_fill <- "aliceblue"; orange_fill <- "seashell"
 E <- function(from, to, type = "solid", label = "", curv = 0)
   data.frame(from = from, to = to, type = type, label = label, curv = curv)
 

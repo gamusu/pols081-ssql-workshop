@@ -189,9 +189,11 @@ A good figure answers **one question**, has **honest axes**, **labels in plain w
 
 First, a boxplot comparing SIDS and other recipients. Because aid per person is so skewed, we put the y-axis on a **log scale** with `scale_y_log10()`: each gridline is ten times the one below it. Always tell your reader when an axis is logged. On its own, R labels a log axis in scientific notation (`1e+03` means 1,000), so we set the gridlines with `breaks` and write their labels with `labels`.
 
+**About colors.** In the code below, `fill = "steelblue"` colors the boxes. R knows hundreds of color names, such as `"steelblue"`, `"darkorange"` and `"seagreen"`, and you can use any of them directly in `ggplot()` ([full list of R color names](https://r-charts.com/colors/)). R lets you customize almost every part of a figure, but named colors are all we need today.
+
 ```{r}
 ggplot(aid, aes(x = sids, y = aid_pc)) +
-  geom_boxplot(fill = "#2a78d6", alpha = 0.3) +
+  geom_boxplot(fill = "steelblue", alpha = 0.3) +
   scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
                 labels = c("0.1", "1", "10", "100", "1,000")) +
   labs(title = "Adaptation aid per person, SIDS vs. other recipients",
@@ -210,7 +212,7 @@ ggplot(aid, aes(x = vulnerability, y = aid_pc, color = sids)) +
   geom_point(alpha = 0.8) +
   scale_y_log10(breaks = c(0.1, 1, 10, 100, 1000),
                 labels = c("0.1", "1", "10", "100", "1,000")) +
-  scale_color_manual(values = c(Other = "#2a78d6", SIDS = "#eb6834")) +
+  scale_color_manual(values = c(Other = "steelblue", SIDS = "darkorange")) +
   labs(title = "Vulnerability and adaptation aid per person",
        x = "ND-GAIN vulnerability (higher = more vulnerable)",
        y = "Aid per person, US$ (log scale)",
@@ -226,7 +228,7 @@ aid %>%
   arrange(desc(adapt_aid_musd)) %>%
   slice_head(n = 10) %>%
   ggplot(aes(x = adapt_aid_musd, y = reorder(country, adapt_aid_musd))) +
-  geom_col(fill = "#2a78d6") +
+  geom_col(fill = "steelblue") +
   labs(title = "Ten largest recipients of adaptation aid",
        x = "Average yearly commitments, 2020–2024 (US$ millions, 2024 prices)",
        y = NULL,

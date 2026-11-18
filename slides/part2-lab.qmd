@@ -29,12 +29,12 @@ library(tidyverse)
 aid <- read_csv("../worksheets/data/adaptation_aid.csv") %>%
   mutate(aid_pc = adapt_aid_musd * 1000000 / population)
 
-pal <- c(blue = "#2a78d6", orange = "#eb6834", aqua = "#1baf7a")
+pal <- c(blue = "steelblue", orange = "darkorange", aqua = "seagreen")
 theme_slide <- theme_minimal(base_size = 20) +
-  theme(plot.background = element_rect(fill = "#fcfcfb", colour = NA),
+  theme(plot.background = element_rect(fill = "white", colour = NA),
         panel.grid.minor = element_blank(),
-        plot.caption = element_text(hjust = 0, colour = "#52514e", size = 13))
-knitr::opts_chunk$set(dev.args = list(bg = "#fcfcfb"))
+        plot.caption = element_text(hjust = 0, colour = "grey40", size = 13))
+knitr::opts_chunk$set(dev.args = list(bg = "white"))
 ```
 
 ## The lab, 2:45–4:00
@@ -174,7 +174,7 @@ aid %>%
 #| fig-height: 3.2
 #| fig-width: 11
 ggplot(aid, aes(aid_pc)) +
-  geom_histogram(bins = 40, fill = pal["blue"], colour = "#fcfcfb") +
+  geom_histogram(bins = 40, fill = pal["blue"], colour = "white") +
   labs(x = "Adaptation aid per person, US$ per year", y = "Countries",
        caption = "Source: OECD Rio markers (DAC members, 2020–2024 average); World Bank.") +
   theme_slide
